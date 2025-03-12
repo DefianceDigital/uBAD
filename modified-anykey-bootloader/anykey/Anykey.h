@@ -62,7 +62,7 @@
 		#define BOOTLOADER_HWVERSION_MINOR   0x00
 
 		/** Eight character bootloader firmware identifier reported to the host when requested */
-		#define SOFTWARE_IDENTIFIER          "ANYKEY "
+		#define SOFTWARE_IDENTIFIER          "uBAD"
 		
    // original
 		/*#define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n))

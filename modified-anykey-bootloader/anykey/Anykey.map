@@ -46,7 +46,7 @@ Discarded input sections
                 0x0000000000000000       0x20 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .debug_ranges  0x0000000000000000       0x10 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .debug_line    0x0000000000000000      0x120 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
- .debug_str     0x0000000000000000      0x204 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+ .debug_str     0x0000000000000000      0x214 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .comment       0x0000000000000000       0x12 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .debug_frame   0x0000000000000000       0x24 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
  .text          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
@@ -60,13 +60,13 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
  .bss           0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
  .debug_line    0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
- .debug_str     0x0000000000000000      0x13c ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
+ .debug_str     0x0000000000000000      0x14c ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
  .comment       0x0000000000000000       0x12 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
  .text          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
  .data          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
  .bss           0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
  .debug_line    0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
- .debug_str     0x0000000000000000      0x13c ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
+ .debug_str     0x0000000000000000      0x14c ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
  .comment       0x0000000000000000       0x12 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
  .text          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
  .data          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
@@ -123,7 +123,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
  .bss           0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
  .debug_line    0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
- .debug_str     0x0000000000000000      0x142 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
+ .debug_str     0x0000000000000000      0x152 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
  .comment       0x0000000000000000       0x12 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
  .text          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
  .data          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
@@ -145,7 +145,7 @@ Discarded input sections
                 0x0000000000000000       0x40 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
  .debug_ranges  0x0000000000000000       0x30 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
  .debug_line    0x0000000000000000      0x1e8 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
- .debug_str     0x0000000000000000      0x3eb ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
+ .debug_str     0x0000000000000000      0x3fb ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
  .comment       0x0000000000000000       0x12 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
  .debug_frame   0x0000000000000000      0x110 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/ConfigDescriptor.o
  .text          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/DeviceStandardReq.o
@@ -158,7 +158,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/HostStandardReq.o
  .bss           0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/HostStandardReq.o
  .debug_line    0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/HostStandardReq.o
- .debug_str     0x0000000000000000      0x13d ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/HostStandardReq.o
+ .debug_str     0x0000000000000000      0x14d ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/HostStandardReq.o
  .comment       0x0000000000000000       0x12 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/HostStandardReq.o
  .text          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.o
  .data          0x0000000000000000        0x0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.o
@@ -181,7 +181,7 @@ Discarded input sections
                 0x0000000000000000       0x38 ../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Common/HIDParser.o
  .debug_ranges  0x0000000000000000       0xd0 ../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Common/HIDParser.o
  .debug_line    0x0000000000000000      0x587 ../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Common/HIDParser.o
- .debug_str     0x0000000000000000      0x6c8 ../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Common/HIDParser.o
+ .debug_str     0x0000000000000000      0x6d8 ../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Common/HIDParser.o
  .comment       0x0000000000000000       0x12 ../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Common/HIDParser.o
  .debug_frame   0x0000000000000000      0x14c ../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Common/HIDParser.o
  .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/5.4.0/avr5/libgcc.a(_exit.o)
@@ -614,7 +614,7 @@ END GROUP
  *(.fini0)
                 0x0000000000007f38                _etext = .
 
-.data           0x0000000000800100       0xa4 load address 0x0000000000007f38
+.data           0x0000000000800100       0xb6 load address 0x0000000000007f38
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800100        0xa Anykey.o
@@ -622,45 +622,46 @@ END GROUP
  *(.data*)
  *(.gnu.linkonce.d*)
  *(.rodata)
- .rodata        0x000000000080010a       0x92 Descriptors.o
+ .rodata        0x000000000080010a       0xa6 Descriptors.o
                 0x000000000080010a                ManufNameString
-                0x0000000000800124                ProductString
-                0x0000000000800148                LanguageString
-                0x000000000080014c                ConfigurationDescriptor
-                0x000000000080018a                DeviceDescriptor
+                0x000000000080013a                ProductString
+                0x000000000080015c                LanguageString
+                0x0000000000800160                ConfigurationDescriptor
+                0x000000000080019e                DeviceDescriptor
  *(.rodata*)
  .rodata.str1.1
-                0x000000000080019c        0x8 Anykey.o
+                0x00000000008001b0        0x5 Anykey.o
  *(.gnu.linkonce.r*)
-                0x00000000008001a4                . = ALIGN (0x2)
-                0x00000000008001a4                _edata = .
-                0x00000000008001a4                PROVIDE (__data_end, .)
+                0x00000000008001b6                . = ALIGN (0x2)
+ *fill*         0x00000000008001b5        0x1 
+                0x00000000008001b6                _edata = .
+                0x00000000008001b6                PROVIDE (__data_end, .)
 
-.bss            0x00000000008001a4       0x16
-                0x00000000008001a4                PROVIDE (__bss_start, .)
+.bss            0x00000000008001b6       0x16
+                0x00000000008001b6                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00000000008001a4        0xa Anykey.o
-                0x00000000008001a4                Timeout
-                0x00000000008001a6                RxLEDPulse
-                0x00000000008001a8                TxLEDPulse
+ .bss           0x00000000008001b6        0xa Anykey.o
+                0x00000000008001b6                Timeout
+                0x00000000008001b8                RxLEDPulse
+                0x00000000008001ba                TxLEDPulse
  *(.bss*)
  *(COMMON)
- COMMON         0x00000000008001ae        0x2 Anykey.o
-                0x00000000008001ae                LLEDPulse
- COMMON         0x00000000008001b0        0x1 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/DeviceStandardReq.o
-                0x00000000008001b0                USB_Device_ConfigurationNumber
- COMMON         0x00000000008001b1        0x9 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.o
-                0x00000000008001b1                USB_IsInitialized
-                0x00000000008001b2                USB_ControlRequest
-                0x00000000008001ba                PROVIDE (__bss_end, .)
+ COMMON         0x00000000008001c0        0x2 Anykey.o
+                0x00000000008001c0                LLEDPulse
+ COMMON         0x00000000008001c2        0x1 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+                0x00000000008001c2                USB_Device_ConfigurationNumber
+ COMMON         0x00000000008001c3        0x9 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.o
+                0x00000000008001c3                USB_IsInitialized
+                0x00000000008001c4                USB_ControlRequest
+                0x00000000008001cc                PROVIDE (__bss_end, .)
                 0x0000000000007f38                __data_load_start = LOADADDR (.data)
-                0x0000000000007fdc                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000007fee                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00000000008001ba        0x0
+.noinit         0x00000000008001cc        0x0
                 [!provide]                        PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                        PROVIDE (__noinit_end, .)
-                0x00000000008001ba                _end = .
+                0x00000000008001cc                _end = .
                 [!provide]                        PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
@@ -808,27 +809,27 @@ END GROUP
  .debug_frame   0x000000000000075c       0x24 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/Events.o
  .debug_frame   0x0000000000000780       0x2c ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.o
 
-.debug_str      0x0000000000000000     0x20cb
+.debug_str      0x0000000000000000     0x20db
  *(.debug_str)
  .debug_str     0x0000000000000000      0x371 /usr/lib/gcc/avr/5.4.0/../../../avr/lib/avr5/crtatmega32u4.o
- .debug_str     0x0000000000000371      0x860 Anykey.o
-                                        0x8f6 (size before relaxing)
- .debug_str     0x0000000000000bd1      0x62a Descriptors.o
-                                        0x81c (size before relaxing)
- .debug_str     0x00000000000011fb      0x245 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                                        0x558 (size before relaxing)
- .debug_str     0x0000000000001440      0x251 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                                        0x518 (size before relaxing)
- .debug_str     0x0000000000001691      0x157 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                                        0x50e (size before relaxing)
- .debug_str     0x00000000000017e8      0x494 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                                        0x862 (size before relaxing)
- .debug_str     0x0000000000001c7c      0x3a1 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/DeviceStandardReq.o
-                                        0x7c6 (size before relaxing)
- .debug_str     0x000000000000201d       0x42 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/Events.o
-                                        0x1aa (size before relaxing)
- .debug_str     0x000000000000205f       0x6c ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.o
-                                        0x364 (size before relaxing)
+ .debug_str     0x0000000000000371      0x870 Anykey.o
+                                        0x906 (size before relaxing)
+ .debug_str     0x0000000000000be1      0x62a Descriptors.o
+                                        0x82c (size before relaxing)
+ .debug_str     0x000000000000120b      0x245 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                                        0x568 (size before relaxing)
+ .debug_str     0x0000000000001450      0x251 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                                        0x528 (size before relaxing)
+ .debug_str     0x00000000000016a1      0x157 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                                        0x51e (size before relaxing)
+ .debug_str     0x00000000000017f8      0x494 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                                        0x872 (size before relaxing)
+ .debug_str     0x0000000000001c8c      0x3a1 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+                                        0x7d6 (size before relaxing)
+ .debug_str     0x000000000000202d       0x42 ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/Events.o
+                                        0x1ba (size before relaxing)
+ .debug_str     0x000000000000206f       0x6c ../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.o
+                                        0x374 (size before relaxing)
 
 .debug_loc      0x0000000000000000     0x2ff3
  *(.debug_loc)

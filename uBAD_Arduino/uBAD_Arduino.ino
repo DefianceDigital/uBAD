@@ -1,5 +1,5 @@
 #include <EEPROM.h>
-#include <Keyboard.h>
+#include "Keyboard.h"
 #include <avr/io.h>
 #include <SoftwareSerial.h>
 #include <avr/wdt.h>
@@ -445,7 +445,7 @@ void setCredentials(){
   }
   
   if(encMode == 0x01 || encMode == 0x03){ // Luks doesn't have PIM option
-    Serial.println("Enter PIM (Press Enter if none)");
+    Serial.println("Enter PIM (Press '*' if none)");
     Serial.flush();
     while(1){
       if(Serial.available()){

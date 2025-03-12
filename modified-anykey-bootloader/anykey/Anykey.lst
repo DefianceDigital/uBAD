@@ -3853,8 +3853,8 @@
  647               	.LFE107:
  649               		.section	.rodata.str1.1,"aMS",@progbits,1
  650               	.LC0:
- 651 0000 414E 594B 		.string	"ANYKEY "
- 651      4559 2000 
+ 651 0000 7542 4144 		.string	"uBAD"
+ 651      00
  652               		.section	.text.CDC_Task,"ax",@progbits
  653               	.global	CDC_Task
  655               	CDC_Task:
@@ -5636,33 +5636,33 @@
  1938               		.file 12 "/usr/lib/avr/include/avr/eeprom.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Anykey.c
-     /tmp/ccAobALS.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccAobALS.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccAobALS.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccAobALS.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccAobALS.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccAobALS.s:12     .text.FetchNextCommandByte:0000000000000000 FetchNextCommandByte
-     /tmp/ccAobALS.s:78     .text.WriteNextResponseByte:0000000000000000 WriteNextResponseByte
-     /tmp/ccAobALS.s:1911   .bss:0000000000000004 TxLEDPulse
-     /tmp/ccAobALS.s:154    .text.StartSketch:0000000000000000 StartSketch
-     /tmp/ccAobALS.s:200    .text.LEDPulse:0000000000000000 LEDPulse
+     /tmp/cczhSzf0.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cczhSzf0.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cczhSzf0.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cczhSzf0.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cczhSzf0.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cczhSzf0.s:12     .text.FetchNextCommandByte:0000000000000000 FetchNextCommandByte
+     /tmp/cczhSzf0.s:78     .text.WriteNextResponseByte:0000000000000000 WriteNextResponseByte
+     /tmp/cczhSzf0.s:1911   .bss:0000000000000004 TxLEDPulse
+     /tmp/cczhSzf0.s:154    .text.StartSketch:0000000000000000 StartSketch
+     /tmp/cczhSzf0.s:200    .text.LEDPulse:0000000000000000 LEDPulse
                             *COM*:0000000000000002 LLEDPulse
-     /tmp/ccAobALS.s:247    .text.xdelay:0000000000000000 xdelay
-     /tmp/ccAobALS.s:298    .text.blink:0000000000000000 blink
-     /tmp/ccAobALS.s:326    .text.SetupHardware:0000000000000000 SetupHardware
-     /tmp/ccAobALS.s:414    .text.__vector_17:0000000000000000 __vector_17
-     /tmp/ccAobALS.s:1906   .bss:0000000000000002 RxLEDPulse
-     /tmp/ccAobALS.s:1901   .bss:0000000000000000 Timeout
-     /tmp/ccAobALS.s:527    .text.EVENT_USB_Device_ConfigurationChanged:0000000000000000 EVENT_USB_Device_ConfigurationChanged
-     /tmp/ccAobALS.s:570    .text.EVENT_USB_Device_ControlRequest:0000000000000000 EVENT_USB_Device_ControlRequest
-     /tmp/ccAobALS.s:1922   .data:0000000000000003 LineEncoding
-     /tmp/ccAobALS.s:655    .text.CDC_Task:0000000000000000 CDC_Task
+     /tmp/cczhSzf0.s:247    .text.xdelay:0000000000000000 xdelay
+     /tmp/cczhSzf0.s:298    .text.blink:0000000000000000 blink
+     /tmp/cczhSzf0.s:326    .text.SetupHardware:0000000000000000 SetupHardware
+     /tmp/cczhSzf0.s:414    .text.__vector_17:0000000000000000 __vector_17
+     /tmp/cczhSzf0.s:1906   .bss:0000000000000002 RxLEDPulse
+     /tmp/cczhSzf0.s:1901   .bss:0000000000000000 Timeout
+     /tmp/cczhSzf0.s:527    .text.EVENT_USB_Device_ConfigurationChanged:0000000000000000 EVENT_USB_Device_ConfigurationChanged
+     /tmp/cczhSzf0.s:570    .text.EVENT_USB_Device_ControlRequest:0000000000000000 EVENT_USB_Device_ControlRequest
+     /tmp/cczhSzf0.s:1922   .data:0000000000000003 LineEncoding
+     /tmp/cczhSzf0.s:655    .text.CDC_Task:0000000000000000 CDC_Task
                              .bss:0000000000000006 CurrAddress
-     /tmp/ccAobALS.s:1629   .text.startup.main:0000000000000000 main
-     /tmp/ccAobALS.s:1895   .data:0000000000000000 bootKey
-     /tmp/ccAobALS.s:1916   .data:0000000000000002 RunBootloader
-     /tmp/ccAobALS.s:1889   .rodata:0000000000000000 bootKeyPtr
-     /tmp/ccAobALS.s:650    .rodata.str1.1:0000000000000000 .LC0
+     /tmp/cczhSzf0.s:1629   .text.startup.main:0000000000000000 main
+     /tmp/cczhSzf0.s:1895   .data:0000000000000000 bootKey
+     /tmp/cczhSzf0.s:1916   .data:0000000000000002 RunBootloader
+     /tmp/cczhSzf0.s:1889   .rodata:0000000000000000 bootKeyPtr
+     /tmp/cczhSzf0.s:650    .rodata.str1.1:0000000000000000 .LC0
 
 UNDEFINED SYMBOLS
 Endpoint_ConfigureEndpoint_Prv

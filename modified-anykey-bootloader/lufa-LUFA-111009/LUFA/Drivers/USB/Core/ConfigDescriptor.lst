@@ -832,15 +832,15 @@
  421               		.file 4 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../StdDescriptors.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ConfigDescriptor.c
-     /tmp/ccPFfnKl.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccPFfnKl.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccPFfnKl.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccPFfnKl.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccPFfnKl.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccPFfnKl.s:12     .text.USB_GetNextDescriptor:0000000000000000 USB_GetNextDescriptor
-     /tmp/ccPFfnKl.s:74     .text.USB_GetNextDescriptorOfType:0000000000000000 USB_GetNextDescriptorOfType
-     /tmp/ccPFfnKl.s:144    .text.USB_GetNextDescriptorOfTypeBefore:0000000000000000 USB_GetNextDescriptorOfTypeBefore
-     /tmp/ccPFfnKl.s:226    .text.USB_GetNextDescriptorOfTypeAfter:0000000000000000 USB_GetNextDescriptorOfTypeAfter
-     /tmp/ccPFfnKl.s:303    .text.USB_GetNextDescriptorComp:0000000000000000 USB_GetNextDescriptorComp
+     /tmp/cca4tKDz.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cca4tKDz.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cca4tKDz.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cca4tKDz.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cca4tKDz.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cca4tKDz.s:12     .text.USB_GetNextDescriptor:0000000000000000 USB_GetNextDescriptor
+     /tmp/cca4tKDz.s:74     .text.USB_GetNextDescriptorOfType:0000000000000000 USB_GetNextDescriptorOfType
+     /tmp/cca4tKDz.s:144    .text.USB_GetNextDescriptorOfTypeBefore:0000000000000000 USB_GetNextDescriptorOfTypeBefore
+     /tmp/cca4tKDz.s:226    .text.USB_GetNextDescriptorOfTypeAfter:0000000000000000 USB_GetNextDescriptorOfTypeAfter
+     /tmp/cca4tKDz.s:303    .text.USB_GetNextDescriptorComp:0000000000000000 USB_GetNextDescriptorComp
 
 NO UNDEFINED SYMBOLS

@@ -173,6 +173,8 @@ const USB_Descriptor_String_t ProductString = {.Header = {.Size = USB_STRING_LEN
                                                .UnicodeString = L"Arduino Micro   "
 #elif DEVICE_PID == 0x003C
                                                .UnicodeString = L"Arduino Esplora "
+#elif DEVICE_PID == 0x05E1
+                                               .UnicodeString = L"uBAD Bootloader"
 #else
                                                .UnicodeString = L"Anykey          "
 #endif
@@ -180,10 +182,12 @@ const USB_Descriptor_String_t ProductString = {.Header = {.Size = USB_STRING_LEN
 
 const USB_Descriptor_String_t ManufNameString = {
     // str len should be same as len("Anykey bvba")
-    .Header = {.Size = USB_STRING_LEN(11), .Type = DTYPE_String},
+    .Header = {.Size = USB_STRING_LEN(22), .Type = DTYPE_String},
 
 #if DEVICE_VID == 0x2341
     .UnicodeString = L"Anykey bvba"
+#elif DEVICE_VID == 0x16C0
+    .UnicodeString = L"www.defiancedigital.us"
 #else
     .UnicodeString = L"Anykey     "
 #endif

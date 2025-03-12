@@ -49,16 +49,21 @@
 # USB vendor ID (VID)
 # reuse of this VID by others is forbidden by USB-IF
 # official Arduino LLC VID
-VID = 0x2341
+#VID = 0x2341
 
+# Free use VID
+VID = 0x16C0
 
 # USB product ID (PID)
 # official Leonardo PID
-PID = 0x0036
+#PID = 0x0036
 # official Micro PID
 # PID = 0x0037
 # official Esplora PID
 # PID = 0x003C
+
+# Free use PID
+PID = 0x05E1
 
 # MCU name
 MCU = atmega32u4
