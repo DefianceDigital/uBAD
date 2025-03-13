@@ -1,0 +1,31 @@
+{
+  "packages": [
+    {
+      "name": "uBAD",
+      "maintainer": "Defiance Digital",
+      "websiteURL": "https://defiancedigital.us",
+      "email": "brad@defiancedigital.us",
+      "help": {
+        "online": "https://defiancedigital.us"
+      },
+      "platforms": [
+        {
+          "name": "uBAD",
+          "architecture": "avr",
+          "version": "1.0.0",
+          "category": "Contributed",
+          "url": "http://example.com/uBAD-1.0.0.zip",
+          "archiveFileName": "uBAD-1.0.0.zip",
+		  "checksum": "SHA-256:363b9393f59679045961845ae35d641225906f01afd6453096cb023253a056d0",
+          "size": "12288",
+          "boards": [
+            {
+              "name": "uBAD"
+            }
+          ],
+          "toolsDependencies": []
+        }
+      ]
+    }
+  ]
+}
