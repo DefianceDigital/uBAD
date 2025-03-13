@@ -1,6 +1,3 @@
-Original Caterina bootloader:
-Copyright ?
-
 LUFA library used for USB communication:
 Copyright 2011  Dean Camera
 
