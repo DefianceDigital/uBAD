@@ -542,6 +542,9 @@ void setCredentials(){
     uint8_t high = highByte(switchCode());
     EEPROM.write(2, low); // set switch code part 1
     EEPROM.write(3, high); // set switch code part 2
+    if(disableUpdates){
+      EEPROM.write(1023, 0xBB); // preven updates via bootloader
+    }
 
     loadCredentials();
 
