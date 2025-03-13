@@ -1,0 +1,10 @@
+1) sudo putty (must be sudo)
+2) Select Serial
+3) /dev/ttyACM0 at speed 115200
+4) Click Terminal
+5) Local Echo: Force off
+6) Local line editing: Force on
+7) Select Mode and press enter
+8) Copy Password
+9) In putty, hold ctrl and right click
+10) Select 'Paste from CLIPBOARD' and press enter
