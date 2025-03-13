@@ -69,7 +69,7 @@ void reValidate(){
 }
 
 void eraseEEPROM() {
-  int size = EEPROM.length();
+  int size = EEPROM.length() - 1; // don't erase bootkill byte
   digitalWrite(YELLOW_PIN, HIGH);
     if(debug){
       SerialX.println("Erasing EEPROM");
@@ -99,6 +99,7 @@ void loadCredentials(){
     SerialX.print("DIP Code: ["); SerialX.print(dip); SerialX.println("]");
     SerialX.print("Password: ["); SerialX.print(password); SerialX.println("]");
     SerialX.print("PIM: ["); SerialX.print(pim); SerialX.println("]");
+    SerialX.print("Bootkill Byte: ["); SerialX.print(EEPROM.read(1023)); SerialX.println("]");
   }
 }
 
@@ -351,6 +352,7 @@ void manualUnlock(){
 void setCredentials(){
   uint16_t waitCount = 0;
   bool redState = 0;
+  bool disableUpdates = 0;
 
   Serial.begin(115200);
   while(!Serial){
@@ -372,6 +374,7 @@ void setCredentials(){
 
   uint8_t encMode = 0;
   bool hasPass = false;
+  bool hasUpdateChoice = false;
 
   if(debug){
     SerialX.println("Waiting for new credentials");
@@ -422,8 +425,33 @@ void setCredentials(){
     }
   }
 
+  if(EEPROM.read(1023) != 0xBB){ // do not allow changes once set to true
+    Serial.println("Disable Firmware Security Patches? (Enter 'y' or 'n'))");
+    Serial.flush();
+    while(hasUpdateChoice == 0){
+      if(Serial.available()){
+        delay(25);
+        char selection = Serial.read();
+        while(Serial.available()){Serial.read();} // clear serial buffer
+        if(selection == 'Y'){
+          disableUpdates = true;
+          hasUpdateChoice = true;
+        } else if(selection == 'y'){
+          disableUpdates = true;
+          hasUpdateChoice = true;
+        } else if(selection == 'N'){
+          hasUpdateChoice = true;
+        } else if(selection == 'n'){
+          hasUpdateChoice = true;
+        } else {
+          Serial.println("Invalid Selection");
+          Serial.flush();
+        }
+      }
+    }
+  }
 
-  Serial.println("Enter Password (64 characters or less)");
+  Serial.println("Enter Desired Password (64 characters or less)");
   Serial.flush();
   while(!hasPass){
     if(Serial.available()){
@@ -445,7 +473,7 @@ void setCredentials(){
   }
   
   if(encMode == 0x01 || encMode == 0x03){ // Luks doesn't have PIM option
-    Serial.println("Enter PIM (Press '*' if none)");
+    Serial.println("Enter Desired PIM (Press '*' if none)");
     Serial.flush();
     while(1){
       if(Serial.available()){
@@ -472,10 +500,11 @@ void setCredentials(){
         uint8_t high = highByte(switchCode());
         EEPROM.write(2, low); // set switch code part 1
         EEPROM.write(3, high); // set switch code part 2
-
+        if(disableUpdates){
+          EEPROM.write(1023, 0xBB); // preven updates via bootloader
+        }
+        
         loadCredentials();
-
-        EEPROM.write(1023, 0xBB); // lock bootloader when credentials are stored (anykey-bootloader)
 
         Serial.println("Configuration complete");
         Serial.flush();
