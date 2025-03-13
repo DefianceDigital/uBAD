@@ -17,7 +17,7 @@
           "url": "https://github.com/DefianceDigital/uBAD/raw/refs/heads/main/uBAD_Arduino/custom_board/uBAD-1.0.0.zip",
           "archiveFileName": "uBAD-1.0.0.zip",
 		  "checksum": "SHA-256:363b9393f59679045961845ae35d641225906f01afd6453096cb023253a056d0",
-          "size": "12288",
+          "size": "8219",
           "boards": [
             {
               "name": "uBAD"
