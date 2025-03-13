@@ -1,7 +1,7 @@
 LUFA library used for USB communication:
 Copyright 2011  Dean Camera
 
-Copyright 2019 Walter Schreppers (anykey bootloader that uBAD_bootloader was based off)
+Copyright 2019 Walter Schreppers (anykey bootloader that uBAD_bootloader was based on)
 
 Copyright 2025 Defiance Digital
 
