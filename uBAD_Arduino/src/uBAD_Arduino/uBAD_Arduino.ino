@@ -426,7 +426,7 @@ void setCredentials(){
   }
 
   if(EEPROM.read(1023) != 0xBB){ // do not allow changes once set to true
-    Serial.println("Disable Firmware Security Patches? (Enter 'y' or 'n'))");
+    Serial.println("Permanently Disable Firmware Patches? (Enter 'y' or 'n'))");
     Serial.flush();
     while(hasUpdateChoice == 0){
       if(Serial.available()){
