@@ -2,7 +2,7 @@
 
 ## Device Configuration
 
-### Encryption Modes:
+  - ### Encryption Modes:
   - <ins>**Automatic VeraCrypt System Decryption (Windows):**</ins> This is what the device was initially designed to do.  
   - <ins>**Automatic Luks System Decryption (Linux):**</ins> test  
   - <ins>**For Manual Decryption (Widows/Linux):**</ins> test  
