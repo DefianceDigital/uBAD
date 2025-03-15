@@ -4,7 +4,7 @@ Universal Boot Authentication Device for VeraCrypt and Luks
 ## Device Configuration
 
 ### Encryption Modes:
-  - <u><b>Automatic VeraCrypt System Decryption (Windows):</b></u> test  
+  - 	<ins>**Automatic VeraCrypt System Decryption (Windows):**</ins>  test  
   - **Automatic Luks System Decryption (Linux):** test  
   - **For Manual Decryption (Widows/Linux):** test  
 ### Permanently Disabling Firmware Patches
