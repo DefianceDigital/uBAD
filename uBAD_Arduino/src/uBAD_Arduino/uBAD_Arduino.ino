@@ -219,97 +219,6 @@ void unlockVeracrypt(){
   }
 }
 
-void unlockLuks(){
-  if (resetCause & (1 << PORF)) {
-    if(debug){
-      SerialX.print("Power-on Reset");
-    }
-    delay(10000);
-
-    reValidate(); // fault injection prevention
-
-    Keyboard.begin();
-
-    reValidate(); // fault injection prevention
-
-    setupInterrupts();
-
-    reValidate(); // fault injection prevention
-
-    loadCredentials();
-
-    reValidate(); // fault injection prevention
-
-    uint16_t waitCount = 0;
-    bool yellowState = 0;
-    while(!isRestarted()){
-      waitCount++;
-      if(waitCount % 5 ==0){ // every 5 periods (500ms)
-        if(!yellowState){ // if yellow off
-          digitalWrite(YELLOW_PIN, HIGH);
-          yellowState = 1;
-        } else {
-          yellowState = 0;
-          digitalWrite(YELLOW_PIN, LOW);
-        }
-      }
-      delay(50);
-    }
-    while(isRestarted()){
-      delay(100);
-    }
-    if(debug){
-      Serial1.println("Decryption Screen Loading");
-      Serial1.flush();
-    }
-    wdt_enable(WDTO_1S);
-    while(1); // reset
-  } else if (resetCause & (1 << WDRF)) {
-    if(debug){
-      SerialX.print("Watchdog Reset");
-    }
-    delay(60000);
-
-    reValidate(); // fault injection prevention
-
-    Keyboard.begin();
-
-    reValidate(); // fault injection prevention
-
-    setupInterrupts();
-
-    reValidate(); // fault injection prevention
-
-    loadCredentials();
-
-    reValidate(); // fault injection prevention
-
-    Keyboard.print(password);
-    Keyboard.flush();
-    delay(500); // short delay after sending password
-    Keyboard.write(KEY_RETURN);
-    Keyboard.flush();
-    delay(500); // delay after sending enter
-
-    // No way to confim correct password with Luks
-    digitalWrite(YELLOW_PIN, LOW);
-    digitalWrite(GREEN_PIN, HIGH);
-    if(debug){
-      SerialX.println("Password Entered");
-      SerialX.flush();
-    }
-
-    while(1){
-    if(isRestarted()){
-      while(isRestarted());
-      GPIOR0 = 0b101; // power on reset (and brownout)
-      asm volatile ("  jmp 0");
-    }
-    delay(100);
-  }
-  }
-}
-
 void manualUnlock(){
   digitalWrite(YELLOW_PIN, HIGH);
 
@@ -381,8 +290,7 @@ void setCredentials(){
   }
 
   Serial.println("Select Encryption Mode:");
-  Serial.println("--> For Automatic VeraCrypt System Decryption (Windows) - Enter 'W'");
-  Serial.println("--> For Automatic Luks System Decryption (Linux) - Enter 'L'");
+  Serial.println("--> For Automatic VeraCrypt-Windows System Decryption - Enter 'A'");
   Serial.println("--> For Manual Decryption (Enters Credentials on Plugin) - Enter 'M'");
   Serial.flush();
 
@@ -406,18 +314,14 @@ void setCredentials(){
       delay(25);
       char selection = Serial.read();
       while(Serial.available()){Serial.read();} // clear serial buffer
-      if(selection == 'W'){
+      if(selection == 'A'){
         encMode = 0x01;
-      } else if(selection == 'w'){
+      } else if(selection == 'a'){
         encMode = 0x01;
-      } else if(selection == 'L'){
-        encMode = 0x02;
-      } else if(selection == 'l'){
-        encMode = 0x02;
       }else if(selection == 'M'){
-        encMode = 0x03;
+        encMode = 0x02;
       } else if(selection == 'm'){
-        encMode = 0x03;
+        encMode = 0x02;
       } else {
         Serial.println("Invalid Mode Selection");
         Serial.flush();
@@ -451,7 +355,7 @@ void setCredentials(){
     }
   }
 
-  Serial.println("Enter Desired Password (64 characters or less)");
+  Serial.println("Enter VeraCrypt Password (64 characters or less)");
   Serial.flush();
   while(!hasPass){
     if(Serial.available()){
@@ -459,118 +363,69 @@ void setCredentials(){
       for(uint8_t x = 0; x < 64; x++){
         char value = Serial.read();
         if((value != '\r') && (value != '\n') && (value != 0xFF)){
-          EEPROM.write(x+4, value);
+          EEPROM.update(x+4, value);
         } else {
-          EEPROM.write(x+4, 0x00);
+          EEPROM.update(x+4, 0x00);
         }
       }
-      EEPROM.write(68, 0x00); //null terminated password
+      EEPROM.update(68, 0x00); //null terminated password
       while(Serial.available()){
         Serial.read();
       }
       hasPass = true;
     }
   }
-  
-  if(encMode == 0x01 || encMode == 0x03){ // Luks doesn't have PIM option
-    Serial.println("Enter Desired PIM (Press '*' if none)");
-    Serial.flush();
-    while(1){
-      if(Serial.available()){
-        delay(25);
-        for(uint8_t y = 0; y < 16; y++){
-          char value = Serial.read();
-          if((value != '\r') && (value != '\n') && (value != 0xFF)){
-            EEPROM.write(y+69, value);
-          } else {
-            EEPROM.write(y+69, 0x00);
-          }
-        }
-        while(Serial.available()){
-          Serial.read();
-        }
-
-        if(debug){
-          SerialX.println("New credentials obtained");
-        }
-
-        EEPROM.write(0, encMode); // set se encryption mode
-        EEPROM.write(1, 0x00); // set number of failed attempts
-        uint8_t low = lowByte(switchCode());
-        uint8_t high = highByte(switchCode());
-        EEPROM.write(2, low); // set switch code part 1
-        EEPROM.write(3, high); // set switch code part 2
-        if(disableUpdates){
-          EEPROM.write(1023, 0xBB); // preven updates via bootloader
-        }
-        
-        loadCredentials();
-
-        Serial.println("Configuration complete");
-        Serial.flush();
-            
-        Serial.end();;
-        digitalWrite(RED_PIN, LOW); // red off
-
-        while(1){
-          if(isRestarted()){
-            while(isRestarted());
-            asm volatile ("  jmp 0");
-          } else {
-            digitalWrite(YELLOW_PIN, LOW);
-            digitalWrite(GREEN_PIN, HIGH);
-            delay(500);
-            digitalWrite(YELLOW_PIN, HIGH);
-            digitalWrite(GREEN_PIN, LOW);
-            delay(500);
-          }
+  Serial.println("Enter VeraCrypt PIM [system only] (Press '*' if none)");
+  Serial.flush();
+  while(1){
+    if(Serial.available()){
+      delay(25);
+      for(uint8_t y = 0; y < 16; y++){
+        char value = Serial.read();
+        if((value != '\r') && (value != '\n') && (value != 0xFF)){
+          EEPROM.update(y+69, value);
+        } else {
+          EEPROM.update(y+69, 0x00);
         }
       }
-    }
-  } else { // Luks doesn't use PIM
-    for(uint8_t y = 0; y < 16; y++){
-      EEPROM.write(y+69, 0x00);
-    }
+      while(Serial.available()){
+        Serial.read();
+      }
 
-    if(debug){
-      SerialX.println("New credentials obtained");
-    }
+      if(debug){
+        SerialX.println("New credentials obtained");
+      }
 
-    EEPROM.write(0, encMode); // set se encryption mode
-    EEPROM.write(1, 0x00); // set number of failed attempts
-    uint8_t low = lowByte(switchCode());
-    uint8_t high = highByte(switchCode());
-    EEPROM.write(2, low); // set switch code part 1
-    EEPROM.write(3, high); // set switch code part 2
-    if(disableUpdates){
-      EEPROM.write(1023, 0xBB); // preven updates via bootloader
-    }
+      EEPROM.update(0, encMode); // set se encryption mode
+      EEPROM.update(1, 0x00); // set number of failed attempts
+      uint8_t low = lowByte(switchCode());
+      uint8_t high = highByte(switchCode());
+      EEPROM.update(2, low); // set switch code part 1
+      EEPROM.update(3, high); // set switch code part 2
+      if(disableUpdates){
+        EEPROM.update(1023, 0xBB); // prevent updates via bootloader
+      }
+        
+      loadCredentials();
 
-    loadCredentials();
-
-    /*Serial.print("password: "); Serial.println(password);
-    Serial.print("pim: "); Serial.println(pim);
-    Serial.flush();*/
-
-    EEPROM.write(1023, 0xBB); // lock bootloader when credentials are stored (anykey-bootloader)
-
-    Serial.println("Configuration complete");
-    Serial.flush();
+      Serial.println("Configuration complete");
+      Serial.flush();
             
-    Serial.end();;
-    digitalWrite(RED_PIN, LOW); // red off
+      Serial.end();;
+      digitalWrite(RED_PIN, LOW); // red off
 
-    while(1){
-      if(isRestarted()){
-        while(isRestarted());
-        asm volatile ("  jmp 0");
-      } else {
-        digitalWrite(YELLOW_PIN, LOW);
-        digitalWrite(GREEN_PIN, HIGH);
-        delay(500);
-        digitalWrite(YELLOW_PIN, HIGH);
-        digitalWrite(GREEN_PIN, LOW);
-        delay(500);
+      while(1){
+        if(isRestarted()){
+          while(isRestarted());
+          asm volatile ("  jmp 0");
+        } else {
+          digitalWrite(YELLOW_PIN, LOW);
+          digitalWrite(GREEN_PIN, HIGH);
+          delay(500);
+          digitalWrite(YELLOW_PIN, HIGH);
+          digitalWrite(GREEN_PIN, LOW);
+          delay(500);
+        }
       }
     }
   }
@@ -602,15 +457,12 @@ void setup() {
     if(debug){
       SerialX.println("Valid credentials Found");
     }
-    EEPROM.update(1, 0x00);
+    EEPROM.update(1, 0x00); // this only changes after incorrect dip switch
 
     if(EEPROM.read(0) == 0x01){
       reValidate(); // fault injection prevention
       unlockVeracrypt();
     } else if(EEPROM.read(0) == 0x02){
-      reValidate(); // fault injection prevention
-      unlockLuks();
-    } else if(EEPROM.read(0) == 0x03){
       reValidate(); // fault injection prevention
       manualUnlock();
     }
@@ -626,10 +478,10 @@ void setup() {
 
     // give chance to fix failed switch code if this is 1st failure (2 seconds)
     if(EEPROM.read(1) == 0){
-      EEPROM.write(1, 0x01);
+      EEPROM.update(1, 0x01);
       delay(2000);
     }
-    EEPROM.write(1, 0x02); // tell bootloader to erase EEPROM if reset
+    EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM too(in case of reset attempt)
 
     eraseEEPROM();
     
