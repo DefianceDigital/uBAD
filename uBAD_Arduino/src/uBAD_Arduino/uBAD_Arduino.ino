@@ -355,7 +355,7 @@ void setCredentials(){
     }
   }
 
-  Serial.println("Enter VeraCrypt Password (64 characters or less)");
+  Serial.println("Enter Decryption Password (64 characters or less)");
   Serial.flush();
   while(!hasPass){
     if(Serial.available()){
@@ -375,7 +375,7 @@ void setCredentials(){
       hasPass = true;
     }
   }
-  Serial.println("Enter VeraCrypt PIM [system only] (Press '*' if none)");
+  Serial.println("Enter VeraCrypt System PIM (Press '*' if none)");
   Serial.flush();
   while(1){
     if(Serial.available()){
