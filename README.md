@@ -1,4 +1,4 @@
-# uBAD - Universal Boot Authentication Device
+# uBAD - universal Boot Authentication Device
 
 ## Device Configuration
 
