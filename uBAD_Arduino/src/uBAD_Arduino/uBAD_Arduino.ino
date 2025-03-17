@@ -6,11 +6,12 @@
 
 volatile uint8_t resetCause = GPIOR0; // bootloader stores MCUSR value in GPIOR0 to preserve it
 
-bool debug = false; // enable/disable SerialX
+static bool debug = false; // enable/disable SerialX
 #define productionVersion
 #ifdef productionVersion
   // use ISP port for UART
   SoftwareSerial SerialX(MISO, MOSI); // RX, TX
+  #define SoftSerial
 
   #define RED_PIN A0
   #define YELLOW_PIN A1
@@ -40,10 +41,22 @@ uint16_t switchCode() {
   return code;
 }
 
-uint16_t savedCode(){
-  uint16_t code = (EEPROM.read(3) << 8) | EEPROM.read(2);
-  return code;
+uint16_t savedCode() {
+    // Read each byte separately
+    uint8_t lowByte = EEPROM.read(0x02);   // Low byte at address 2
+    uint8_t highByte = EEPROM.read(0x03);  // High byte at address 3
+
+    /*if(debug){
+      SerialX.print("SC LOW: "); SerialX.println(lowByte);
+      SerialX.print("SC HIGH: "); SerialX.println(highByte);
+    }*/
+
+    // Combine into a single uint16_t
+    uint16_t code = (highByte << 8) | lowByte;
+
+    return code;
 }
+
 
 void initPins(){
   pinMode(RED_PIN, OUTPUT);
@@ -330,7 +343,7 @@ void setCredentials(){
   }
 
   if(EEPROM.read(1023) != 0xBB){ // do not allow changes once set to true
-    Serial.println("Permanently Disable Firmware Patches? (Enter 'Y' or 'N'))");
+    Serial.println("Permanently Disable Firmware Patches? (Enter 'Y' or 'N')");
     Serial.flush();
     while(hasUpdateChoice == 0){
       if(Serial.available()){
@@ -473,6 +486,8 @@ void setup() {
 
     if(debug){
       SerialX.println("Invalid DIP Code or Credentials");
+      SerialX.print("Current EEPROM.read(0): "); SerialX.println(EEPROM.read(0));
+      SerialX.print("Current Switch Code: "); SerialX.println(switchCode());
       loadCredentials();
     }
 

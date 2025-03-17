@@ -164,7 +164,7 @@
  151:uBAD_bootloader.c ****     /* Watchdog may be configured with a 15 ms period so must disable it before going any further *
  152:uBAD_bootloader.c ****     wdt_disable();
  153:uBAD_bootloader.c ****     
- 154:uBAD_bootloader.c ****     uint8_t failedCount = eeprom_read_byte((uint8_t *)(intptr_t)(1));
+ 154:uBAD_bootloader.c ****     /*uint8_t failedCount = eeprom_read_byte((uint8_t *)(intptr_t)(1));
  155:uBAD_bootloader.c ****     if((failedCount > 0x01) && (failedCount < 0xFF)){ // triggered by failed reValidate() in applic
  156:uBAD_bootloader.c ****       // Erase credentials in EEPROM without warning
  157:uBAD_bootloader.c ****       eeprom_update_byte((uint8_t *)(intptr_t)0, 0xFF); // erase first
@@ -172,7 +172,7 @@
  159:uBAD_bootloader.c ****         eeprom_update_byte((uint8_t *)(intptr_t)i, 0xFF); // set all bytes to 0xFF that aren't alre
  160:uBAD_bootloader.c ****       }
  161:uBAD_bootloader.c ****       eeprom_update_byte((uint8_t *)(intptr_t)1, 0xFF); // erase last
- 162:uBAD_bootloader.c ****     }
+ 162:uBAD_bootloader.c ****     }*/
  163:uBAD_bootloader.c ****     if ((mcusr_state & (1 << PORF)) && (pgm_read_word(0) != 0xFFFF)) {
  164:uBAD_bootloader.c ****         // After a power-on reset skip the bootloader and jump straight to sketch if one exists.
  165:uBAD_bootloader.c ****         StartSketch();
@@ -453,8 +453,8 @@
   19               	/* stack size = 0 */
   20               	.L__stack_usage = 0
   21               	.LVL0:
-  22               	.LBB86:
-  23               	.LBB87:
+  22               	.LBB85:
+  23               	.LBB86:
   24               		.file 2 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h"
    1:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** /*
    2:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h ****              LUFA Library
@@ -790,10 +790,10 @@
   26 0000 84E0      		ldi r24,lo8(4)
   27 0002 8093 E900 		sts 233,r24
   28               	.L2:
-  29               	.LBE87:
-  30               	.LBE86:
-  31               	.LBB88:
-  32               	.LBB89:
+  29               	.LBE86:
+  30               	.LBE85:
+  31               	.LBB87:
+  32               	.LBB88:
  331:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
  332:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  333:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
@@ -886,8 +886,8 @@
  420:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				return ((UEINTX & (1 << RWAL)) ? true : false);
   33               		.loc 2 420 0
   34 0006 8091 E800 		lds r24,232
-  35               	.LBE89:
-  36               	.LBE88:
+  35               	.LBE88:
+  36               	.LBE87:
  436:uBAD_bootloader.c ****     /* Select the OUT endpoint so that the next data byte can be read */
  437:uBAD_bootloader.c ****     Endpoint_SelectEndpoint(CDC_RX_EPNUM);
  438:uBAD_bootloader.c **** 
@@ -896,8 +896,8 @@
   37               		.loc 1 440 0
   38 000a 85FD      		sbrc r24,5
   39 000c 00C0      		rjmp .L11
-  40               	.LBB90:
-  41               	.LBB91:
+  40               	.LBB89:
+  41               	.LBB90:
  421:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  422:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
  423:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			/** Determines if the currently selected endpoint is configured.
@@ -1014,15 +1014,15 @@
   44 0012 8B77      		andi r24,lo8(123)
   45 0014 8093 E800 		sts 232,r24
   46               	.L3:
-  47               	.LBE91:
-  48               	.LBE90:
-  49               	.LBB92:
-  50               	.LBB93:
+  47               	.LBE90:
+  48               	.LBE89:
+  49               	.LBB91:
+  50               	.LBB92:
  479:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
   51               		.loc 2 479 0
   52 0018 8091 E800 		lds r24,232
-  53               	.LBE93:
-  54               	.LBE92:
+  53               	.LBE92:
+  54               	.LBE91:
  441:uBAD_bootloader.c ****         Endpoint_ClearOUT();
  442:uBAD_bootloader.c **** 
  443:uBAD_bootloader.c ****         while (!(Endpoint_IsOUTReceived())) {
@@ -1036,8 +1036,8 @@
   61 0024 00C0      		rjmp .L3
   62 0026 00C0      		rjmp .L4
   63               	.L11:
-  64               	.LBB94:
-  65               	.LBB95:
+  64               	.LBB93:
+  65               	.LBB94:
  532:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
  533:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 					UEINTX &= ~(1 << RXOUTI);
  534:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
@@ -1122,8 +1122,8 @@
   66               		.loc 2 612 0
   67 0028 8091 F100 		lds r24,241
   68               	.L4:
-  69               	.LBE95:
-  70               	.LBE94:
+  69               	.LBE94:
+  70               	.LBE93:
  445:uBAD_bootloader.c ****         }
  446:uBAD_bootloader.c ****     }
  447:uBAD_bootloader.c **** 
@@ -1152,22 +1152,22 @@
   84               	/* frame size = 0 */
   85               	/* stack size = 0 */
   86               	.L__stack_usage = 0
-  87               	.LBB96:
-  88               	.LBB97:
+  87               	.LBB95:
+  88               	.LBB96:
  330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
   89               		.loc 2 330 0
   90 0000 93E0      		ldi r25,lo8(3)
   91 0002 9093 E900 		sts 233,r25
   92               	.LVL2:
-  93               	.LBE97:
-  94               	.LBE96:
-  95               	.LBB98:
-  96               	.LBB99:
+  93               	.LBE96:
+  94               	.LBE95:
+  95               	.LBB97:
+  96               	.LBB98:
  420:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
   97               		.loc 2 420 0
   98 0006 9091 E800 		lds r25,232
-  99               	.LBE99:
- 100               	.LBE98:
+  99               	.LBE98:
+ 100               	.LBE97:
  459:uBAD_bootloader.c ****     /* Select the IN endpoint so that the next data byte can be written */
  460:uBAD_bootloader.c ****     Endpoint_SelectEndpoint(CDC_TX_EPNUM);
  461:uBAD_bootloader.c **** 
@@ -1178,8 +1178,8 @@
  103 000c 00C0      		rjmp .L13
  104               	.L17:
  105               	.LVL3:
- 106               	.LBB100:
- 107               	.LBB101:
+ 106               	.LBB99:
+ 107               	.LBB100:
  613:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  614:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
  615:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			/** Writes one byte to the currently selected endpoint's bank, for IN direction endpoints.
@@ -1195,8 +1195,8 @@
  108               		.loc 2 624 0
  109 000e 8093 F100 		sts 241,r24
  110               	.LVL4:
- 111               	.LBE101:
- 112               	.LBE100:
+ 111               	.LBE100:
+ 112               	.LBE99:
  464:uBAD_bootloader.c ****         Endpoint_ClearIN();
  465:uBAD_bootloader.c **** 
  466:uBAD_bootloader.c ****         while (!(Endpoint_IsINReady())) {
@@ -1221,23 +1221,23 @@
  122 0020 0895      		ret
  123               	.LVL7:
  124               	.L13:
- 125               	.LBB102:
- 126               	.LBB103:
+ 125               	.LBB101:
+ 126               	.LBB102:
  516:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
  127               		.loc 2 516 0
  128 0022 9091 E800 		lds r25,232
  129 0026 9E77      		andi r25,lo8(126)
  130 0028 9093 E800 		sts 232,r25
  131               	.L15:
- 132               	.LBE103:
- 133               	.LBE102:
- 134               	.LBB104:
- 135               	.LBB105:
+ 132               	.LBE102:
+ 133               	.LBE101:
+ 134               	.LBB103:
+ 135               	.LBB104:
  467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  136               		.loc 2 467 0
  137 002c 9091 E800 		lds r25,232
- 138               	.LBE105:
- 139               	.LBE104:
+ 138               	.LBE104:
+ 139               	.LBE103:
  466:uBAD_bootloader.c ****             if (USB_DeviceState == DEVICE_STATE_Unattached) return;
  140               		.loc 1 466 0
  141 0030 90FD      		sbrc r25,0
@@ -1381,8 +1381,8 @@
  262 0006 30E0      		ldi r19,0
  263               	.L30:
  264               	.LVL13:
- 265               	.LBB106:
- 266               	.LBB107:
+ 265               	.LBB105:
+ 266               	.LBB106:
  116:uBAD_bootloader.c **** 
  267               		.loc 1 116 0 discriminator 1
  268 0008 2817      		cp r18,r24
@@ -1406,12 +1406,12 @@
  284 0016 4150      		subi r20,1
  285 0018 5109      		sbc r21,__zero_reg__
  286               	.LVL16:
- 287               	.LBE107:
+ 287               	.LBE106:
  115:uBAD_bootloader.c ****         for (int i = 0; i < n; i++) {
  288               		.loc 1 115 0 discriminator 2
  289 001a 01F4      		brne .L27
  290 001c 0895      		ret
- 291               	.LBE106:
+ 291               	.LBE105:
  292               		.cfi_endproc
  293               	.LFE101:
  295               		.section	.text.blink,"ax",@progbits
@@ -1461,8 +1461,8 @@
  335 0000 84B7      		in r24,0x34
  336 0002 877F      		andi r24,lo8(-9)
  337 0004 84BF      		out 0x34,r24
- 338               	.LBB108:
- 339               	.LBB109:
+ 338               	.LBB107:
+ 339               	.LBB108:
  340               		.file 3 "/usr/lib/avr/include/avr/wdt.h"
    1:/usr/lib/avr/include/avr/wdt.h **** /* Copyright (c) 2002, 2004 Marek Michalkiewicz
    2:/usr/lib/avr/include/avr/wdt.h ****    Copyright (c) 2005, 2006, 2007 Eric B. Weddington
@@ -1994,10 +1994,10 @@
  353               	 ;  0 "" 2
  354               	.LVL19:
  355               	/* #NOAPP */
- 356               	.LBE109:
- 357               	.LBE108:
- 358               	.LBB110:
- 359               	.LBB111:
+ 356               	.LBE108:
+ 357               	.LBE107:
+ 358               	.LBB109:
+ 359               	.LBB110:
  360               		.file 4 "/usr/lib/avr/include/avr/power.h"
    1:/usr/lib/avr/include/avr/power.h **** /* Copyright (c) 2006, 2007, 2008  Eric B. Weddington
    2:/usr/lib/avr/include/avr/power.h ****    Copyright (c) 2011 Frédéric Nadeau
@@ -3526,8 +3526,8 @@
  371               	 ;  0 "" 2
  372               	.LVL20:
  373               	/* #NOAPP */
- 374               	.LBE111:
- 375               	.LBE110:
+ 374               	.LBE110:
+ 375               	.LBE109:
  221:uBAD_bootloader.c ****     MCUCR = (1 << IVSEL);
  376               		.loc 1 221 0
  377 002e 81E0      		ldi r24,lo8(1)
@@ -3656,7 +3656,7 @@
  483 0052 8E98      		cbi 0x11,6
  484               	.L39:
  485               	.LVL21:
- 486               	.LBB112:
+ 486               	.LBB111:
  256:uBAD_bootloader.c **** }
  487               		.loc 1 256 0 is_stmt 1
  488 0054 E0E0      		ldi r30,0
@@ -3669,7 +3669,7 @@
  495               	 ;  0 "" 2
  496               	.LVL22:
  497               	/* #NOAPP */
- 498               	.LBE112:
+ 498               	.LBE111:
  499 005c 0196      		adiw r24,1
  500 005e 01F0      		breq .L34
  256:uBAD_bootloader.c **** }
@@ -3708,8 +3708,8 @@
  533               	/* stack size = 0 */
  534               	.L__stack_usage = 0
  535               	.LVL24:
- 536               	.LBB113:
- 537               	.LBB114:
+ 536               	.LBB112:
+ 537               	.LBB113:
  276:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				                                      ((1 << ALLOC) | Banks | Endpoint_BytesToEPSizeMask(Size))
  538               		.loc 2 276 0
  539 0000 42E0      		ldi r20,lo8(2)
@@ -3717,26 +3717,26 @@
  541 0004 82E0      		ldi r24,lo8(2)
  542 0006 0E94 0000 		call Endpoint_ConfigureEndpoint_Prv
  543               	.LVL25:
- 544               	.LBE114:
- 545               	.LBE113:
- 546               	.LBB115:
- 547               	.LBB116:
+ 544               	.LBE113:
+ 545               	.LBE112:
+ 546               	.LBB114:
+ 547               	.LBB115:
  548 000a 42E1      		ldi r20,lo8(18)
  549 000c 61E8      		ldi r22,lo8(-127)
  550 000e 83E0      		ldi r24,lo8(3)
  551 0010 0E94 0000 		call Endpoint_ConfigureEndpoint_Prv
  552               	.LVL26:
- 553               	.LBE116:
- 554               	.LBE115:
- 555               	.LBB117:
- 556               	.LBB118:
+ 553               	.LBE115:
+ 554               	.LBE114:
+ 555               	.LBB116:
+ 556               	.LBB117:
  557 0014 42E1      		ldi r20,lo8(18)
  558 0016 60E8      		ldi r22,lo8(-128)
  559 0018 84E0      		ldi r24,lo8(4)
  560 001a 0C94 0000 		jmp Endpoint_ConfigureEndpoint_Prv
  561               	.LVL27:
- 562               	.LBE118:
- 563               	.LBE117:
+ 562               	.LBE117:
+ 563               	.LBE116:
  564               		.cfi_endproc
  565               	.LFE106:
  567               		.section	.text.EVENT_USB_Device_ControlRequest,"ax",@progbits
@@ -3768,15 +3768,15 @@
  590               		.loc 1 286 0
  591 0018 813A      		cpi r24,lo8(-95)
  592 001a 01F4      		brne .L46
- 593               	.LBB119:
- 594               	.LBB120:
+ 593               	.LBB118:
+ 594               	.LBB119:
  504:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  595               		.loc 2 504 0
  596 001c 8091 E800 		lds r24,232
  597 0020 877F      		andi r24,lo8(-9)
  598 0022 8093 E800 		sts 232,r24
- 599               	.LBE120:
- 600               	.LBE119:
+ 599               	.LBE119:
+ 600               	.LBE118:
  290:uBAD_bootloader.c ****             Endpoint_ClearOUT();
  601               		.loc 1 290 0
  602 0026 67E0      		ldi r22,lo8(7)
@@ -3785,29 +3785,29 @@
  605 002c 90E0      		ldi r25,hi8(LineEncoding)
  606 002e 0E94 0000 		call Endpoint_Write_Control_Stream_LE
  607               	.LVL28:
- 608               	.LBB121:
- 609               	.LBB122:
+ 608               	.LBB120:
+ 609               	.LBB121:
  531:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
  610               		.loc 2 531 0
  611 0032 8091 E800 		lds r24,232
  612 0036 8B77      		andi r24,lo8(123)
  613 0038 00C0      		rjmp .L50
  614               	.L48:
- 615               	.LBE122:
- 616               	.LBE121:
+ 615               	.LBE121:
+ 616               	.LBE120:
  308:uBAD_bootloader.c ****             Endpoint_ClearSETUP();
  617               		.loc 1 308 0
  618 003a 8132      		cpi r24,lo8(33)
  619 003c 01F4      		brne .L46
- 620               	.LBB123:
- 621               	.LBB124:
+ 620               	.LBB122:
+ 621               	.LBB123:
  504:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  622               		.loc 2 504 0
  623 003e 8091 E800 		lds r24,232
  624 0042 877F      		andi r24,lo8(-9)
  625 0044 8093 E800 		sts 232,r24
- 626               	.LBE124:
- 627               	.LBE123:
+ 626               	.LBE123:
+ 627               	.LBE122:
  312:uBAD_bootloader.c ****             Endpoint_ClearIN();
  628               		.loc 1 312 0
  629 0048 67E0      		ldi r22,lo8(7)
@@ -3816,8 +3816,8 @@
  632 004e 90E0      		ldi r25,hi8(LineEncoding)
  633 0050 0E94 0000 		call Endpoint_Read_Control_Stream_LE
  634               	.LVL29:
- 635               	.LBB125:
- 636               	.LBB126:
+ 635               	.LBB124:
+ 636               	.LBB125:
  516:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
  637               		.loc 2 516 0
  638 0054 8091 E800 		lds r24,232
@@ -3826,8 +3826,8 @@
  641 005a 8093 E800 		sts 232,r24
  642               	.L46:
  643 005e 0895      		ret
- 644               	.LBE126:
- 645               	.LBE125:
+ 644               	.LBE125:
+ 645               	.LBE124:
  646               		.cfi_endproc
  647               	.LFE107:
  649               		.section	.rodata.str1.1,"aMS",@progbits,1
@@ -3930,22 +3930,22 @@
  725               	/* stack size = 16 */
  726               	.L__stack_usage = 16
  727               	.LVL30:
- 728               	.LBB159:
- 729               	.LBB160:
+ 728               	.LBB158:
+ 729               	.LBB159:
  330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
  730               		.loc 2 330 0
  731 0020 84E0      		ldi r24,lo8(4)
  732 0022 8093 E900 		sts 233,r24
  733               	.LVL31:
- 734               	.LBE160:
- 735               	.LBE159:
- 736               	.LBB161:
- 737               	.LBB162:
+ 734               	.LBE159:
+ 735               	.LBE158:
+ 736               	.LBB160:
+ 737               	.LBB161:
  479:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  738               		.loc 2 479 0
  739 0026 8091 E800 		lds r24,232
- 740               	.LBE162:
- 741               	.LBE161:
+ 740               	.LBE161:
+ 741               	.LBE160:
  497:uBAD_bootloader.c ****     /* Select the OUT endpoint */
  498:uBAD_bootloader.c ****     Endpoint_SelectEndpoint(CDC_RX_EPNUM);
  499:uBAD_bootloader.c **** 
@@ -4139,7 +4139,7 @@
  871 00ce D0E0      		ldi r29,hi8(.LC0)
  872               	.LVL50:
  873               	.L66:
- 874               	.LBB163:
+ 874               	.LBB162:
  558:uBAD_bootloader.c ****         // Write the 7-byte software identifier to the endpoint
  559:uBAD_bootloader.c ****         for (uint8_t CurrByte = 0; CurrByte < 7; CurrByte++)
  560:uBAD_bootloader.c ****             WriteNextResponseByte(SOFTWARE_IDENTIFIER[CurrByte]);
@@ -4157,7 +4157,7 @@
  885 00de 00C0      		rjmp .L57
  886               	.LVL53:
  887               	.L65:
- 888               	.LBE163:
+ 888               	.LBE162:
  561:uBAD_bootloader.c ****     }
  562:uBAD_bootloader.c ****     else if (Command == 'V') {
  889               		.loc 1 562 0
@@ -4204,7 +4204,7 @@
  921 0104 01F4      		brne .L69
  922 0106 E0E0      		ldi r30,0
  923 0108 F0E0      		ldi r31,0
- 924               	.LBB164:
+ 924               	.LBB163:
  572:uBAD_bootloader.c ****         // Clear the application section of flash
  573:uBAD_bootloader.c ****         for (uint32_t CurrFlashAddress = 0; CurrFlashAddress < BOOT_START_ADDR; CurrFlashAddress +=
  574:uBAD_bootloader.c ****             boot_page_erase(CurrFlashAddress);
@@ -4257,7 +4257,7 @@
  965 0132 00C0      		rjmp .L140
  966               	.LVL63:
  967               	.L69:
- 968               	.LBE164:
+ 968               	.LBE163:
  578:uBAD_bootloader.c ****         }
  579:uBAD_bootloader.c **** 
  580:uBAD_bootloader.c ****         // Send confirmation byte back to the host
@@ -4276,46 +4276,46 @@
  969               		.loc 1 592 0
  970 0134 8237      		cpi r24,lo8(114)
  971 0136 01F4      		brne .L73
- 972               	.LBB165:
+ 972               	.LBB164:
  593:uBAD_bootloader.c ****         WriteNextResponseByte(boot_lock_fuse_bits_get(GET_LOCK_BITS));
  973               		.loc 1 593 0
  974 0138 E1E0      		ldi r30,lo8(1)
  975 013a F0E0      		ldi r31,0
  976 013c 00C0      		rjmp .L143
  977               	.L73:
- 978               	.LBE165:
+ 978               	.LBE164:
  594:uBAD_bootloader.c ****     }
  595:uBAD_bootloader.c ****     else if (Command == 'F') {
  979               		.loc 1 595 0
  980 013e 8634      		cpi r24,lo8(70)
  981 0140 01F4      		brne .L74
- 982               	.LBB166:
+ 982               	.LBB165:
  596:uBAD_bootloader.c ****         WriteNextResponseByte(boot_lock_fuse_bits_get(GET_LOW_FUSE_BITS));
  983               		.loc 1 596 0
  984 0142 E0E0      		ldi r30,0
  985 0144 F0E0      		ldi r31,0
  986 0146 00C0      		rjmp .L143
  987               	.L74:
- 988               	.LBE166:
+ 988               	.LBE165:
  597:uBAD_bootloader.c ****     }
  598:uBAD_bootloader.c ****     else if (Command == 'N') {
  989               		.loc 1 598 0
  990 0148 8E34      		cpi r24,lo8(78)
  991 014a 01F4      		brne .L75
- 992               	.LBB167:
+ 992               	.LBB166:
  599:uBAD_bootloader.c ****         WriteNextResponseByte(boot_lock_fuse_bits_get(GET_HIGH_FUSE_BITS));
  993               		.loc 1 599 0
  994 014c E3E0      		ldi r30,lo8(3)
  995 014e F0E0      		ldi r31,0
  996 0150 00C0      		rjmp .L143
  997               	.L75:
- 998               	.LBE167:
+ 998               	.LBE166:
  600:uBAD_bootloader.c ****     }
  601:uBAD_bootloader.c ****     else if (Command == 'Q') {
  999               		.loc 1 601 0
  1000 0152 8135      		cpi r24,lo8(81)
  1001 0154 01F4      		brne .L76
- 1002               	.LBB168:
+ 1002               	.LBB167:
  602:uBAD_bootloader.c ****         WriteNextResponseByte(boot_lock_fuse_bits_get(GET_EXTENDED_FUSE_BITS));
  1003               		.loc 1 602 0
  1004 0156 E2E0      		ldi r30,lo8(2)
@@ -4334,7 +4334,7 @@
  1017 0162 00C0      		rjmp .L141
  1018               	.LVL66:
  1019               	.L76:
- 1020               	.LBE168:
+ 1020               	.LBE167:
  603:uBAD_bootloader.c ****     }
  604:uBAD_bootloader.c ****     // Current locking is good enough, especially with the addition of 186 and 185
  605:uBAD_bootloader.c ****     // codes we can stay avrdude/avr109 compatible as well.
@@ -4379,8 +4379,8 @@
  1047 0182 1092 0000 		sts Timeout+1,__zero_reg__
  1048 0186 1092 0000 		sts Timeout,__zero_reg__
  1049               	.LVL71:
- 1050               	.LBB169:
- 1051               	.LBB170:
+ 1050               	.LBB168:
+ 1051               	.LBB169:
  334:uBAD_bootloader.c ****     BlockSize |= FetchNextCommandByte();
  1052               		.loc 1 334 0
  1053 018a 0E94 0000 		call FetchNextCommandByte
@@ -4463,7 +4463,7 @@
  1117 01dc 1634      		cpi r17,lo8(70)
  1118 01de 01F4      		brne .L83
  1119               	.LVL83:
- 1120               	.LBB171:
+ 1120               	.LBB170:
  361:uBAD_bootloader.c **** #endif
  1121               		.loc 1 361 0
  1122 01e0 EB2D      		mov r30,r11
@@ -4477,7 +4477,7 @@
  1130               	 ;  0 "" 2
  1131               	.LVL84:
  1132               	/* #NOAPP */
- 1133               	.LBE171:
+ 1133               	.LBE170:
  1134 01ea 0E94 0000 		call WriteNextResponseByte
  1135               	.LVL85:
  365:uBAD_bootloader.c **** 
@@ -4531,7 +4531,7 @@
  1180 0240 00C0      		rjmp .L82
  1181               	.LVL92:
  1182               	.L81:
- 1183               	.LBB172:
+ 1183               	.LBB171:
  379:uBAD_bootloader.c **** 
  1184               		.loc 1 379 0
  1185 0242 8090 0000 		lds r8,CurrAddress
@@ -4694,7 +4694,7 @@
  1324 032c 0E94 0000 		call WriteNextResponseByte
  1325               	.LVL103:
  1326               	.L87:
- 1327               	.LBE172:
+ 1327               	.LBE171:
  425:uBAD_bootloader.c **** }
  1328               		.loc 1 425 0
  1329 0330 82E0      		ldi r24,lo8(2)
@@ -4702,8 +4702,8 @@
  1331 0336 00C0      		rjmp .L57
  1332               	.LVL104:
  1333               	.L79:
- 1334               	.LBE170:
- 1335               	.LBE169:
+ 1334               	.LBE169:
+ 1335               	.LBE168:
  618:uBAD_bootloader.c ****         // Delegate the block write/read to a separate function for clarity
  619:uBAD_bootloader.c ****         ReadWriteMemoryBlock(Command);
  620:uBAD_bootloader.c ****     }
@@ -4822,8 +4822,8 @@
  1418               		.loc 1 650 0
  1419 03bc 8235      		cpi r24,lo8(82)
  1420 03be 01F4      		brne .L102
- 1421               	.LBB173:
- 1422               	.LBB174:
+ 1421               	.LBB172:
+ 1422               	.LBB173:
  651:uBAD_bootloader.c **** #if (FLASHEND > 0xFFFF)
  652:uBAD_bootloader.c ****         uint16_t ProgramWord = pgm_read_word_far(CurrAddress);
  653:uBAD_bootloader.c **** #else
@@ -4840,7 +4840,7 @@
  1432               	 ;  0 "" 2
  1433               	.LVL112:
  1434               	/* #NOAPP */
- 1435               	.LBE174:
+ 1435               	.LBE173:
  655:uBAD_bootloader.c **** #endif
  656:uBAD_bootloader.c **** 
  657:uBAD_bootloader.c ****         WriteNextResponseByte(ProgramWord >> 8);
@@ -4855,7 +4855,7 @@
  1443 03d4 00C0      		rjmp .L141
  1444               	.LVL115:
  1445               	.L102:
- 1446               	.LBE173:
+ 1446               	.LBE172:
  659:uBAD_bootloader.c ****     }
  660:uBAD_bootloader.c **** #endif
  661:uBAD_bootloader.c **** #if !defined(NO_EEPROM_BYTE_SUPPORT)
@@ -4950,32 +4950,32 @@
  1516 046c 00C0      		rjmp .L105
  1517               	.LVL124:
  1518               	.L57:
- 1519               	.LBB175:
- 1520               	.LBB176:
+ 1519               	.LBB174:
+ 1520               	.LBB175:
  330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
  1521               		.loc 2 330 0
  1522 046e 83E0      		ldi r24,lo8(3)
  1523 0470 8093 E900 		sts 233,r24
  1524               	.LVL125:
- 1525               	.LBE176:
- 1526               	.LBE175:
- 1527               	.LBB177:
- 1528               	.LBB178:
+ 1525               	.LBE175:
+ 1526               	.LBE174:
+ 1527               	.LBB176:
+ 1528               	.LBB177:
  420:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  1529               		.loc 2 420 0
  1530 0474 9091 E800 		lds r25,232
  1531               	.LVL126:
- 1532               	.LBE178:
- 1533               	.LBE177:
- 1534               	.LBB179:
- 1535               	.LBB180:
+ 1532               	.LBE177:
+ 1533               	.LBE176:
+ 1534               	.LBB178:
+ 1535               	.LBB179:
  516:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
  1536               		.loc 2 516 0
  1537 0478 8091 E800 		lds r24,232
  1538 047c 8E77      		andi r24,lo8(126)
  1539 047e 8093 E800 		sts 232,r24
- 1540               	.LBE180:
- 1541               	.LBE179:
+ 1540               	.LBE179:
+ 1541               	.LBE178:
  681:uBAD_bootloader.c ****         // Unknown (non-sync) command, return fail code
  682:uBAD_bootloader.c ****         WriteNextResponseByte('?');
  683:uBAD_bootloader.c ****     }
@@ -4995,13 +4995,13 @@
  1543 0482 95FD      		sbrc r25,5
  1544 0484 00C0      		rjmp .L111
  1545               	.L107:
- 1546               	.LBB181:
- 1547               	.LBB182:
+ 1546               	.LBB180:
+ 1547               	.LBB181:
  467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  1548               		.loc 2 467 0
  1549 0486 8091 E800 		lds r24,232
- 1550               	.LBE182:
- 1551               	.LBE181:
+ 1550               	.LBE181:
+ 1551               	.LBE180:
  696:uBAD_bootloader.c ****         while (!(Endpoint_IsINReady())) {
  1552               		.loc 1 696 0
  1553 048a 80FD      		sbrc r24,0
@@ -5013,8 +5013,8 @@
  1558 0492 00C0      		rjmp .L107
  1559 0494 00C0      		rjmp .L51
  1560               	.L145:
- 1561               	.LBB183:
- 1562               	.LBB184:
+ 1561               	.LBB182:
+ 1562               	.LBB183:
  516:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
  1563               		.loc 2 516 0
  1564 0496 8091 E800 		lds r24,232
@@ -5022,8 +5022,8 @@
  1566 049c 8093 E800 		sts 232,r24
  1567 04a0 00C0      		rjmp .L111
  1568               	.L112:
- 1569               	.LBE184:
- 1570               	.LBE183:
+ 1569               	.LBE183:
+ 1570               	.LBE182:
  698:uBAD_bootloader.c ****         }
  699:uBAD_bootloader.c **** 
  700:uBAD_bootloader.c ****         Endpoint_ClearIN();
@@ -5037,29 +5037,29 @@
  1573 04a4 8823      		tst r24
  1574 04a6 01F0      		breq .L51
  1575               	.L111:
- 1576               	.LBB185:
- 1577               	.LBB186:
+ 1576               	.LBB184:
+ 1577               	.LBB185:
  467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  1578               		.loc 2 467 0
  1579 04a8 8091 E800 		lds r24,232
- 1580               	.LBE186:
- 1581               	.LBE185:
+ 1580               	.LBE185:
+ 1581               	.LBE184:
  704:uBAD_bootloader.c ****         if (USB_DeviceState == DEVICE_STATE_Unattached) return;
  1582               		.loc 1 704 0
  1583 04ac 80FF      		sbrs r24,0
  1584 04ae 00C0      		rjmp .L112
  1585               	.LVL127:
- 1586               	.LBB187:
- 1587               	.LBB188:
+ 1586               	.LBB186:
+ 1587               	.LBB187:
  330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
  1588               		.loc 2 330 0
  1589 04b0 84E0      		ldi r24,lo8(4)
  1590 04b2 8093 E900 		sts 233,r24
  1591               	.LVL128:
- 1592               	.LBE188:
- 1593               	.LBE187:
- 1594               	.LBB189:
- 1595               	.LBB190:
+ 1592               	.LBE187:
+ 1593               	.LBE186:
+ 1594               	.LBB188:
+ 1595               	.LBB189:
  531:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
  1596               		.loc 2 531 0
  1597 04b6 8091 E800 		lds r24,232
@@ -5068,8 +5068,8 @@
  1600               	.LVL129:
  1601               	.L51:
  1602               	/* epilogue start */
- 1603               	.LBE190:
- 1604               	.LBE189:
+ 1603               	.LBE189:
+ 1604               	.LBE188:
  706:uBAD_bootloader.c ****     }
  707:uBAD_bootloader.c **** 
  708:uBAD_bootloader.c ****     /* Select the OUT endpoint */
@@ -5105,279 +5105,221 @@
  141:uBAD_bootloader.c ****     /* Save the value of the boot key memory before it is overwritten */
  1631               		.loc 1 141 0
  1632               		.cfi_startproc
- 1633 0000 EF92      		push r14
+ 1633 0000 CF93      		push r28
  1634               	.LCFI23:
  1635               		.cfi_def_cfa_offset 3
- 1636               		.cfi_offset 14, -2
- 1637 0002 FF92      		push r15
+ 1636               		.cfi_offset 28, -2
+ 1637 0002 DF93      		push r29
  1638               	.LCFI24:
  1639               		.cfi_def_cfa_offset 4
- 1640               		.cfi_offset 15, -3
- 1641 0004 1F93      		push r17
- 1642               	.LCFI25:
- 1643               		.cfi_def_cfa_offset 5
- 1644               		.cfi_offset 17, -4
- 1645 0006 CF93      		push r28
- 1646               	.LCFI26:
- 1647               		.cfi_def_cfa_offset 6
- 1648               		.cfi_offset 28, -5
- 1649 0008 DF93      		push r29
- 1650               	.LCFI27:
- 1651               		.cfi_def_cfa_offset 7
- 1652               		.cfi_offset 29, -6
- 1653               	/* prologue: function */
- 1654               	/* frame size = 0 */
- 1655               	/* stack size = 5 */
- 1656               	.L__stack_usage = 5
+ 1640               		.cfi_offset 29, -3
+ 1641               	/* prologue: function */
+ 1642               	/* frame size = 0 */
+ 1643               	/* stack size = 2 */
+ 1644               	.L__stack_usage = 2
  143:uBAD_bootloader.c ****     *bootKeyPtr = 0;
- 1657               		.loc 1 143 0
- 1658 000a E090 0008 		lds r14,2048
- 1659 000e F090 0108 		lds r15,2048+1
- 1660               	.LVL130:
+ 1645               		.loc 1 143 0
+ 1646 0004 2091 0008 		lds r18,2048
+ 1647 0008 3091 0108 		lds r19,2048+1
+ 1648               	.LVL130:
  144:uBAD_bootloader.c **** 
- 1661               		.loc 1 144 0
- 1662 0012 1092 0108 		sts 2048+1,__zero_reg__
- 1663 0016 1092 0008 		sts 2048,__zero_reg__
+ 1649               		.loc 1 144 0
+ 1650 000c 1092 0108 		sts 2048+1,__zero_reg__
+ 1651 0010 1092 0008 		sts 2048,__zero_reg__
  147:uBAD_bootloader.c ****     GPIOR0 = mcusr_state; // use GPIO0 register to preserve MCUSR for application use
- 1664               		.loc 1 147 0
- 1665 001a 14B7      		in r17,0x34
- 1666               	.LVL131:
+ 1652               		.loc 1 147 0
+ 1653 0014 84B7      		in r24,0x34
+ 1654               	.LVL131:
  148:uBAD_bootloader.c ****     MCUSR = 0;                   // clear all reset flags
- 1667               		.loc 1 148 0
- 1668 001c 1EBB      		out 0x1e,r17
+ 1655               		.loc 1 148 0
+ 1656 0016 8EBB      		out 0x1e,r24
  149:uBAD_bootloader.c **** 
- 1669               		.loc 1 149 0
- 1670 001e 14BE      		out 0x34,__zero_reg__
- 1671               	.LBB191:
- 1672               	.LBB192:
- 1673               		.loc 3 515 0
- 1674               	/* #APP */
- 1675               	 ;  515 "/usr/lib/avr/include/avr/wdt.h" 1
- 1676 0020 0FB6      		in __tmp_reg__,__SREG__
- 1677 0022 F894      		cli
- 1678 0024 A895      		wdr
- 1679 0026 8091 6000 		lds r24,96
- 1680 002a 8861      		ori r24,24
- 1681 002c 8093 6000 		sts 96,r24
- 1682 0030 1092 6000 		sts 96,__zero_reg__
- 1683 0034 0FBE      		out __SREG__,__tmp_reg__
- 1684               		
- 1685               	 ;  0 "" 2
- 1686               	/* #NOAPP */
- 1687               	.LBE192:
- 1688               	.LBE191:
- 154:uBAD_bootloader.c ****     if((failedCount > 0x01) && (failedCount < 0xFF)){ // triggered by failed reValidate() in applic
- 1689               		.loc 1 154 0
- 1690 0036 81E0      		ldi r24,lo8(1)
- 1691 0038 90E0      		ldi r25,0
- 1692 003a 0E94 0000 		call eeprom_read_byte
- 1693               	.LVL132:
- 155:uBAD_bootloader.c ****       // Erase credentials in EEPROM without warning
- 1694               		.loc 1 155 0
- 1695 003e 8250      		subi r24,lo8(-(-2))
- 1696               	.LVL133:
- 1697 0040 8D3F      		cpi r24,lo8(-3)
- 1698 0042 00F4      		brsh .L147
- 157:uBAD_bootloader.c ****       for(uint16_t i = 2; i < 1023; i++){
- 1699               		.loc 1 157 0
- 1700 0044 6FEF      		ldi r22,lo8(-1)
- 1701 0046 80E0      		ldi r24,0
- 1702 0048 90E0      		ldi r25,0
- 1703               	.LVL134:
- 1704 004a 0E94 0000 		call eeprom_update_byte
- 1705               	.LVL135:
- 1706               	.LBB193:
- 158:uBAD_bootloader.c ****         eeprom_update_byte((uint8_t *)(intptr_t)i, 0xFF); // set all bytes to 0xFF that aren't alre
- 1707               		.loc 1 158 0
- 1708 004e C2E0      		ldi r28,lo8(2)
- 1709 0050 D0E0      		ldi r29,0
- 1710               	.LVL136:
- 1711               	.L148:
- 159:uBAD_bootloader.c ****       }
- 1712               		.loc 1 159 0 discriminator 3
- 1713 0052 6FEF      		ldi r22,lo8(-1)
- 1714 0054 CE01      		movw r24,r28
- 1715 0056 0E94 0000 		call eeprom_update_byte
- 1716               	.LVL137:
- 158:uBAD_bootloader.c ****         eeprom_update_byte((uint8_t *)(intptr_t)i, 0xFF); // set all bytes to 0xFF that aren't alre
- 1717               		.loc 1 158 0 discriminator 3
- 1718 005a 2196      		adiw r28,1
- 1719               	.LVL138:
- 1720 005c CF3F      		cpi r28,-1
- 1721 005e 23E0      		ldi r18,3
- 1722 0060 D207      		cpc r29,r18
- 1723 0062 01F4      		brne .L148
- 1724               	.LBE193:
- 161:uBAD_bootloader.c ****     }
- 1725               		.loc 1 161 0
- 1726 0064 6FEF      		ldi r22,lo8(-1)
- 1727 0066 81E0      		ldi r24,lo8(1)
- 1728 0068 90E0      		ldi r25,0
- 1729 006a 0E94 0000 		call eeprom_update_byte
- 1730               	.LVL139:
- 1731               	.L147:
+ 1657               		.loc 1 149 0
+ 1658 0018 14BE      		out 0x34,__zero_reg__
+ 1659               	.LBB190:
+ 1660               	.LBB191:
+ 1661               		.loc 3 515 0
+ 1662               	/* #APP */
+ 1663               	 ;  515 "/usr/lib/avr/include/avr/wdt.h" 1
+ 1664 001a 0FB6      		in __tmp_reg__,__SREG__
+ 1665 001c F894      		cli
+ 1666 001e A895      		wdr
+ 1667 0020 9091 6000 		lds r25,96
+ 1668 0024 9861      		ori r25,24
+ 1669 0026 9093 6000 		sts 96,r25
+ 1670 002a 1092 6000 		sts 96,__zero_reg__
+ 1671 002e 0FBE      		out __SREG__,__tmp_reg__
+ 1672               		
+ 1673               	 ;  0 "" 2
+ 1674               	/* #NOAPP */
+ 1675               	.LBE191:
+ 1676               	.LBE190:
  163:uBAD_bootloader.c ****         // After a power-on reset skip the bootloader and jump straight to sketch if one exists.
- 1732               		.loc 1 163 0
- 1733 006e 10FF      		sbrs r17,0
- 1734 0070 00C0      		rjmp .L149
- 1735               	.LVL140:
- 1736               	.LBB194:
+ 1677               		.loc 1 163 0
+ 1678 0030 80FF      		sbrs r24,0
+ 1679 0032 00C0      		rjmp .L147
+ 1680               	.LVL132:
+ 1681               	.LBB192:
  163:uBAD_bootloader.c ****         // After a power-on reset skip the bootloader and jump straight to sketch if one exists.
- 1737               		.loc 1 163 0 is_stmt 0 discriminator 1
- 1738 0072 E0E0      		ldi r30,0
- 1739 0074 F0E0      		ldi r31,0
- 1740               	/* #APP */
- 1741               	 ;  163 "uBAD_bootloader.c" 1
- 1742 0076 8591      		lpm r24, Z+
- 1743 0078 9491      		lpm r25, Z
- 1744               		
- 1745               	 ;  0 "" 2
- 1746               	.LVL141:
- 1747               	/* #NOAPP */
- 1748               	.LBE194:
- 1749 007a 0196      		adiw r24,1
- 1750 007c 01F0      		breq .L149
- 1751               	.LVL142:
- 1752               	.L152:
+ 1682               		.loc 1 163 0 is_stmt 0 discriminator 1
+ 1683 0034 E0E0      		ldi r30,0
+ 1684 0036 F0E0      		ldi r31,0
+ 1685               	/* #APP */
+ 1686               	 ;  163 "uBAD_bootloader.c" 1
+ 1687 0038 4591      		lpm r20, Z+
+ 1688 003a 5491      		lpm r21, Z
+ 1689               		
+ 1690               	 ;  0 "" 2
+ 1691               	.LVL133:
+ 1692               	/* #NOAPP */
+ 1693               	.LBE192:
+ 1694 003c 4F3F      		cpi r20,-1
+ 1695 003e 5F4F      		sbci r21,-1
+ 1696 0040 01F0      		breq .L147
+ 1697               	.LVL134:
+ 1698               	.L150:
  165:uBAD_bootloader.c ****     }
- 1753               		.loc 1 165 0 is_stmt 1
- 1754 007e 0E94 0000 		call StartSketch
- 1755               	.LVL143:
- 1756 0082 00C0      		rjmp .L150
- 1757               	.L149:
+ 1699               		.loc 1 165 0 is_stmt 1
+ 1700 0042 0E94 0000 		call StartSketch
+ 1701               	.LVL135:
+ 1702 0046 00C0      		rjmp .L148
+ 1703               	.LVL136:
+ 1704               	.L147:
  167:uBAD_bootloader.c ****         // If it looks like an "accidental" watchdog reset then start the sketch.
- 1758               		.loc 1 167 0
- 1759 0084 13FF      		sbrs r17,3
- 1760 0086 00C0      		rjmp .L151
+ 1705               		.loc 1 167 0
+ 1706 0048 83FF      		sbrs r24,3
+ 1707 004a 00C0      		rjmp .L149
  167:uBAD_bootloader.c ****         // If it looks like an "accidental" watchdog reset then start the sketch.
- 1761               		.loc 1 167 0 is_stmt 0 discriminator 1
- 1762 0088 8091 0000 		lds r24,bootKey
- 1763 008c 9091 0000 		lds r25,bootKey+1
- 1764 0090 E816      		cp r14,r24
- 1765 0092 F906      		cpc r15,r25
- 1766 0094 01F0      		breq .L151
- 1767               	.LVL144:
- 1768               	.LBB195:
+ 1708               		.loc 1 167 0 is_stmt 0 discriminator 1
+ 1709 004c 8091 0000 		lds r24,bootKey
+ 1710 0050 9091 0000 		lds r25,bootKey+1
+ 1711               	.LVL137:
+ 1712 0054 2817      		cp r18,r24
+ 1713 0056 3907      		cpc r19,r25
+ 1714 0058 01F0      		breq .L149
+ 1715               	.LVL138:
+ 1716               	.LBB193:
  167:uBAD_bootloader.c ****         // If it looks like an "accidental" watchdog reset then start the sketch.
- 1769               		.loc 1 167 0 discriminator 2
- 1770 0096 E0E0      		ldi r30,0
- 1771 0098 F0E0      		ldi r31,0
- 1772               	/* #APP */
- 1773               	 ;  167 "uBAD_bootloader.c" 1
- 1774 009a 8591      		lpm r24, Z+
- 1775 009c 9491      		lpm r25, Z
- 1776               		
- 1777               	 ;  0 "" 2
- 1778               	.LVL145:
- 1779               	/* #NOAPP */
- 1780               	.LBE195:
- 1781 009e 0196      		adiw r24,1
- 1782 00a0 01F4      		brne .L152
- 1783               	.LVL146:
- 1784               	.L151:
+ 1717               		.loc 1 167 0 discriminator 2
+ 1718 005a E0E0      		ldi r30,0
+ 1719 005c F0E0      		ldi r31,0
+ 1720               	/* #APP */
+ 1721               	 ;  167 "uBAD_bootloader.c" 1
+ 1722 005e 8591      		lpm r24, Z+
+ 1723 0060 9491      		lpm r25, Z
+ 1724               		
+ 1725               	 ;  0 "" 2
+ 1726               	.LVL139:
+ 1727               	/* #NOAPP */
+ 1728               	.LBE193:
+ 1729 0062 0196      		adiw r24,1
+ 1730               	.LVL140:
+ 1731 0064 01F4      		brne .L150
+ 1732               	.LVL141:
+ 1733               	.L149:
  172:uBAD_bootloader.c ****       for(uint16_t i = 2; i < 1023; i++){
- 1785               		.loc 1 172 0 is_stmt 1
- 1786 00a2 6FEF      		ldi r22,lo8(-1)
- 1787 00a4 80E0      		ldi r24,0
- 1788 00a6 90E0      		ldi r25,0
- 1789 00a8 0E94 0000 		call eeprom_update_byte
- 1790               	.LVL147:
- 1791               	.LBB196:
+ 1734               		.loc 1 172 0 is_stmt 1
+ 1735 0066 6FEF      		ldi r22,lo8(-1)
+ 1736 0068 80E0      		ldi r24,0
+ 1737 006a 90E0      		ldi r25,0
+ 1738 006c 0E94 0000 		call eeprom_update_byte
+ 1739               	.LVL142:
+ 1740               	.LBB194:
  173:uBAD_bootloader.c ****         eeprom_update_byte((uint8_t *)(intptr_t)i, 0xFF); // set all bytes to 0xFF that aren't alre
- 1792               		.loc 1 173 0
- 1793 00ac C2E0      		ldi r28,lo8(2)
- 1794 00ae D0E0      		ldi r29,0
- 1795               	.LVL148:
- 1796               	.L153:
+ 1741               		.loc 1 173 0
+ 1742 0070 C2E0      		ldi r28,lo8(2)
+ 1743 0072 D0E0      		ldi r29,0
+ 1744               	.LVL143:
+ 1745               	.L151:
  174:uBAD_bootloader.c ****       }
- 1797               		.loc 1 174 0 discriminator 3
- 1798 00b0 6FEF      		ldi r22,lo8(-1)
- 1799 00b2 CE01      		movw r24,r28
- 1800 00b4 0E94 0000 		call eeprom_update_byte
- 1801               	.LVL149:
+ 1746               		.loc 1 174 0 discriminator 3
+ 1747 0074 6FEF      		ldi r22,lo8(-1)
+ 1748 0076 CE01      		movw r24,r28
+ 1749 0078 0E94 0000 		call eeprom_update_byte
+ 1750               	.LVL144:
  173:uBAD_bootloader.c ****         eeprom_update_byte((uint8_t *)(intptr_t)i, 0xFF); // set all bytes to 0xFF that aren't alre
- 1802               		.loc 1 173 0 discriminator 3
- 1803 00b8 2196      		adiw r28,1
- 1804               	.LVL150:
- 1805 00ba CF3F      		cpi r28,-1
- 1806 00bc 83E0      		ldi r24,3
- 1807 00be D807      		cpc r29,r24
- 1808 00c0 01F4      		brne .L153
- 1809               	.LBE196:
+ 1751               		.loc 1 173 0 discriminator 3
+ 1752 007c 2196      		adiw r28,1
+ 1753               	.LVL145:
+ 1754 007e CF3F      		cpi r28,-1
+ 1755 0080 83E0      		ldi r24,3
+ 1756 0082 D807      		cpc r29,r24
+ 1757 0084 01F4      		brne .L151
+ 1758               	.LBE194:
  176:uBAD_bootloader.c ****     }
- 1810               		.loc 1 176 0
- 1811 00c2 6FEF      		ldi r22,lo8(-1)
- 1812 00c4 81E0      		ldi r24,lo8(1)
- 1813 00c6 90E0      		ldi r25,0
- 1814 00c8 0E94 0000 		call eeprom_update_byte
- 1815               	.LVL151:
- 1816               	.L150:
+ 1759               		.loc 1 176 0
+ 1760 0086 6FEF      		ldi r22,lo8(-1)
+ 1761 0088 81E0      		ldi r24,lo8(1)
+ 1762 008a 90E0      		ldi r25,0
+ 1763 008c 0E94 0000 		call eeprom_update_byte
+ 1764               	.LVL146:
+ 1765               	.L148:
  179:uBAD_bootloader.c ****         StartSketch();
- 1817               		.loc 1 179 0
- 1818 00cc 8FEF      		ldi r24,lo8(-1)
- 1819 00ce 93E0      		ldi r25,lo8(3)
- 1820 00d0 0E94 0000 		call eeprom_read_byte
- 1821               	.LVL152:
- 1822 00d4 8B3B      		cpi r24,lo8(-69)
- 1823 00d6 01F4      		brne .L154
+ 1766               		.loc 1 179 0
+ 1767 0090 8FEF      		ldi r24,lo8(-1)
+ 1768 0092 93E0      		ldi r25,lo8(3)
+ 1769 0094 0E94 0000 		call eeprom_read_byte
+ 1770               	.LVL147:
+ 1771 0098 8B3B      		cpi r24,lo8(-69)
+ 1772 009a 01F4      		brne .L152
  180:uBAD_bootloader.c ****     }
- 1824               		.loc 1 180 0
- 1825 00d8 0E94 0000 		call StartSketch
- 1826               	.LVL153:
- 1827               	.L154:
+ 1773               		.loc 1 180 0
+ 1774 009c 0E94 0000 		call StartSketch
+ 1775               	.LVL148:
+ 1776               	.L152:
  184:uBAD_bootloader.c **** 
- 1828               		.loc 1 184 0
- 1829 00dc 0E94 0000 		call SetupHardware
- 1830               	.LVL154:
+ 1777               		.loc 1 184 0
+ 1778 00a0 0E94 0000 		call SetupHardware
+ 1779               	.LVL149:
  187:uBAD_bootloader.c **** 
- 1831               		.loc 1 187 0
- 1832 00e0 0E94 0000 		call USB_Init
- 1833               	.LVL155:
+ 1780               		.loc 1 187 0
+ 1781 00a4 0E94 0000 		call USB_Init
+ 1782               	.LVL150:
  190:uBAD_bootloader.c **** 
- 1834               		.loc 1 190 0
- 1835               	/* #APP */
- 1836               	 ;  190 "uBAD_bootloader.c" 1
- 1837 00e4 7894      		sei
- 1838               	 ;  0 "" 2
+ 1783               		.loc 1 190 0
+ 1784               	/* #APP */
+ 1785               	 ;  190 "uBAD_bootloader.c" 1
+ 1786 00a8 7894      		sei
+ 1787               	 ;  0 "" 2
  192:uBAD_bootloader.c **** 
- 1839               		.loc 1 192 0
- 1840               	/* #NOAPP */
- 1841 00e6 1092 0000 		sts Timeout+1,__zero_reg__
- 1842 00ea 1092 0000 		sts Timeout,__zero_reg__
- 1843               	.L155:
+ 1788               		.loc 1 192 0
+ 1789               	/* #NOAPP */
+ 1790 00aa 1092 0000 		sts Timeout+1,__zero_reg__
+ 1791 00ae 1092 0000 		sts Timeout,__zero_reg__
+ 1792               	.L153:
  194:uBAD_bootloader.c ****         CDC_Task();
- 1844               		.loc 1 194 0
- 1845 00ee 8091 0000 		lds r24,RunBootloader
- 1846 00f2 8823      		tst r24
- 1847 00f4 01F0      		breq .L169
+ 1793               		.loc 1 194 0
+ 1794 00b2 8091 0000 		lds r24,RunBootloader
+ 1795 00b6 8823      		tst r24
+ 1796 00b8 01F0      		breq .L166
  195:uBAD_bootloader.c ****         USB_USBTask();
- 1848               		.loc 1 195 0
- 1849 00f6 0E94 0000 		call CDC_Task
- 1850               	.LVL156:
+ 1797               		.loc 1 195 0
+ 1798 00ba 0E94 0000 		call CDC_Task
+ 1799               	.LVL151:
  196:uBAD_bootloader.c ****         /* Time out and start the sketch if one is present */
- 1851               		.loc 1 196 0
- 1852 00fa 0E94 0000 		call USB_USBTask
- 1853               	.LVL157:
+ 1800               		.loc 1 196 0
+ 1801 00be 0E94 0000 		call USB_USBTask
+ 1802               	.LVL152:
  198:uBAD_bootloader.c **** 
- 1854               		.loc 1 198 0
- 1855 00fe 8091 0000 		lds r24,Timeout
- 1856 0102 9091 0000 		lds r25,Timeout+1
- 1857 0106 8138      		cpi r24,-127
- 1858 0108 9E43      		sbci r25,62
- 1859 010a 00F0      		brlo .L156
+ 1803               		.loc 1 198 0
+ 1804 00c2 8091 0000 		lds r24,Timeout
+ 1805 00c6 9091 0000 		lds r25,Timeout+1
+ 1806 00ca 8138      		cpi r24,-127
+ 1807 00cc 9E43      		sbci r25,62
+ 1808 00ce 00F0      		brlo .L154
  198:uBAD_bootloader.c **** 
- 1860               		.loc 1 198 0 is_stmt 0 discriminator 1
- 1861 010c 1092 0000 		sts RunBootloader,__zero_reg__
- 1862               	.L156:
+ 1809               		.loc 1 198 0 is_stmt 0 discriminator 1
+ 1810 00d0 1092 0000 		sts RunBootloader,__zero_reg__
+ 1811               	.L154:
  200:uBAD_bootloader.c ****     }
- 1863               		.loc 1 200 0 is_stmt 1
- 1864 0110 0E94 0000 		call LEDPulse
- 1865               	.LVL158:
- 1866 0114 00C0      		rjmp .L155
- 1867               	.L169:
- 1868               	.LBB197:
- 1869               	.LBB198:
- 1870               		.file 5 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.h"
+ 1812               		.loc 1 200 0 is_stmt 1
+ 1813 00d4 0E94 0000 		call LEDPulse
+ 1814               	.LVL153:
+ 1815 00d8 00C0      		rjmp .L153
+ 1816               	.L166:
+ 1817               	.LBB195:
+ 1818               	.LBB196:
+ 1819               		.file 5 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.h"
    1:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.h **** /*
    2:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.h ****              LUFA Library
    3:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.h ****      Copyright (C) Dean Camera, 2011.
@@ -5560,101 +5502,96 @@
  180:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.h **** 			static inline void USB_Detach(void)
  181:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.h **** 			{
  182:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.h **** 				UDCON  |=  (1 << DETACH);
- 1871               		.loc 5 182 0
- 1872 0116 8091 E000 		lds r24,224
- 1873 011a 8160      		ori r24,lo8(1)
- 1874 011c 8093 E000 		sts 224,r24
- 1875               	.LBE198:
- 1876               	.LBE197:
+ 1820               		.loc 5 182 0
+ 1821 00da 8091 E000 		lds r24,224
+ 1822 00de 8160      		ori r24,lo8(1)
+ 1823 00e0 8093 E000 		sts 224,r24
+ 1824               	.LBE196:
+ 1825               	.LBE195:
  207:uBAD_bootloader.c **** }
- 1877               		.loc 1 207 0
- 1878 0120 0E94 0000 		call StartSketch
- 1879               	.LVL159:
+ 1826               		.loc 1 207 0
+ 1827 00e4 0E94 0000 		call StartSketch
+ 1828               	.LVL154:
  208:uBAD_bootloader.c **** 
- 1880               		.loc 1 208 0
- 1881 0124 80E0      		ldi r24,0
- 1882 0126 90E0      		ldi r25,0
- 1883               	/* epilogue start */
- 1884 0128 DF91      		pop r29
- 1885 012a CF91      		pop r28
- 1886 012c 1F91      		pop r17
- 1887               	.LVL160:
- 1888 012e FF90      		pop r15
- 1889 0130 EF90      		pop r14
- 1890               	.LVL161:
- 1891 0132 0895      		ret
- 1892               		.cfi_endproc
- 1893               	.LFE103:
- 1895               		.comm	LLEDPulse,2,1
- 1896               	.global	bootKeyPtr
- 1897               		.section	.rodata
- 1900               	bootKeyPtr:
- 1901 0000 0008      		.word	2048
- 1902               	.global	bootKey
- 1903               		.data
- 1906               	bootKey:
- 1907 0000 7777      		.word	30583
- 1908               	.global	Timeout
- 1909               		.section .bss
- 1912               	Timeout:
- 1913 0000 0000      		.zero	2
- 1914               	.global	RxLEDPulse
- 1917               	RxLEDPulse:
- 1918 0002 0000      		.zero	2
- 1919               	.global	TxLEDPulse
- 1922               	TxLEDPulse:
- 1923 0004 0000      		.zero	2
- 1924               		.data
- 1927               	RunBootloader:
- 1928 0002 01        		.byte	1
- 1929               		.local	CurrAddress
- 1930               		.comm	CurrAddress,4,1
- 1933               	LineEncoding:
- 1934 0003 00        		.byte	0
- 1935 0004 00        		.byte	0
- 1936 0005 00        		.byte	0
- 1937 0006 00        		.byte	0
- 1938 0007 00        		.byte	0
- 1939 0008 00        		.byte	0
- 1940 0009 08        		.byte	8
- 1941               		.text
- 1942               	.Letext0:
- 1943               		.file 6 "/usr/lib/avr/include/stdint.h"
- 1944               		.file 7 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../StdRequestType.h"
- 1945               		.file 8 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../Device.h"
- 1946               		.file 9 "../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Device/../Common/CDC.h"
- 1947               		.file 10 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.h"
- 1948               		.file 11 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/EndpointStream_AVR8.h"
- 1949               		.file 12 "/usr/lib/avr/include/avr/eeprom.h"
+ 1829               		.loc 1 208 0
+ 1830 00e8 80E0      		ldi r24,0
+ 1831 00ea 90E0      		ldi r25,0
+ 1832               	/* epilogue start */
+ 1833 00ec DF91      		pop r29
+ 1834 00ee CF91      		pop r28
+ 1835 00f0 0895      		ret
+ 1836               		.cfi_endproc
+ 1837               	.LFE103:
+ 1839               		.comm	LLEDPulse,2,1
+ 1840               	.global	bootKeyPtr
+ 1841               		.section	.rodata
+ 1844               	bootKeyPtr:
+ 1845 0000 0008      		.word	2048
+ 1846               	.global	bootKey
+ 1847               		.data
+ 1850               	bootKey:
+ 1851 0000 7777      		.word	30583
+ 1852               	.global	Timeout
+ 1853               		.section .bss
+ 1856               	Timeout:
+ 1857 0000 0000      		.zero	2
+ 1858               	.global	RxLEDPulse
+ 1861               	RxLEDPulse:
+ 1862 0002 0000      		.zero	2
+ 1863               	.global	TxLEDPulse
+ 1866               	TxLEDPulse:
+ 1867 0004 0000      		.zero	2
+ 1868               		.data
+ 1871               	RunBootloader:
+ 1872 0002 01        		.byte	1
+ 1873               		.local	CurrAddress
+ 1874               		.comm	CurrAddress,4,1
+ 1877               	LineEncoding:
+ 1878 0003 00        		.byte	0
+ 1879 0004 00        		.byte	0
+ 1880 0005 00        		.byte	0
+ 1881 0006 00        		.byte	0
+ 1882 0007 00        		.byte	0
+ 1883 0008 00        		.byte	0
+ 1884 0009 08        		.byte	8
+ 1885               		.text
+ 1886               	.Letext0:
+ 1887               		.file 6 "/usr/lib/avr/include/stdint.h"
+ 1888               		.file 7 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../StdRequestType.h"
+ 1889               		.file 8 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../Device.h"
+ 1890               		.file 9 "../lufa-LUFA-111009/LUFA/Drivers/USB/Class/Device/../Common/CDC.h"
+ 1891               		.file 10 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/USBTask.h"
+ 1892               		.file 11 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/EndpointStream_AVR8.h"
+ 1893               		.file 12 "/usr/lib/avr/include/avr/eeprom.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 uBAD_bootloader.c
-     /tmp/ccqu5rmA.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccqu5rmA.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccqu5rmA.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccqu5rmA.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccqu5rmA.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccqu5rmA.s:12     .text.FetchNextCommandByte:0000000000000000 FetchNextCommandByte
-     /tmp/ccqu5rmA.s:78     .text.WriteNextResponseByte:0000000000000000 WriteNextResponseByte
-     /tmp/ccqu5rmA.s:1922   .bss:0000000000000004 TxLEDPulse
-     /tmp/ccqu5rmA.s:154    .text.StartSketch:0000000000000000 StartSketch
-     /tmp/ccqu5rmA.s:200    .text.LEDPulse:0000000000000000 LEDPulse
+     /tmp/ccEVjZDn.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccEVjZDn.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccEVjZDn.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccEVjZDn.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccEVjZDn.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccEVjZDn.s:12     .text.FetchNextCommandByte:0000000000000000 FetchNextCommandByte
+     /tmp/ccEVjZDn.s:78     .text.WriteNextResponseByte:0000000000000000 WriteNextResponseByte
+     /tmp/ccEVjZDn.s:1866   .bss:0000000000000004 TxLEDPulse
+     /tmp/ccEVjZDn.s:154    .text.StartSketch:0000000000000000 StartSketch
+     /tmp/ccEVjZDn.s:200    .text.LEDPulse:0000000000000000 LEDPulse
                             *COM*:0000000000000002 LLEDPulse
-     /tmp/ccqu5rmA.s:247    .text.xdelay:0000000000000000 xdelay
-     /tmp/ccqu5rmA.s:298    .text.blink:0000000000000000 blink
-     /tmp/ccqu5rmA.s:326    .text.SetupHardware:0000000000000000 SetupHardware
-     /tmp/ccqu5rmA.s:414    .text.__vector_17:0000000000000000 __vector_17
-     /tmp/ccqu5rmA.s:1917   .bss:0000000000000002 RxLEDPulse
-     /tmp/ccqu5rmA.s:1912   .bss:0000000000000000 Timeout
-     /tmp/ccqu5rmA.s:527    .text.EVENT_USB_Device_ConfigurationChanged:0000000000000000 EVENT_USB_Device_ConfigurationChanged
-     /tmp/ccqu5rmA.s:570    .text.EVENT_USB_Device_ControlRequest:0000000000000000 EVENT_USB_Device_ControlRequest
-     /tmp/ccqu5rmA.s:1933   .data:0000000000000003 LineEncoding
-     /tmp/ccqu5rmA.s:655    .text.CDC_Task:0000000000000000 CDC_Task
+     /tmp/ccEVjZDn.s:247    .text.xdelay:0000000000000000 xdelay
+     /tmp/ccEVjZDn.s:298    .text.blink:0000000000000000 blink
+     /tmp/ccEVjZDn.s:326    .text.SetupHardware:0000000000000000 SetupHardware
+     /tmp/ccEVjZDn.s:414    .text.__vector_17:0000000000000000 __vector_17
+     /tmp/ccEVjZDn.s:1861   .bss:0000000000000002 RxLEDPulse
+     /tmp/ccEVjZDn.s:1856   .bss:0000000000000000 Timeout
+     /tmp/ccEVjZDn.s:527    .text.EVENT_USB_Device_ConfigurationChanged:0000000000000000 EVENT_USB_Device_ConfigurationChanged
+     /tmp/ccEVjZDn.s:570    .text.EVENT_USB_Device_ControlRequest:0000000000000000 EVENT_USB_Device_ControlRequest
+     /tmp/ccEVjZDn.s:1877   .data:0000000000000003 LineEncoding
+     /tmp/ccEVjZDn.s:655    .text.CDC_Task:0000000000000000 CDC_Task
                              .bss:0000000000000006 CurrAddress
-     /tmp/ccqu5rmA.s:1629   .text.startup.main:0000000000000000 main
-     /tmp/ccqu5rmA.s:1906   .data:0000000000000000 bootKey
-     /tmp/ccqu5rmA.s:1927   .data:0000000000000002 RunBootloader
-     /tmp/ccqu5rmA.s:1900   .rodata:0000000000000000 bootKeyPtr
-     /tmp/ccqu5rmA.s:650    .rodata.str1.1:0000000000000000 .LC0
+     /tmp/ccEVjZDn.s:1629   .text.startup.main:0000000000000000 main
+     /tmp/ccEVjZDn.s:1850   .data:0000000000000000 bootKey
+     /tmp/ccEVjZDn.s:1871   .data:0000000000000002 RunBootloader
+     /tmp/ccEVjZDn.s:1844   .rodata:0000000000000000 bootKeyPtr
+     /tmp/ccEVjZDn.s:650    .rodata.str1.1:0000000000000000 .LC0
 
 UNDEFINED SYMBOLS
 Endpoint_ConfigureEndpoint_Prv

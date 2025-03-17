@@ -1,3 +1,5 @@
+ARDUINO BOARD NEEDS REPLACED
+
 # uBAD - universal Boot Authentication Device
 
 ## Device Configuration
