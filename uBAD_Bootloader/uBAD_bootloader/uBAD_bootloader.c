@@ -151,6 +151,7 @@ int main(void)
     /* Watchdog may be configured with a 15 ms period so must disable it before going any further */
     wdt_disable();
     
+    // This is ideal but created some stability problems (probably due to starting eeprom but not ending before sending to application)
     /*uint8_t failedCount = eeprom_read_byte((uint8_t *)(intptr_t)(1));
     if((failedCount > 0x01) && (failedCount < 0xFF)){ // triggered by failed reValidate() in application
       // Erase credentials in EEPROM without warning
@@ -160,6 +161,7 @@ int main(void)
       }
       eeprom_update_byte((uint8_t *)(intptr_t)1, 0xFF); // erase last
     }*/
+    
     if ((mcusr_state & (1 << PORF)) && (pgm_read_word(0) != 0xFFFF)) {
         // After a power-on reset skip the bootloader and jump straight to sketch if one exists.
         StartSketch();
