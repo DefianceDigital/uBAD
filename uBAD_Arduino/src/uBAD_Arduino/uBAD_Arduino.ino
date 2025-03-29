@@ -74,7 +74,7 @@ void reValidate(){
     delayMicroseconds(random(0, 255));
     uint8_t switchFailures = EEPROM.read(1);
     delayMicroseconds(random(0, 255));
-    EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM in case of reset
+    //EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM in case of reset
     delayMicroseconds(random(0, 255));
     eraseEEPROM();
     asm volatile ("  jmp 0"); // restart application from beginning
@@ -83,16 +83,14 @@ void reValidate(){
 
 void eraseEEPROM() {
   int size = EEPROM.length() - 1; // don't erase bootkill byte
-  digitalWrite(YELLOW_PIN, HIGH);
-    if(debug){
-      SerialX.println("Erasing EEPROM");
-    }
-    EEPROM.update(0, 0xFF); // erase first
-    for (int i = 2; i < size; i++) {
-      EEPROM.update(i, 0xFF); // write all eeprom to 0xFF
-    }
-    EEPROM.update(1, 0xFF); // erase last
-    digitalWrite(YELLOW_PIN, LOW);
+  if(debug){
+    SerialX.println("Erasing EEPROM");
+  }
+  EEPROM.update(0, 0xFF); // erase first
+  for (int i = 2; i < size; i++) {
+    EEPROM.update(i, 0xFF); // write all eeprom to 0xFF
+  }
+  EEPROM.update(1, 0xFF); // erase last
 }
 
 
@@ -166,22 +164,12 @@ void unlockVeracrypt(){
 
   reValidate(); // fault injection prevention
 
-  Keyboard.print(password);
-  Keyboard.flush();
-  delay(500); // short delay after sending password
-  Keyboard.write(KEY_RETURN);
-  Keyboard.flush();
-  delay(500); // delay after sending enter
+  printCredentials(password);
 
   reValidate(); // fault injection prevention
 
   if(strlen(pim) > 0){
-    Keyboard.print(pim);
-    Keyboard.flush();
-    delay(500); // short delay before sending pim
-    Keyboard.write(KEY_RETURN);
-    Keyboard.flush();
-    delay(500); // short delay after sending Enter
+    printCredentials(pim);
   }
 
   uint16_t waitCount = 0;
@@ -247,23 +235,13 @@ void manualUnlock(){
 
   reValidate(); // fault injection prevention
 
-  Keyboard.print(password);
-  Keyboard.flush();
-
-  reValidate(); // fault injection prevention
-
-  delay(500); // short delay after sending password
+  printCredentials(password);
 
   reValidate(); // fault injection prevention
 
   if(strlen(pim) > 0){
-    Keyboard.print(pim);
-    Keyboard.flush();
-    delay(500); // short delay afte entering pim
+    printCredentials(pim);
   }
-  Keyboard.write(KEY_RETURN);
-  Keyboard.flush();
-  delay(500); // delay after sending enter
 
   digitalWrite(YELLOW_PIN, LOW);
   digitalWrite(GREEN_PIN, HIGH);
@@ -444,6 +422,44 @@ void setCredentials(){
   }
 }
 
+void seedRNG(){ // use entropy to generate random seed
+  unsigned int ar1 = analogRead(A4);
+  unsigned int ar2 = analogRead(A5);
+
+  unsigned int tr; // future raw internal temperature sensor reading
+  ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3)); // set 1.1v reference and MUX
+  ADCSRA |= _BV(ADEN);  // enable ADC
+  delay(20); // wait for voltages to stabilize
+  while(bit_is_set(ADCSRA, ADSC)); // detect EOC
+  tr = ADCW; // store raw reading
+  
+  unsigned int seed = ar1 ^ ar2 ^ tr; // combine all 3 entropy sources by XOR mixing
+
+  randomSeed(seed); // seed the RNG
+
+  if(debug){
+    SerialX.print("Analog Reading 1: "); SerialX.println(ar1);
+    SerialX.print("Analog Reading 2: "); SerialX.println(ar2);
+    SerialX.print("Raw Temp Reading: "); SerialX.println(tr);
+    SerialX.print("Random Seed: "); SerialX.println(seed);
+  }
+}
+
+void printCredentials(char credentials[64]){
+  uint8_t len = strlen(credentials);
+  for(uint8_t i = 0; i < len; i++){
+    char toPrint = credentials[i];
+    if(toPrint != 0x00){
+      reValidate(); // fault injection prevention
+      Keyboard.print(toPrint);
+      delay(10);
+    }
+  }
+  delay(500); // delay after sending credentials
+  Keyboard.write(KEY_RETURN);
+  delay(500); // delay after sending enter
+}
+
 void setup() {
   #ifndef productionVersion // production boards don't have these 
     DDRB &= ~(1 << PB0); // disable RXLED
@@ -458,12 +474,17 @@ void setup() {
     #endif
   }
 
+  seedRNG(); // start random number generator with entropy
+
   initPins();
+  delay(250);
   if(debug){
     SerialX.println("Initialized Pins");
   }
 
   if((EEPROM.read(0) != 0xFF) && (savedCode() == switchCode())){
+    delay(random(0, 1000)); // here to make it hard to determine if code was accepted or erase is happening by monitoring leds electronically
+
     digitalWrite(GREEN_PIN, LOW);
     digitalWrite(YELLOW_PIN, HIGH);
 
@@ -480,10 +501,6 @@ void setup() {
       manualUnlock();
     }
   } else {
-    digitalWrite(RED_PIN, HIGH); 
-    digitalWrite(YELLOW_PIN, LOW);
-    digitalWrite(GREEN_PIN, LOW);
-
     if(debug){
       SerialX.println("Invalid DIP Code or Credentials");
       SerialX.print("Current EEPROM.read(0): "); SerialX.println(EEPROM.read(0));
@@ -494,9 +511,12 @@ void setup() {
     // give chance to fix failed switch code if this is 1st failure (2 seconds)
     if(EEPROM.read(1) == 0){
       EEPROM.update(1, 0x01);
+      digitalWrite(RED_PIN, HIGH); 
+      digitalWrite(YELLOW_PIN, LOW);
+      digitalWrite(GREEN_PIN, LOW);
       delay(2000);
     }
-    EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM too(in case of reset attempt)
+    //EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM too(in case of reset attempt)
 
     eraseEEPROM();
     
