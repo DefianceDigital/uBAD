@@ -22,7 +22,7 @@ The recommended configuration tool for both Windows and Linux is Putty. For Wind
     - 
 
 ## Configuration Options  
-    ![Screenshot 2025-03-19 110147](https://github.com/user-attachments/assets/25021d27-6db7-416e-9487-c79cfe894516)  
+  ![Screenshot 2025-03-19 110147](https://github.com/user-attachments/assets/25021d27-6db7-416e-9487-c79cfe894516)  
   - ### Decryption Modes:
     - <ins>**Automatic VeraCrypt-Windows System Decryption:**</ins> This is primarily what uBAD is designed to do. This option is capable of determining what state the Windows computer is in, and will enter the VeraCrypt password whenever it is on the VeraCrypt boot screen. This feature is especially helpful during updates to the Windows system, as the computer will reboot several times and you don't need to manually enter your password each time it does. This option is only for Windows systems encrypted with VeraCrypt. For encrypted drives, folders, Luks, etc., you must use Manual Decryption Mode.  
     - <ins>**Manual Decryption (Enters Credentials on Plugin):**</ins> Use this mode for Luks encrypted systems or encrypted drives, folders, etc. Credentials will be entered immediately after plugging the device in. Cursor must be in the password box before plugging in device. This mode is not compatible with PIMs unless they are entered prior to plugging in the device.  
@@ -32,3 +32,4 @@ The recommended configuration tool for both Windows and Linux is Putty. For Wind
     - This is your password for Luks, Veracrypt System, Drive, Folder, or really anything. The maximum length of this password is 64 characters.  
   - ### VeraCrypt System PIM  
     - This is only for Veracrypt Encrypted Systems. Encrypted drives, folders, etc. that use a PIM must enter it manually and prior to plugging in the device.  
+
