@@ -508,13 +508,13 @@ void setup() {
       loadCredentials();
     }
 
-    // give chance to fix failed switch code if this is 1st failure (2 seconds)
+    // give chance to fix failed switch code if this is 1st failure 
     if(EEPROM.read(1) == 0){
       EEPROM.update(1, 0x01);
       digitalWrite(RED_PIN, HIGH); 
       digitalWrite(YELLOW_PIN, LOW);
       digitalWrite(GREEN_PIN, LOW);
-      delay(2000);
+      while(1); // stop here
     }
     //EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM too(in case of reset attempt)
 
