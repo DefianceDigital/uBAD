@@ -19,7 +19,7 @@ The recommended configuration tool for both Windows and Linux is Putty. For Wind
   - ### Connecting to Device  
     - Click 'Serial' and enter the port discovered above.  
     ![Screenshot 2025-03-19 105913](https://github.com/user-attachments/assets/8dac606b-72bf-4cc7-b93f-33376bfb7a59)  
-	- Click on 'Terminal' in the left menu and set both 'Line dicipline options' to 'Force on'.  
+	- Click on 'Terminal' in the left menu and set both 'Line discipline options' to 'Force on'.  
     ![Screenshot 2025-03-19 105933](https://github.com/user-attachments/assets/5148e230-bbab-4a22-b536-629500d3a8d6)  
     - Click 'Open' to begin device configuration.
 
