@@ -1,7 +1,8 @@
-# uBAD - universal Boot Authentication Device
+# uBAD - universal Boot Authentication Device  
+example description
 
 ## Configuration Tool  
-The recommended configuration tool for both Windows and Linux is Putty. For Windows, you can download it here. For Linux, you can install it with 'sudo apt install putty'.  
+The recommended configuration tool for both Windows and Linux is Putty. For Windows, you can download it [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). For Linux, you can install it with 'sudo apt install putty'.  
   - ### Finding the Device  
     - <ins>**Using Windows:**</ins>  
 	  - Plug in device
@@ -11,6 +12,7 @@ The recommended configuration tool for both Windows and Linux is Putty. For Wind
 	  - Look for 'COM_number_'. For example, 'COM19'. If you have more than one device listed under ports, unplug the device and look for the new COM number that shows up when you plug it back in.  
 	- <ins>**Using Linux:**</ins>  
 	  - Typically the port will be '/dev/ttyACM0' but use command 'dmesg | grep tty' to find other ACM devices if more than one are plugged in.  
+	  **If nothing prints, unplug the device and plug it back in.**  
   - ### Launching Putty  
     - <ins>**Using Windows:**</ins>  
 	  - Search for and open 'PuTTY'  
@@ -21,7 +23,9 @@ The recommended configuration tool for both Windows and Linux is Putty. For Wind
     ![Screenshot 2025-03-19 105913](https://github.com/user-attachments/assets/8dac606b-72bf-4cc7-b93f-33376bfb7a59)  
 	- Click on 'Terminal' in the left menu and set both 'Line discipline options' to 'Force on'.  
     ![Screenshot 2025-03-19 105933](https://github.com/user-attachments/assets/5148e230-bbab-4a22-b536-629500d3a8d6)  
-    - Click 'Open' to begin device configuration.
+    - Click 'Open' to begin device configuration.  
+	
+	**Note: You can paste data to putty by holding Ctrl key and right clicking in the window.**  
 
 ## Configuration Options  
   ![Screenshot 2025-03-19 110147](https://github.com/user-attachments/assets/25021d27-6db7-416e-9487-c79cfe894516)  
