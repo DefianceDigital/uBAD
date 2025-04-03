@@ -1,6 +1,24 @@
 # uBAD - universal Boot Authentication Device  
 ![IMG_20250402_201810_146](https://github.com/user-attachments/assets/099def0a-8020-4c19-bede-c6c74a7121ba)  
-example description  
+
+uBAD is a cutting-edge security solution designed to safeguard sensitive access credentials with unparalleled protection.
+
+## Features
+- **Automated Boot Authentication**: Seamlessly boots VeraCrypt-encrypted Windows systems for a streamlined and secure login experience.
+- **Versatile Credential Management**: Can be programmed to enter passwords anywhere a USB keyboard is accepted.
+- **Enhanced Password Security**: Supports passwords up to **64 characters**, allowing highly secure, randomized credentials that are virtually impossible to memorize.
+- **Ideal for Organizations**: Helps mitigate the risks of employees reusing or writing down credentials in accessible locations.
+
+## Physical Key & Switch Code Security
+uBAD operates as a **physical key**, equipped with a **switch code safeguard** to ensure access security:
+- Users must enter the switch code correctly on the first attempt.
+- An incorrect entry triggers a **red warning light** and initiates a **five-second countdown**.
+- During this brief window, the user has the opportunity to remove the device.
+- If the device remains inserted beyond five seconds, stored credentials will be **wiped completely**.
+- Alternatively, if a second incorrect switch code is entered, the device itself will be **permanently erased**.
+
+## Security & Authentication Redefined
+uBAD combines **intelligent automation and an innovative fail-safe mechanism** to protect digital access while eliminating the risks of weak password management.    
 
 ## Configuration Tool  
 The recommended configuration tool for both Windows and Linux is Putty. For Windows, you can download it [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). For Linux, you can install it with 'sudo apt install putty'.  
