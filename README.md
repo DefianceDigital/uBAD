@@ -1,7 +1,6 @@
 # uBAD - universal Boot Authentication Device  
+uBAD is a cutting-edge security solution designed to safeguard sensitive access credentials with unparalleled protection.  
 ![IMG_20250402_201810_146](https://github.com/user-attachments/assets/099def0a-8020-4c19-bede-c6c74a7121ba)  
-
-uBAD is a cutting-edge security solution designed to safeguard sensitive access credentials with unparalleled protection.
 
 ## Features
 - **Automated Boot Authentication**: Seamlessly boots VeraCrypt-encrypted Windows systems for a streamlined and secure login experience.
@@ -15,7 +14,7 @@ uBAD operates as a **physical key**, equipped with a **switch code safeguard** t
 - An incorrect entry triggers a **red warning light** and initiates a **five-second countdown**.
 - During this brief window, the user has the opportunity to remove the device.
 - If the device remains inserted beyond five seconds, stored credentials will be **wiped completely**.
-- Alternatively, if a second incorrect switch code is entered, the device itself will be **permanently erased**.
+- Alternatively, if a second incorrect switch code is entered, stored credentials will be **wiped completely**.
 
 ## Security & Authentication Redefined
 uBAD combines **intelligent automation and an innovative fail-safe mechanism** to protect digital access while eliminating the risks of weak password management.    
