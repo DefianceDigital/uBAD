@@ -29,7 +29,7 @@ The recommended configuration tool for both Windows and Linux is Putty. For Wind
 	**Note: You can paste data to putty by holding Ctrl key and right clicking in the window.**  
 
 ## Configuration Options  
-  ![config](https://github.com/user-attachments/assets/cff858a4-f70e-4a70-b03d-b70198162f59)  
+  ![config](https://github.com/user-attachments/assets/a4a8c259-ceff-4ea9-b696-330103f0ebc6)  
   - ### Decryption Modes:
     - <ins>**Automatic VeraCrypt-Windows System Decryption:**</ins> This is primarily what uBAD is designed to do. This option is capable of determining what state the Windows computer is in, and will enter the VeraCrypt password whenever it is on the VeraCrypt boot screen. This feature is especially helpful during updates to the Windows system, as the computer will reboot several times and you don't need to manually enter your password each time it does. This option is only for Windows systems encrypted with VeraCrypt. For encrypted drives, folders, Luks, etc., you must use Manual Decryption Mode.  
     - <ins>**Manual Decryption (Enters Credentials on Plugin):**</ins> Use this mode for Luks encrypted systems or encrypted drives, folders, etc. Credentials will be entered immediately after plugging the device in. Cursor must be in the password box before plugging in device. This mode is not compatible with PIMs unless they are entered prior to plugging in the device.  
