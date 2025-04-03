@@ -24,7 +24,7 @@ uBAD combines **intelligent automation and an innovative fail-safe mechanism** t
 
 
 # How to use
-
+**You must set the switch code prior to configuring the device**  
 ## Configuration Tool  
 The recommended configuration tool for both Windows and Linux is Putty. For Windows, you can download it [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). For Linux, you can install it with 'sudo apt install putty'.  
   - ### Finding the Device  
