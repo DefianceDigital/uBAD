@@ -1,5 +1,6 @@
 # uBAD - universal Boot Authentication Device  
 uBAD is a cutting-edge security solution designed to safeguard sensitive access credentials with unparalleled protection.  
+
 ![IMG_20250402_201810_146](https://github.com/user-attachments/assets/099def0a-8020-4c19-bede-c6c74a7121ba)  
 
 ## Features
@@ -18,6 +19,8 @@ uBAD operates as a **physical key**, equipped with a **switch code safeguard** t
 
 ## Security & Authentication Redefined
 uBAD combines **intelligent automation and an innovative fail-safe mechanism** to protect digital access while eliminating the risks of weak password management.   
+
+
 
 # How to use
 
