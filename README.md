@@ -17,7 +17,9 @@ uBAD operates as a **physical key**, equipped with a **switch code safeguard** t
 - Alternatively, if a second incorrect switch code is entered, stored credentials will be **wiped completely**.
 
 ## Security & Authentication Redefined
-uBAD combines **intelligent automation and an innovative fail-safe mechanism** to protect digital access while eliminating the risks of weak password management.    
+uBAD combines **intelligent automation and an innovative fail-safe mechanism** to protect digital access while eliminating the risks of weak password management.   
+
+# How to use
 
 ## Configuration Tool  
 The recommended configuration tool for both Windows and Linux is Putty. For Windows, you can download it [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). For Linux, you can install it with 'sudo apt install putty'.  
