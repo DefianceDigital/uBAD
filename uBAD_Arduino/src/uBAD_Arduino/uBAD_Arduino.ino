@@ -7,7 +7,7 @@
 volatile uint8_t resetCause = GPIOR0; // bootloader stores MCUSR value in GPIOR0 to preserve it
 
 static bool debug = false; // enable/disable SerialX
-#define productionVersion
+//#define productionVersion
 #ifdef productionVersion
   // use ISP port for UART
   SoftwareSerial SerialX(MISO, MOSI); // RX, TX
@@ -280,7 +280,7 @@ void setCredentials(){
     SerialX.println("Waiting for new credentials");
   }
 
-  Serial.println("Select Encryption Mode:");
+  Serial.println("Select Decryption Mode:");
   Serial.println("--> For Automatic VeraCrypt-Windows System Decryption - Enter 'A'");
   Serial.println("--> For Manual Decryption (Enters Credentials on Plugin) - Enter 'M'");
   Serial.flush();
@@ -321,7 +321,7 @@ void setCredentials(){
   }
 
   if(EEPROM.read(1023) != 0xBB){ // do not allow changes once set to true
-    Serial.println("Permanently Disable Firmware Patches? (Enter 'Y' or 'N')");
+    Serial.println("Permanently Disable Firmware Updates? (Enter 'Y' or 'N')");
     Serial.flush();
     while(hasUpdateChoice == 0){
       if(Serial.available()){
@@ -366,7 +366,7 @@ void setCredentials(){
       hasPass = true;
     }
   }
-  Serial.println("Enter VeraCrypt System PIM (Press '*' if none)");
+  Serial.println("Enter VeraCrypt System PIM (Enter '*' if none)");
   Serial.flush();
   while(1){
     if(Serial.available()){
