@@ -15,7 +15,7 @@ uBAD operates as a **physical key**, equipped with a **switch code safeguard** t
 - Users must enter the switch code correctly on the first attempt.
 - An incorrect entry triggers a **red warning light** and initiates a **five-second countdown**.
 - During this brief window, the user has the opportunity to remove the device.
-- If the device remains inserted beyond five seconds, stored credentials will be **wiped completely**.
+- If the device remains inserted beyond five seconds with an incorrect switch code, stored credentials will be **wiped completely**.
 - Alternatively, if a second incorrect switch code is entered, stored credentials will be **wiped completely**.
 
 ## Security & Authentication Redefined
