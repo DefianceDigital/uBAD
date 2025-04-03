@@ -37,8 +37,7 @@ uBAD combines **intelligent automation and an innovative fail-safe mechanism** t
 	  - Expand 'Ports' section  
 	  - Look for 'COM_number_'. For example, 'COM19'. If you have more than one device listed under ports, unplug the device and look for the new COM number that shows up when you plug it back in.  
 	- <ins>**Using Linux:**</ins>  
-	  - Typically the port will be '/dev/ttyACM0' but use command 'dmesg | grep tty' to find other ACM devices if more than one are plugged in.  
-	  - **If nothing prints, unplug the device, plug it back in and try 'dmesg | grep tty' again.**  
+	  - Typically the port will be '/dev/ttyACM0' but use command 'dmesg | grep tty' after plugging in device and look for the highest ACM number.  
   - ### Launching Putty  
     - <ins>**Using Windows:**</ins>  
 	  - Search for and open 'PuTTY'  
