@@ -22,8 +22,8 @@ uBAD operates as a **physical key**, equipped with a **switch code safeguard** t
 uBAD combines **intelligent automation and an innovative fail-safe mechanism** to protect digital access while eliminating the risks of weak password management.   
 
 --------------------------------------------------------------------------------------------------  
-<div style="font-size:70px; font-weight:bold;">
-    Extra Huge Bold Text
+<div align="center">
+    <strong>Bold and Centered Text</strong>
 </div>
 
 --------------------------------------------------------------------------------------------------  
