@@ -1,5 +1,6 @@
 # uBAD - universal Boot Authentication Device  
-example description
+![IMG_20250402_201810_146](https://github.com/user-attachments/assets/099def0a-8020-4c19-bede-c6c74a7121ba)  
+example description  
 
 ## Configuration Tool  
 The recommended configuration tool for both Windows and Linux is Putty. For Windows, you can download it [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). For Linux, you can install it with 'sudo apt install putty'.  
