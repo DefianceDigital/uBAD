@@ -8,6 +8,7 @@ uBAD is a cutting-edge security solution designed to safeguard sensitive access 
 - **Versatile Credential Management**: Can be programmed to enter passwords anywhere a USB keyboard is accepted.
 - **Enhanced Password Security**: Supports passwords up to **64 characters**, allowing highly secure, randomized credentials that are virtually impossible to memorize.
 - **Ideal for Organizations**: Helps mitigate the risks of employees reusing or writing down credentials in accessible locations.
+- **Switch Code Protected**: The switches can be set in 1024 different combinations and credentials cannot be accessed without knowing that combination.
 
 ## Physical Key & Switch Code Security
 uBAD operates as a **physical key**, equipped with a **switch code safeguard** to ensure access security:
