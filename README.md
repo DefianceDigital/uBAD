@@ -23,7 +23,7 @@ uBAD combines **intelligent automation and an innovative fail-safe mechanism** t
 
 --------------------------------------------------------------------------------------------------  
 <div align="center">
-    <strong>Bold and Centered Text</strong>
+    <strong>How to Setup Device</strong>
 </div>
 
 --------------------------------------------------------------------------------------------------  
