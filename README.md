@@ -22,7 +22,7 @@ uBAD operates as a **physical key**, equipped with a **switch code safeguard** t
 uBAD combines **intelligent automation and an innovative fail-safe mechanism** to protect digital access while eliminating the risks of weak password management.   
 
 --------------------------------------------------------------------------------------------------
-# How to use
+## How to use
 --------------------------------------------------------------------------------------------------
 ## Configuration Tool  
 **You must set the switch code prior to configuring the device.** The recommended configuration tool for both Windows and Linux is Putty. For Windows, you can download it [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). For Linux, you can install it with 'sudo apt install putty'.  
