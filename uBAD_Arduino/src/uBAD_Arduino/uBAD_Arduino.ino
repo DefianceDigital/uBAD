@@ -7,7 +7,7 @@
 volatile uint8_t resetCause = GPIOR0; // bootloader stores MCUSR value in GPIOR0 to preserve it
 
 static bool debug = false; // enable/disable SerialX
-//#define productionVersion
+#define productionVersion
 #ifdef productionVersion
   // use ISP port for UART
   SoftwareSerial SerialX(MISO, MOSI); // RX, TX
@@ -514,7 +514,7 @@ void setup() {
       digitalWrite(RED_PIN, HIGH); 
       digitalWrite(YELLOW_PIN, LOW);
       digitalWrite(GREEN_PIN, LOW);
-      while(1); // stop here
+      delay(5000); // give 5 seconds to recognize incorrect switch code before erasure
     }
     //EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM too(in case of reset attempt)
 
