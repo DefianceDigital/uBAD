@@ -10,9 +10,10 @@ Traditional two-factor authentication (2FA) devices add extra steps to the login
 
 ## Features  
 
-- **Automated Boot Authentication**: Instantly boots **VeraCrypt-encrypted Windows systems** without requiring users to manually enter credentials.  
+- **Automated Boot Authentication**: Instantly boots **VeraCrypt-encrypted Windows systems** without requiring users to manually enter credentials (Therefore, also allowing Bluetooth-only keyboards).  
 - **Universal Password Entry**: Can be **programmed to input passwords anywhere** a USB keyboard is accepted.  
 - **Maximum Security Passwords**: Supports **randomized credentials up to 64 characters**, ensuring **unbreakable security** without the burden of memorization.  
+- **Hardened Against Fault-Injection and Timing Attacks**.  
 - **Eliminates Weak Password Practices**: Protects organizations where frequent password rotations lead to risky behaviors like **password reuse or note-taking**.  
 - **Physical Key Protection**: Credentials are safeguarded by **1024 switch code combinations**, preventing unauthorized access.  
 - **Ultra-Portable Design**: Roughly the size of a standard flash drive and built for keychains, this device is a physical key for an advanced level of digital security.
@@ -23,7 +24,6 @@ uBAD incorporates a **switch code safeguard** to ensure that only authorized use
 
 - The **correct switch code** must be entered **on the first attempt**.  
 - If entered incorrectly, a **red warning light** activates and triggers a **five-second countdown**.  
-- During this brief window, the user has the chance to **remove the device** before it wipes credentials permanently.  
 - If the device **remains inserted beyond five seconds** OR a second incorrect code is entered, all stored credentials are **wiped completely**.  
 
 ## Faster, Smarter Authentication  
@@ -78,7 +78,7 @@ The recommended configuration tool for both Windows and Linux is Putty. For Wind
 ## Configuration Options  
   ![config](https://github.com/user-attachments/assets/a4a8c259-ceff-4ea9-b696-330103f0ebc6)  
 - ### Decryption Modes:
-  - <ins>**Automatic VeraCrypt-Windows System Decryption:**</ins> This is primarily what uBAD was designed to do. This mode seamlessly automates the boot process for VeraCrypt-encrypted Windows systems. When using this feature, credentials will be entered approximately 15 seconds after computer is powered on or rebooted. This feature is especially helpful during updates to the Windows system, as the computer will reboot several times and you don't need to manually enter your password each time it does. This option is only for Windows systems encrypted with VeraCrypt. For encrypted drives, folders, Luks, etc., you must use Manual Decryption Mode.  
+  - <ins>**Automatic VeraCrypt-Windows System Decryption:**</ins> This is primarily what uBAD was designed to do. This mode seamlessly automates the boot process for VeraCrypt-encrypted Windows systems. When using this feature, credentials will be entered approximately 15 seconds after computer is powered on or rebooted. This feature is especially helpful when only a Bluetooth keyboard is available, or during updates to the Windows system, as the computer will reboot several times and you don't need to manually enter your password each time it does. This option is only for Windows systems encrypted with VeraCrypt. For encrypted drives, folders, Luks, etc., you must use Manual Decryption Mode.  
   - <ins>**Manual Decryption (Enters Credentials on Plugin):**</ins> Use this mode for login credentials, Luks encrypted systems, encrypted drives, encrypted folders, etc. Credentials will be entered immediately after plugging the device in. Cursor must be in the password box before plugging in device, as it acts just like a keyboard. This mode is not compatible with PIMs unless they are entered prior to plugging in the device.  
 - ### Permanently Disabling Firmware Updates
     This device has the ability to update it's application firmware by default. This is so that users can verify or modify the way the device functions, or if security vulnerabilities are discovered in the future, they can be patched. Whether choosing to enable or disable this feature, there are risks. If you choose to disable it, the change is permanent. You will never be able to address any future vulnerabilities that may be discovered and will need to replace the device to protect against them. If you leave the update feature enabled, you will be at risk of a 'trojan-horse attack'. While the factory firmware prevents your credentials from being exposed if the switch-code is incorrect, an attacker with physical access to the device could upload malicious code that could bypass all these security features. Your credentials will always be wiped from the device prior to any firmware updates, so the risk here is re-entering credentials into a compromised device that an attacker may be able to access again in the future. If you leave the update feature enabled and find your credentials unexpectedly erased, it is highly recommended that you perform an update with the official source code before re-entering credentials. This will help mitigate any potential trojan-horse attack. Again, disabling firmware updates will prevent this kind of an attack altogether, but you would need to replace the device if any security vulnerabilities are discovered in the future if you want to protect against them.  
@@ -93,3 +93,9 @@ The recommended configuration tool for both Windows and Linux is Putty. For Wind
 </div>
 
 ---  
+uBAD is designed to be fully compatible with the Arduino IDE. This allows users to more easily understand the factory software, as well as modify it to suit their needs (as long as software updates are not disabled).  
+## Adding Board to Arduino IDE  
+  - In Arduino IDE, select 'File', then 'Preferences'.  
+  - In 'Additional board manager URLs', add https://raw.githubusercontent.com/DefianceDigital/uBAD/refs/heads/main/uBAD_Arduino/package_ubad_index.json  
+  - Select 'Tools', then 'Board', then 'Boards Manager'  
+  - Search 'uBAD' and click 'Install'  
