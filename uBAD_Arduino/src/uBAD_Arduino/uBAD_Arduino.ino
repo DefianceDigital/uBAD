@@ -235,6 +235,8 @@ void manualUnlock(){
 
   reValidate(); // fault injection prevention
 
+  delay(250);
+
   printCredentials(password);
 
   reValidate(); // fault injection prevention
@@ -426,12 +428,18 @@ void seedRNG(){ // use entropy to generate random seed
   unsigned int ar1 = analogRead(A4);
   unsigned int ar2 = analogRead(A5);
 
-  unsigned int tr; // future raw internal temperature sensor reading
-  ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3)); // set 1.1v reference and MUX
-  ADCSRA |= _BV(ADEN);  // enable ADC
-  delay(20); // wait for voltages to stabilize
-  while(bit_is_set(ADCSRA, ADSC)); // detect EOC
-  tr = ADCW; // store raw reading
+  // Set reference voltage to internal 2.56V
+  ADMUX = (1 << REFS1) | (1 << REFS0);
+  // Select temperature sensor input channel
+  ADMUX |= (1 << MUX3) | (1 << MUX0);
+  // Enable ADC and set prescaler to 64 for suitable ADC clock
+  ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1);
+  // Start ADC conversion
+  ADCSRA |= (1 << ADSC);
+  // Wait for conversion to complete
+  while (ADCSRA & (1 << ADSC));
+  // Return the ADC value
+  unsigned int tr = ADC; // future raw internal temperature sensor reading
   
   unsigned int seed = ar1 ^ ar2 ^ tr; // combine all 3 entropy sources by XOR mixing
 
