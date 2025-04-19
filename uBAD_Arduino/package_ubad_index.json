@@ -12,12 +12,12 @@
         {
           "name": "uBAD",
           "architecture": "avr",
-          "version": "1.0.3",
+          "version": "1.0.4",
           "category": "Contributed",
-          "url": "https://github.com/DefianceDigital/uBAD/raw/refs/heads/main/uBAD_Arduino/custom_board/uBAD-1.0.3.zip",
-          "archiveFileName": "uBAD-1.0.3.zip",
-		  "checksum": "SHA-256:b9b4d427aeae1c11bacc297f3af673a1bebc391e623d9bee89b0db0b10b60143",
-          "size": "12108",
+          "url": "https://github.com/DefianceDigital/uBAD/raw/refs/heads/main/uBAD_Arduino/custom_board/uBAD-1.0.4.zip",
+          "archiveFileName": "uBAD-1.0.4.zip",
+		  "checksum": "SHA-256:533a92e203d3bbc8bb1e457e296a3bd35fe85b27de6a8e0cb544b3c54fbd68ef",
+          "size": "12043",
           "boards": [
             {
               "name": "uBAD"

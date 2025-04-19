@@ -7,11 +7,12 @@
    7               		.text
    8               	.Ltext0:
    9               		.cfi_sections	.debug_frame
-  10               		.section	.text.Endpoint_ConfigureEndpoint_Prv,"ax",@progbits
-  11               	.global	Endpoint_ConfigureEndpoint_Prv
-  13               	Endpoint_ConfigureEndpoint_Prv:
-  14               	.LFB81:
-  15               		.file 1 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c"
+  10               		.file 1 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c"
+  11               		.section	.text.Endpoint_ConfigureEndpoint_Prv,"ax",@progbits
+  12               	.global	Endpoint_ConfigureEndpoint_Prv
+  14               	Endpoint_ConfigureEndpoint_Prv:
+  15               	.LVL0:
+  16               	.LFB85:
    1:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** /*
    2:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c ****              LUFA Library
    3:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c ****      Copyright (C) Dean Camera, 2011.
@@ -57,16 +58,18 @@
   43:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c ****                                     const uint8_t UECFG0XData,
   44:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c ****                                     const uint8_t UECFG1XData)
   45:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** {
-  16               		.loc 1 45 0
-  17               		.cfi_startproc
-  18               	.LVL0:
+  17               		.loc 1 45 1 view -0
+  18               		.cfi_startproc
   19               	/* prologue: function */
   20               	/* frame size = 0 */
   21               	/* stack size = 0 */
   22               	.L__stack_usage = 0
-  23               	.LBB34:
-  24               	.LBB35:
-  25               		.file 2 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h"
+  46:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** #if defined(CONTROL_ONLY_DEVICE) || defined(ORDERED_EP_CONFIG)
+  47:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	Endpoint_SelectEndpoint(Number);
+  23               		.loc 1 47 2 view .LVU1
+  24               	.LBB34:
+  25               	.LBI34:
+  26               		.file 2 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h"
    1:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** /*
    2:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h ****              LUFA Library
    3:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h ****      Copyright (C) Dean Camera, 2011.
@@ -394,16 +397,22 @@
  325:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			 */
  326:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline void Endpoint_SelectEndpoint(const uint8_t EndpointNumber) ATTR_ALWAYS_INLINE;
  327:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline void Endpoint_SelectEndpoint(const uint8_t EndpointNumber)
+  27               		.loc 2 327 23 view .LVU2
+  28               	.LBB35:
  328:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
  329:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#if !defined(CONTROL_ONLY_DEVICE)
  330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 					UENUM = EndpointNumber;
-  26               		.loc 2 330 0
-  27 0000 8093 E900 		sts 233,r24
-  28               	.LVL1:
-  29               	.LBE35:
-  30               	.LBE34:
-  31               	.LBB36:
-  32               	.LBB37:
+  29               		.loc 2 330 6 view .LVU3
+  30               		.loc 2 330 12 is_stmt 0 view .LVU4
+  31 0000 8093 E900 		sts 233,r24
+  32               	.LVL1:
+  33               		.loc 2 330 12 view .LVU5
+  34               	.LBE35:
+  35               	.LBE34:
+  48:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	Endpoint_EnableEndpoint();
+  36               		.loc 1 48 2 is_stmt 1 view .LVU6
+  37               	.LBB36:
+  38               	.LBI36:
  331:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
  332:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  333:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
@@ -426,35 +435,42 @@
  350:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			 */
  351:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline void Endpoint_EnableEndpoint(void) ATTR_ALWAYS_INLINE;
  352:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline void Endpoint_EnableEndpoint(void)
+  39               		.loc 2 352 23 view .LVU7
+  40               	.LBB37:
  353:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
  354:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				UECONX |= (1 << EPEN);
-  33               		.loc 2 354 0
-  34 0004 EBEE      		ldi r30,lo8(-21)
-  35 0006 F0E0      		ldi r31,0
-  36 0008 8081      		ld r24,Z
-  37               	.LVL2:
-  38 000a 8160      		ori r24,lo8(1)
-  39 000c 8083      		st Z,r24
-  40               	.LVL3:
-  41               	.LBE37:
-  42               	.LBE36:
-  46:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** #if defined(CONTROL_ONLY_DEVICE) || defined(ORDERED_EP_CONFIG)
-  47:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	Endpoint_SelectEndpoint(Number);
-  48:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	Endpoint_EnableEndpoint();
+  41               		.loc 2 354 5 view .LVU8
+  42 0004 EBEE      		ldi r30,lo8(-21)
+  43 0006 F0E0      		ldi r31,0
+  44 0008 8081      		ld r24,Z
+  45               	.LVL2:
+  46               		.loc 2 354 12 is_stmt 0 view .LVU9
+  47 000a 8160      		ori r24,lo8(1)
+  48 000c 8083      		st Z,r24
+  49               	.LVL3:
+  50               		.loc 2 354 12 view .LVU10
+  51               	.LBE37:
+  52               	.LBE36:
   49:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
   50:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	UECFG1X = 0;
-  43               		.loc 1 50 0
-  44 000e EDEE      		ldi r30,lo8(-19)
-  45 0010 F0E0      		ldi r31,0
-  46 0012 1082      		st Z,__zero_reg__
+  53               		.loc 1 50 2 is_stmt 1 view .LVU11
+  54               		.loc 1 50 10 is_stmt 0 view .LVU12
+  55 000e EDEE      		ldi r30,lo8(-19)
+  56 0010 F0E0      		ldi r31,0
+  57 0012 1082      		st Z,__zero_reg__
   51:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	UECFG0X = UECFG0XData;
-  47               		.loc 1 51 0
-  48 0014 6093 EC00 		sts 236,r22
+  58               		.loc 1 51 2 is_stmt 1 view .LVU13
+  59               		.loc 1 51 10 is_stmt 0 view .LVU14
+  60 0014 6093 EC00 		sts 236,r22
   52:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	UECFG1X = UECFG1XData;
-  49               		.loc 1 52 0
-  50 0018 4083      		st Z,r20
-  51               	.LBB38:
-  52               	.LBB39:
+  61               		.loc 1 52 2 is_stmt 1 view .LVU15
+  62               		.loc 1 52 10 is_stmt 0 view .LVU16
+  63 0018 4083      		st Z,r20
+  53:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
+  54:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	return Endpoint_IsConfigured();
+  64               		.loc 1 54 2 is_stmt 1 view .LVU17
+  65               	.LBB38:
+  66               	.LBI38:
  355:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  356:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
  357:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			/** Disables the currently selected endpoint so that data cannot be sent and received through it
@@ -529,14 +545,15 @@
  426:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			 */
  427:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline bool Endpoint_IsConfigured(void) ATTR_WARN_UNUSED_RESULT ATTR_ALWAYS_INLINE;
  428:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline bool Endpoint_IsConfigured(void)
+  67               		.loc 2 428 23 view .LVU18
+  68               	.LBB39:
  429:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
  430:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				return ((UESTA0X & (1 << CFGOK)) ? true : false);
-  53               		.loc 2 430 0
-  54 001a 8091 EE00 		lds r24,238
-  55               	.LBE39:
-  56               	.LBE38:
-  53:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
-  54:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	return Endpoint_IsConfigured();
+  69               		.loc 2 430 5 view .LVU19
+  70               		.loc 2 430 14 is_stmt 0 view .LVU20
+  71 001a 8091 EE00 		lds r24,238
+  72               	.LBE39:
+  73               	.LBE38:
   55:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** #else	
   56:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	for (uint8_t EPNum = Number; EPNum < ENDPOINT_TOTAL_ENDPOINTS; EPNum++)
   57:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
@@ -578,101 +595,129 @@
   93:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	return true;
   94:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** #endif
   95:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** }
-  57               		.loc 1 95 0
-  58 001e 881F      		rol r24
-  59 0020 8827      		clr r24
-  60 0022 881F      		rol r24
-  61 0024 0895      		ret
-  62               		.cfi_endproc
-  63               	.LFE81:
-  65               		.section	.text.Endpoint_ClearEndpoints,"ax",@progbits
-  66               	.global	Endpoint_ClearEndpoints
-  68               	Endpoint_ClearEndpoints:
-  69               	.LFB82:
+  74               		.loc 1 95 1 view .LVU21
+  75 001e 881F      		rol r24
+  76 0020 8827      		clr r24
+  77 0022 881F      		rol r24
+  78               	/* epilogue start */
+  79 0024 0895      		ret
+  80               		.cfi_endproc
+  81               	.LFE85:
+  83               		.section	.text.Endpoint_ClearEndpoints,"ax",@progbits
+  84               	.global	Endpoint_ClearEndpoints
+  86               	Endpoint_ClearEndpoints:
+  87               	.LFB86:
   96:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
   97:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** void Endpoint_ClearEndpoints(void)
   98:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** {
-  70               		.loc 1 98 0
-  71               		.cfi_startproc
-  72               	/* prologue: function */
-  73               	/* frame size = 0 */
-  74               	/* stack size = 0 */
-  75               	.L__stack_usage = 0
+  88               		.loc 1 98 1 is_stmt 1 view -0
+  89               		.cfi_startproc
+  90               	/* prologue: function */
+  91               	/* frame size = 0 */
+  92               	/* stack size = 0 */
+  93               	.L__stack_usage = 0
   99:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	UEINT = 0;
-  76               		.loc 1 99 0
-  77 0000 1092 F400 		sts 244,__zero_reg__
-  78               	.LVL4:
-  79               	.LBB40:
+  94               		.loc 1 99 2 view .LVU23
+  95               		.loc 1 99 8 is_stmt 0 view .LVU24
+  96 0000 1092 F400 		sts 244,__zero_reg__
  100:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
  101:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	for (uint8_t EPNum = 0; EPNum < ENDPOINT_TOTAL_ENDPOINTS; EPNum++)
-  80               		.loc 1 101 0
-  81 0004 80E0      		ldi r24,0
-  82               	.LVL5:
-  83               	.L3:
-  84               	.LBB41:
-  85               	.LBB42:
- 330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
-  86               		.loc 2 330 0
-  87 0006 8093 E900 		sts 233,r24
-  88               	.LVL6:
-  89               	.LBE42:
-  90               	.LBE41:
+  97               		.loc 1 101 2 is_stmt 1 view .LVU25
+  98               	.LBB40:
+  99               		.loc 1 101 7 view .LVU26
+ 100               	.LVL4:
+ 101               		.loc 1 101 32 view .LVU27
+ 102               		.loc 1 101 15 is_stmt 0 view .LVU28
+ 103 0004 80E0      		ldi r24,0
+ 104               	.LVL5:
+ 105               	.L3:
  102:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
  103:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		Endpoint_SelectEndpoint(EPNum);
+ 106               		.loc 1 103 3 is_stmt 1 view .LVU29
+ 107               	.LBB41:
+ 108               	.LBI41:
+ 327:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
+ 109               		.loc 2 327 23 view .LVU30
+ 110               	.LBB42:
+ 330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
+ 111               		.loc 2 330 6 view .LVU31
+ 330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
+ 112               		.loc 2 330 12 is_stmt 0 view .LVU32
+ 113 0006 8093 E900 		sts 233,r24
+ 114               	.LVL6:
+ 330:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
+ 115               		.loc 2 330 12 view .LVU33
+ 116               	.LBE42:
+ 117               	.LBE41:
  104:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		UEIENX  = 0;
-  91               		.loc 1 104 0
-  92 000a 1092 F000 		sts 240,__zero_reg__
+ 118               		.loc 1 104 3 is_stmt 1 view .LVU34
+ 119               		.loc 1 104 11 is_stmt 0 view .LVU35
+ 120 000a 1092 F000 		sts 240,__zero_reg__
  105:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		UEINTX  = 0;
-  93               		.loc 1 105 0
-  94 000e 1092 E800 		sts 232,__zero_reg__
+ 121               		.loc 1 105 3 is_stmt 1 view .LVU36
+ 122               		.loc 1 105 11 is_stmt 0 view .LVU37
+ 123 000e 1092 E800 		sts 232,__zero_reg__
  106:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		UECFG1X = 0;
-  95               		.loc 1 106 0
-  96 0012 1092 ED00 		sts 237,__zero_reg__
-  97               	.LBB43:
-  98               	.LBB44:
- 363:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
-  99               		.loc 2 363 0
- 100 0016 9091 EB00 		lds r25,235
- 101 001a 9E7F      		andi r25,lo8(-2)
- 102 001c 9093 EB00 		sts 235,r25
- 103               	.LBE44:
- 104               	.LBE43:
- 101:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
- 105               		.loc 1 101 0
- 106 0020 8F5F      		subi r24,lo8(-(1))
- 107               	.LVL7:
- 108 0022 8730      		cpi r24,lo8(7)
- 109 0024 01F4      		brne .L3
- 110               	/* epilogue start */
- 111               	.LBE40:
+ 124               		.loc 1 106 3 is_stmt 1 view .LVU38
+ 125               		.loc 1 106 11 is_stmt 0 view .LVU39
+ 126 0012 1092 ED00 		sts 237,__zero_reg__
  107:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		Endpoint_DisableEndpoint();
+ 127               		.loc 1 107 3 is_stmt 1 view .LVU40
+ 128               	.LBB43:
+ 129               	.LBI43:
+ 361:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
+ 130               		.loc 2 361 23 view .LVU41
+ 131               	.LBB44:
+ 363:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 132               		.loc 2 363 5 view .LVU42
+ 363:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 133               		.loc 2 363 12 is_stmt 0 view .LVU43
+ 134 0016 9091 EB00 		lds r25,235
+ 135 001a 9E7F      		andi r25,lo8(-2)
+ 136 001c 9093 EB00 		sts 235,r25
+ 137               	.LBE44:
+ 138               	.LBE43:
+ 101:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
+ 139               		.loc 1 101 65 is_stmt 1 view .LVU44
+ 140 0020 8F5F      		subi r24,lo8(-(1))
+ 141               	.LVL7:
+ 101:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
+ 142               		.loc 1 101 32 view .LVU45
+ 143 0022 8730      		cpi r24,lo8(7)
+ 144 0024 01F4      		brne .L3
+ 145               	/* epilogue start */
+ 146               	.LBE40:
  108:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	}
  109:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** }
- 112               		.loc 1 109 0
- 113 0026 0895      		ret
- 114               		.cfi_endproc
- 115               	.LFE82:
- 117               		.section	.text.Endpoint_ClearStatusStage,"ax",@progbits
- 118               	.global	Endpoint_ClearStatusStage
- 120               	Endpoint_ClearStatusStage:
- 121               	.LFB83:
+ 147               		.loc 1 109 1 is_stmt 0 view .LVU46
+ 148 0026 0895      		ret
+ 149               		.cfi_endproc
+ 150               	.LFE86:
+ 152               		.section	.text.Endpoint_ClearStatusStage,"ax",@progbits
+ 153               	.global	Endpoint_ClearStatusStage
+ 155               	Endpoint_ClearStatusStage:
+ 156               	.LFB87:
  110:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
  111:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** void Endpoint_ClearStatusStage(void)
  112:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** {
- 122               		.loc 1 112 0
- 123               		.cfi_startproc
- 124               	/* prologue: function */
- 125               	/* frame size = 0 */
- 126               	/* stack size = 0 */
- 127               	.L__stack_usage = 0
+ 157               		.loc 1 112 1 is_stmt 1 view -0
+ 158               		.cfi_startproc
+ 159               	/* prologue: function */
+ 160               	/* frame size = 0 */
+ 161               	/* stack size = 0 */
+ 162               	.L__stack_usage = 0
  113:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	if (USB_ControlRequest.bmRequestType & REQDIR_DEVICETOHOST)
- 128               		.loc 1 113 0
- 129 0000 8091 0000 		lds r24,USB_ControlRequest
- 130 0004 87FF      		sbrs r24,7
- 131 0006 00C0      		rjmp .L8
- 132               	.L16:
- 133               	.LBB45:
- 134               	.LBB46:
+ 163               		.loc 1 113 2 view .LVU48
+ 164               		.loc 1 113 5 is_stmt 0 view .LVU49
+ 165 0000 8091 0000 		lds r24,USB_ControlRequest
+ 166 0004 87FF      		sbrs r24,7
+ 167 0006 00C0      		rjmp .L7
+ 168               	.L6:
+ 114:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
+ 115:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		while (!(Endpoint_IsOUTReceived()))
+ 169               		.loc 1 115 10 is_stmt 1 view .LVU50
+ 170               	.LBB45:
+ 171               	.LBI45:
  431:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  432:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
  433:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			/** Returns a mask indicating which INTERRUPT type endpoints have interrupted - i.e. their
@@ -720,27 +765,27 @@
  475:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			 */
  476:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline bool Endpoint_IsOUTReceived(void) ATTR_WARN_UNUSED_RESULT ATTR_ALWAYS_INLINE;
  477:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline bool Endpoint_IsOUTReceived(void)
+ 172               		.loc 2 477 23 view .LVU51
+ 173               	.LBB46:
  478:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
  479:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				return ((UEINTX & (1 << RXOUTI)) ? true : false);
- 135               		.loc 2 479 0
- 136 0008 8091 E800 		lds r24,232
- 137               	.LBE46:
- 138               	.LBE45:
- 114:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
- 115:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		while (!(Endpoint_IsOUTReceived()))
- 139               		.loc 1 115 0
- 140 000c 82FD      		sbrc r24,2
- 141 000e 00C0      		rjmp .L20
+ 174               		.loc 2 479 5 view .LVU52
+ 175               		.loc 2 479 14 is_stmt 0 view .LVU53
+ 176 0008 8091 E800 		lds r24,232
+ 177               	.LBE46:
+ 178               	.LBE45:
+ 179               		.loc 1 115 10 view .LVU54
+ 180 000c 82FF      		sbrs r24,2
+ 181 000e 00C0      		rjmp .L9
  116:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		{
  117:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			if (USB_DeviceState == DEVICE_STATE_Unattached)
- 142               		.loc 1 117 0
- 143 0010 8EB3      		in r24,0x1e
- 144 0012 8111      		cpse r24,__zero_reg__
- 145 0014 00C0      		rjmp .L16
- 146 0016 00C0      		rjmp .L6
- 147               	.L20:
- 148               	.LBB47:
- 149               	.LBB48:
+ 118:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
+ 119:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		}
+ 120:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
+ 121:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		Endpoint_ClearOUT();
+ 182               		.loc 1 121 3 is_stmt 1 view .LVU55
+ 183               	.LBB47:
+ 184               	.LBI47:
  480:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
  481:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
  482:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			/** Determines if the current CONTROL type endpoint has received a SETUP packet.
@@ -790,80 +835,128 @@
  526:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			 */
  527:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline void Endpoint_ClearOUT(void) ATTR_ALWAYS_INLINE;
  528:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline void Endpoint_ClearOUT(void)
+ 185               		.loc 2 528 23 view .LVU56
+ 186               	.LBB48:
  529:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
  530:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#if !defined(CONTROL_ONLY_DEVICE)
  531:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 					UEINTX &= ~((1 << RXOUTI) | (1 << FIFOCON));
- 150               		.loc 2 531 0
- 151 0018 8091 E800 		lds r24,232
- 152 001c 8B77      		andi r24,lo8(123)
- 153 001e 00C0      		rjmp .L19
- 154               	.L11:
- 155               	.LBE48:
- 156               	.LBE47:
- 118:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
- 119:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		}
- 120:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
- 121:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		Endpoint_ClearOUT();
+ 187               		.loc 2 531 6 view .LVU57
+ 188               		.loc 2 531 13 is_stmt 0 view .LVU58
+ 189 0010 8091 E800 		lds r24,232
+ 190 0014 8B77      		andi r24,lo8(123)
+ 191               	.L18:
+ 192               	.LBE48:
+ 193               	.LBE47:
+ 194               	.LBB49:
+ 195               	.LBB50:
+ 516:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
+ 196               		.loc 2 516 13 view .LVU59
+ 197 0016 8093 E800 		sts 232,r24
+ 520:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 
+ 198               		.loc 2 520 4 view .LVU60
+ 199 001a 00C0      		rjmp .L5
+ 200               	.L9:
+ 201               	.LBE50:
+ 202               	.LBE49:
+ 117:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
+ 203               		.loc 1 117 4 is_stmt 1 view .LVU61
+ 117:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
+ 204               		.loc 1 117 8 is_stmt 0 view .LVU62
+ 205 001c 8EB3      		in r24,0x1e
+ 117:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
+ 206               		.loc 1 117 7 view .LVU63
+ 207 001e 8111      		cpse r24,__zero_reg__
+ 208 0020 00C0      		rjmp .L6
+ 209               	.L5:
+ 210               	/* epilogue start */
  122:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	}
  123:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	else
  124:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
  125:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		while (!(Endpoint_IsINReady()))
  126:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		{
  127:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			if (USB_DeviceState == DEVICE_STATE_Unattached)
- 157               		.loc 1 127 0
- 158 0020 8EB3      		in r24,0x1e
- 159 0022 8823      		tst r24
- 160 0024 01F0      		breq .L6
- 161               	.L8:
- 162               	.LBB49:
- 163               	.LBB50:
- 467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 164               		.loc 2 467 0
- 165 0026 8091 E800 		lds r24,232
- 166               	.LBE50:
- 167               	.LBE49:
- 125:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		{
- 168               		.loc 1 125 0
- 169 002a 80FF      		sbrs r24,0
- 170 002c 00C0      		rjmp .L11
- 171               	.LBB51:
- 172               	.LBB52:
- 516:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
- 173               		.loc 2 516 0
- 174 002e 8091 E800 		lds r24,232
- 175 0032 8E77      		andi r24,lo8(126)
- 176               	.L19:
- 177 0034 8093 E800 		sts 232,r24
- 178               	.L6:
- 179 0038 0895      		ret
- 180               	.LBE52:
- 181               	.LBE51:
- 182               		.cfi_endproc
- 183               	.LFE83:
- 185               		.section	.text.Endpoint_WaitUntilReady,"ax",@progbits
- 186               	.global	Endpoint_WaitUntilReady
- 188               	Endpoint_WaitUntilReady:
- 189               	.LFB84:
  128:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
  129:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		}
  130:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
  131:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		Endpoint_ClearIN();
  132:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	}
  133:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** }
+ 211               		.loc 1 133 1 view .LVU64
+ 212 0022 0895      		ret
+ 213               	.L10:
+ 127:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
+ 214               		.loc 1 127 4 is_stmt 1 view .LVU65
+ 127:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
+ 215               		.loc 1 127 8 is_stmt 0 view .LVU66
+ 216 0024 8EB3      		in r24,0x1e
+ 127:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return;
+ 217               		.loc 1 127 7 view .LVU67
+ 218 0026 8115      		cp r24, __zero_reg__
+ 219 0028 01F0      		breq .L5
+ 220               	.L7:
+ 125:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		{
+ 221               		.loc 1 125 10 is_stmt 1 view .LVU68
+ 222               	.LBB52:
+ 223               	.LBI52:
+ 465:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
+ 224               		.loc 2 465 23 view .LVU69
+ 225               	.LBB53:
+ 467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 226               		.loc 2 467 5 view .LVU70
+ 467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 227               		.loc 2 467 14 is_stmt 0 view .LVU71
+ 228 002a 8091 E800 		lds r24,232
+ 229               	.LBE53:
+ 230               	.LBE52:
+ 125:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		{
+ 231               		.loc 1 125 10 view .LVU72
+ 232 002e 80FF      		sbrs r24,0
+ 233 0030 00C0      		rjmp .L10
+ 131:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	}
+ 234               		.loc 1 131 3 is_stmt 1 view .LVU73
+ 235               	.LBB54:
+ 236               	.LBI49:
+ 513:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
+ 237               		.loc 2 513 23 view .LVU74
+ 238               	.LBB51:
+ 516:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
+ 239               		.loc 2 516 6 view .LVU75
+ 516:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
+ 240               		.loc 2 516 13 is_stmt 0 view .LVU76
+ 241 0032 8091 E800 		lds r24,232
+ 242 0036 8E77      		andi r24,lo8(126)
+ 243 0038 00C0      		rjmp .L18
+ 244               	.LBE51:
+ 245               	.LBE54:
+ 246               		.cfi_endproc
+ 247               	.LFE87:
+ 249               		.section	.text.Endpoint_WaitUntilReady,"ax",@progbits
+ 250               	.global	Endpoint_WaitUntilReady
+ 252               	Endpoint_WaitUntilReady:
+ 253               	.LFB88:
  134:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
  135:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** #if !defined(CONTROL_ONLY_DEVICE)
  136:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** uint8_t Endpoint_WaitUntilReady(void)
  137:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** {
- 190               		.loc 1 137 0
- 191               		.cfi_startproc
- 192               	/* prologue: function */
- 193               	/* frame size = 0 */
- 194               	/* stack size = 0 */
- 195               	.L__stack_usage = 0
- 196               	.LVL8:
- 197               	.LBB53:
- 198               	.LBB54:
- 199               		.file 3 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h"
+ 254               		.loc 1 137 1 is_stmt 1 view -0
+ 255               		.cfi_startproc
+ 256               	/* prologue: function */
+ 257               	/* frame size = 0 */
+ 258               	/* stack size = 0 */
+ 259               	.L__stack_usage = 0
+ 138:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	#if (USB_STREAM_TIMEOUT_MS < 0xFF)
+ 139:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	uint8_t  TimeoutMSRem = USB_STREAM_TIMEOUT_MS;
+ 260               		.loc 1 139 2 view .LVU78
+ 261               	.LVL8:
+ 140:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	#else
+ 141:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	uint16_t TimeoutMSRem = USB_STREAM_TIMEOUT_MS;
+ 142:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	#endif
+ 143:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
+ 144:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	uint16_t PreviousFrameNumber = USB_Device_GetFrameNumber();
+ 262               		.loc 1 144 2 view .LVU79
+ 263               	.LBB55:
+ 264               	.LBI55:
+ 265               		.file 3 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h"
    1:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h **** /*
    2:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h ****              LUFA Library
    3:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h ****      Copyright (C) Dean Camera, 2011.
@@ -1019,19 +1112,35 @@
  153:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h **** 			 */
  154:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h **** 			static inline uint16_t USB_Device_GetFrameNumber(void) ATTR_ALWAYS_INLINE ATTR_WARN_UNUSED_RESUL
  155:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h **** 			static inline uint16_t USB_Device_GetFrameNumber(void)
+ 266               		.loc 3 155 27 view .LVU80
+ 267               	.LBB56:
  156:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h **** 			{
  157:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h **** 				return UDFNUM;
- 200               		.loc 3 157 0
- 201 0000 2091 E400 		lds r18,228
- 202 0004 3091 E500 		lds r19,228+1
- 203 0008 95E6      		ldi r25,lo8(101)
- 204               	.LVL9:
- 205               	.L25:
- 206               	.LBE54:
- 207               	.LBE53:
- 208               	.LBB55:
- 209               	.LBB56:
- 210               	.LBB57:
+ 268               		.loc 3 157 5 view .LVU81
+ 269               		.loc 3 157 12 is_stmt 0 view .LVU82
+ 270 0000 2091 E400 		lds r18,228
+ 271 0004 3091 E500 		lds r19,228+1
+ 272               	.LVL9:
+ 273               		.loc 3 157 12 view .LVU83
+ 274 0008 95E6      		ldi r25,lo8(101)
+ 275               	.LVL10:
+ 276               	.L24:
+ 277               		.loc 3 157 12 view .LVU84
+ 278 000a A901      		movw r20,r18
+ 279               	.LVL11:
+ 280               	.L23:
+ 281               		.loc 3 157 12 view .LVU85
+ 282               	.LBE56:
+ 283               	.LBE55:
+ 145:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
+ 146:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	for (;;)
+ 284               		.loc 1 146 2 is_stmt 1 view .LVU86
+ 285               	.LBB57:
+ 147:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
+ 148:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		if (Endpoint_GetEndpointDirection() == ENDPOINT_DIR_IN)
+ 286               		.loc 1 148 3 view .LVU87
+ 287               	.LBB58:
+ 288               	.LBI58:
  532:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#else
  533:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 					UEINTX &= ~(1 << RXOUTI);
  534:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				#endif
@@ -1089,174 +1198,457 @@
  586:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			 */
  587:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline uint8_t Endpoint_GetEndpointDirection(void) ATTR_WARN_UNUSED_RESULT ATTR_ALWAYS_IN
  588:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			static inline uint8_t Endpoint_GetEndpointDirection(void)
+ 289               		.loc 2 588 26 view .LVU88
+ 290               	.LBB59:
  589:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
  590:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 				return (UECFG0X & (1 << EPDIR)) ? ENDPOINT_DIR_IN : ENDPOINT_DIR_OUT;
- 211               		.loc 2 590 0
- 212 000a 4091 EC00 		lds r20,236
- 213 000e 842F      		mov r24,r20
- 214 0010 8170      		andi r24,lo8(1)
- 215 0012 40FF      		sbrs r20,0
- 216 0014 00C0      		rjmp .L36
- 217               	.LBE57:
- 218               	.LBE56:
- 219               	.LBB58:
- 220               	.LBB59:
- 467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 221               		.loc 2 467 0
- 222 0016 8091 E800 		lds r24,232
- 223               	.LBE59:
- 224               	.LBE58:
- 138:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	#if (USB_STREAM_TIMEOUT_MS < 0xFF)
- 139:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	uint8_t  TimeoutMSRem = USB_STREAM_TIMEOUT_MS;
- 140:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	#else
- 141:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	uint16_t TimeoutMSRem = USB_STREAM_TIMEOUT_MS;
- 142:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	#endif
- 143:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
- 144:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	uint16_t PreviousFrameNumber = USB_Device_GetFrameNumber();
- 145:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
- 146:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	for (;;)
- 147:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	{
- 148:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		if (Endpoint_GetEndpointDirection() == ENDPOINT_DIR_IN)
+ 291               		.loc 2 590 5 view .LVU89
+ 292               		.loc 2 590 13 is_stmt 0 view .LVU90
+ 293 000c 8091 EC00 		lds r24,236
+ 294 0010 8170      		andi r24,lo8(1)
+ 295               		.loc 2 590 55 view .LVU91
+ 296 0012 8115      		cp r24, __zero_reg__
+ 297 0014 01F0      		breq .L20
+ 298               	.LBE59:
+ 299               	.LBE58:
  149:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		{
  150:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			if (Endpoint_IsINReady())
- 225               		.loc 1 150 0
- 226 001a 80FD      		sbrc r24,0
- 227 001c 00C0      		rjmp .L37
- 228               	.L27:
+ 300               		.loc 1 150 4 is_stmt 1 view .LVU92
+ 301               	.LBB60:
+ 302               	.LBI60:
+ 465:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
+ 303               		.loc 2 465 23 view .LVU93
+ 304               	.LBB61:
+ 467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 305               		.loc 2 467 5 view .LVU94
+ 467:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 306               		.loc 2 467 14 is_stmt 0 view .LVU95
+ 307 0016 8091 E800 		lds r24,232
+ 308               	.LBE61:
+ 309               	.LBE60:
+ 310               		.loc 1 150 7 view .LVU96
+ 311 001a 80FF      		sbrs r24,0
+ 312 001c 00C0      		rjmp .L22
  151:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return ENDPOINT_READYWAIT_NoError;
+ 313               		.loc 1 151 13 view .LVU97
+ 314 001e 80E0      		ldi r24,0
+ 315 0020 0895      		ret
+ 316               	.L20:
  152:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		}
  153:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		else
  154:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		{
  155:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			if (Endpoint_IsOUTReceived())
+ 317               		.loc 1 155 4 is_stmt 1 view .LVU98
+ 318               	.LBB62:
+ 319               	.LBI62:
+ 477:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
+ 320               		.loc 2 477 23 view .LVU99
+ 321               	.LBB63:
+ 479:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 322               		.loc 2 479 5 view .LVU100
+ 479:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 323               		.loc 2 479 14 is_stmt 0 view .LVU101
+ 324 0022 2091 E800 		lds r18,232
+ 325               	.LBE63:
+ 326               	.LBE62:
+ 327               		.loc 1 155 7 view .LVU102
+ 328 0026 22FD      		sbrc r18,2
+ 329 0028 00C0      		rjmp .L19
+ 330               	.L22:
  156:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return ENDPOINT_READYWAIT_NoError;
  157:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		}
  158:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		
  159:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		uint8_t USB_DeviceState_LCL = USB_DeviceState;
- 229               		.loc 1 159 0
- 230 001e 8EB3      		in r24,0x1e
- 231               	.LVL10:
+ 331               		.loc 1 159 3 is_stmt 1 view .LVU103
+ 332               		.loc 1 159 11 is_stmt 0 view .LVU104
+ 333 002a 8EB3      		in r24,0x1e
+ 334               	.LVL12:
  160:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
  161:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		if (USB_DeviceState_LCL == DEVICE_STATE_Unattached)
- 232               		.loc 1 161 0
- 233 0020 8823      		tst r24
- 234 0022 01F0      		breq .L28
+ 335               		.loc 1 161 3 is_stmt 1 view .LVU105
+ 336               		.loc 1 161 6 is_stmt 0 view .LVU106
+ 337 002c 8115      		cp r24, __zero_reg__
+ 338 002e 01F0      		breq .L26
  162:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		  return ENDPOINT_READYWAIT_DeviceDisconnected;
  163:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		else if (USB_DeviceState_LCL == DEVICE_STATE_Suspended)
- 235               		.loc 1 163 0
- 236 0024 8530      		cpi r24,lo8(5)
- 237 0026 01F0      		breq .L29
- 238               	.LBB60:
- 239               	.LBB61:
- 573:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 240               		.loc 2 573 0
- 241 0028 8091 EB00 		lds r24,235
- 242               	.LVL11:
- 243               	.LBE61:
- 244               	.LBE60:
+ 339               		.loc 1 163 8 is_stmt 1 view .LVU107
+ 340               		.loc 1 163 11 is_stmt 0 view .LVU108
+ 341 0030 8530      		cpi r24,lo8(5)
+ 342 0032 01F0      		breq .L27
  164:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		  return ENDPOINT_READYWAIT_BusSuspended;
  165:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		else if (Endpoint_IsStalled())
- 245               		.loc 1 165 0
- 246 002c 85FD      		sbrc r24,5
- 247 002e 00C0      		rjmp .L30
- 248               	.LBB62:
- 249               	.LBB63:
- 250               		.loc 3 157 0
- 251 0030 4091 E400 		lds r20,228
- 252 0034 5091 E500 		lds r21,228+1
- 253               	.LVL12:
- 254               	.LBE63:
- 255               	.LBE62:
+ 343               		.loc 1 165 8 is_stmt 1 view .LVU109
+ 344               	.LBB64:
+ 345               	.LBI64:
+ 571:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			{
+ 346               		.loc 2 571 23 view .LVU110
+ 347               	.LBB65:
+ 573:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 348               		.loc 2 573 5 view .LVU111
+ 573:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 349               		.loc 2 573 14 is_stmt 0 view .LVU112
+ 350 0034 8091 EB00 		lds r24,235
+ 351               	.LVL13:
+ 573:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
+ 352               		.loc 2 573 14 view .LVU113
+ 353               	.LBE65:
+ 354               	.LBE64:
+ 355               		.loc 1 165 11 view .LVU114
+ 356 0038 85FD      		sbrc r24,5
+ 357 003a 00C0      		rjmp .L28
  166:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		  return ENDPOINT_READYWAIT_EndpointStalled;
  167:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
  168:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		uint16_t CurrentFrameNumber = USB_Device_GetFrameNumber();
+ 358               		.loc 1 168 3 is_stmt 1 view .LVU115
+ 359               	.LBB66:
+ 360               	.LBI66:
+ 155:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../AVR8/Device_AVR8.h **** 			{
+ 361               		.loc 3 155 27 view .LVU116
+ 362               	.LBB67:
+ 363               		.loc 3 157 5 view .LVU117
+ 364               		.loc 3 157 12 is_stmt 0 view .LVU118
+ 365 003c 2091 E400 		lds r18,228
+ 366 0040 3091 E500 		lds r19,228+1
+ 367               	.LVL14:
+ 368               		.loc 3 157 12 view .LVU119
+ 369               	.LBE67:
+ 370               	.LBE66:
  169:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
  170:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		if (CurrentFrameNumber != PreviousFrameNumber)
- 256               		.loc 1 170 0
- 257 0038 2417      		cp r18,r20
- 258 003a 3507      		cpc r19,r21
- 259 003c 01F0      		breq .L25
- 260               	.LVL13:
- 261 003e 9150      		subi r25,lo8(-(-1))
- 262               	.LVL14:
+ 371               		.loc 1 170 3 is_stmt 1 view .LVU120
+ 372               		.loc 1 170 6 is_stmt 0 view .LVU121
+ 373 0044 4217      		cp r20,r18
+ 374 0046 5307      		cpc r21,r19
+ 375 0048 01F0      		breq .L23
  171:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		{
  172:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			PreviousFrameNumber = CurrentFrameNumber;
+ 376               		.loc 1 172 4 is_stmt 1 view .LVU122
+ 377               	.LVL15:
  173:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
  174:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			if (!(TimeoutMSRem--))
- 263               		.loc 1 174 0
- 264 0040 01F0      		breq .L38
- 265               	.LBB65:
- 266               	.LBB64:
- 267               		.loc 3 157 0
- 268 0042 9A01      		movw r18,r20
- 269 0044 00C0      		rjmp .L25
- 270               	.L38:
- 271               	.LBE64:
- 272               	.LBE65:
+ 378               		.loc 1 174 4 view .LVU123
+ 379               		.loc 1 174 7 is_stmt 0 view .LVU124
+ 380 004a 9A95      		dec r25
+ 381               	.LVL16:
+ 382               		.loc 1 174 7 view .LVU125
+ 383 004c 01F4      		brne .L24
  175:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return ENDPOINT_READYWAIT_Timeout;
- 273               		.loc 1 175 0
- 274 0046 84E0      		ldi r24,lo8(4)
- 275 0048 0895      		ret
- 276               	.LVL15:
- 277               	.L28:
+ 384               		.loc 1 175 13 view .LVU126
+ 385 004e 84E0      		ldi r24,lo8(4)
+ 386 0050 0895      		ret
+ 387               	.LVL17:
+ 388               	.L26:
  162:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		else if (USB_DeviceState_LCL == DEVICE_STATE_Suspended)
- 278               		.loc 1 162 0
- 279 004a 82E0      		ldi r24,lo8(2)
- 280               	.LVL16:
- 281 004c 0895      		ret
- 282               	.LVL17:
- 283               	.L29:
+ 389               		.loc 1 162 12 view .LVU127
+ 390 0052 82E0      		ldi r24,lo8(2)
+ 391               	.LVL18:
+ 162:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		else if (USB_DeviceState_LCL == DEVICE_STATE_Suspended)
+ 392               		.loc 1 162 12 view .LVU128
+ 393 0054 0895      		ret
+ 394               	.LVL19:
+ 395               	.L27:
  164:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		else if (Endpoint_IsStalled())
- 284               		.loc 1 164 0
- 285 004e 83E0      		ldi r24,lo8(3)
- 286               	.LVL18:
- 287 0050 0895      		ret
- 288               	.L30:
+ 396               		.loc 1 164 12 view .LVU129
+ 397 0056 83E0      		ldi r24,lo8(3)
+ 398               	.LVL20:
+ 164:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		else if (Endpoint_IsStalled())
+ 399               		.loc 1 164 12 view .LVU130
+ 400 0058 0895      		ret
+ 401               	.L28:
  166:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
- 289               		.loc 1 166 0
- 290 0052 81E0      		ldi r24,lo8(1)
- 291 0054 0895      		ret
- 292               	.L37:
- 151:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		}
- 293               		.loc 1 151 0
- 294 0056 80E0      		ldi r24,0
- 295 0058 0895      		ret
- 296               	.L36:
- 297               	.LBB66:
- 298               	.LBB67:
- 479:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/Endpoint_AVR8.h **** 			}
- 299               		.loc 2 479 0
- 300 005a 4091 E800 		lds r20,232
- 301               	.LBE67:
- 302               	.LBE66:
- 155:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 			  return ENDPOINT_READYWAIT_NoError;
- 303               		.loc 1 155 0
- 304 005e 42FF      		sbrs r20,2
- 305 0060 00C0      		rjmp .L27
- 306               	.LBE55:
+ 402               		.loc 1 166 12 view .LVU131
+ 403 005a 81E0      		ldi r24,lo8(1)
+ 404               	.LVL21:
+ 405               	.L19:
+ 406               	/* epilogue start */
+ 166:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 
+ 407               		.loc 1 166 12 view .LVU132
+ 408               	.LBE57:
  176:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 		}
  177:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** 	}
  178:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.c **** }
- 307               		.loc 1 178 0
- 308 0062 0895      		ret
- 309               		.cfi_endproc
- 310               	.LFE84:
- 312               		.text
- 313               	.Letext0:
- 314               		.file 4 "/usr/lib/avr/include/stdint.h"
- 315               		.file 5 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../StdRequestType.h"
- 316               		.file 6 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../Device.h"
- 317               		.file 7 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../USBTask.h"
+ 409               		.loc 1 178 1 view .LVU133
+ 410 005c 0895      		ret
+ 411               		.cfi_endproc
+ 412               	.LFE88:
+ 414               		.text
+ 415               	.Letext0:
+ 416               		.file 4 "/usr/avr/sys-root/include/stdint.h"
+ 417               		.file 5 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../StdRequestType.h"
+ 418               		.file 6 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/../Device.h"
+ 419               		.file 7 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../USBTask.h"
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 Endpoint_AVR8.c
-     /tmp/ccaRL4ru.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccaRL4ru.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccaRL4ru.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccaRL4ru.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccaRL4ru.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccaRL4ru.s:13     .text.Endpoint_ConfigureEndpoint_Prv:0000000000000000 Endpoint_ConfigureEndpoint_Prv
-     /tmp/ccaRL4ru.s:68     .text.Endpoint_ClearEndpoints:0000000000000000 Endpoint_ClearEndpoints
-     /tmp/ccaRL4ru.s:120    .text.Endpoint_ClearStatusStage:0000000000000000 Endpoint_ClearStatusStage
-     /tmp/ccaRL4ru.s:188    .text.Endpoint_WaitUntilReady:0000000000000000 Endpoint_WaitUntilReady
+                            *ABS*:00000000 Endpoint_AVR8.c
+     /tmp/ccoaS1I0.s:2      *ABS*:0000003e __SP_H__
+     /tmp/ccoaS1I0.s:3      *ABS*:0000003d __SP_L__
+     /tmp/ccoaS1I0.s:4      *ABS*:0000003f __SREG__
+     /tmp/ccoaS1I0.s:5      *ABS*:00000000 __tmp_reg__
+     /tmp/ccoaS1I0.s:6      *ABS*:00000001 __zero_reg__
+     /tmp/ccoaS1I0.s:14     .text.Endpoint_ConfigureEndpoint_Prv:00000000 Endpoint_ConfigureEndpoint_Prv
+     /tmp/ccoaS1I0.s:17     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .Loc.0
+     /tmp/ccoaS1I0.s:18     .text.Endpoint_ConfigureEndpoint_Prv:00000000 L0
+     /tmp/ccoaS1I0.s:23     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .Loc.1
+     /tmp/ccoaS1I0.s:27     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .Loc.2
+     /tmp/ccoaS1I0.s:29     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .Loc.3
+     /tmp/ccoaS1I0.s:30     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .Loc.4
+     /tmp/ccoaS1I0.s:33     .text.Endpoint_ConfigureEndpoint_Prv:00000004 .Loc.5
+     /tmp/ccoaS1I0.s:36     .text.Endpoint_ConfigureEndpoint_Prv:00000004 .Loc.6
+     /tmp/ccoaS1I0.s:39     .text.Endpoint_ConfigureEndpoint_Prv:00000004 .Loc.7
+     /tmp/ccoaS1I0.s:41     .text.Endpoint_ConfigureEndpoint_Prv:00000004 .Loc.8
+     /tmp/ccoaS1I0.s:46     .text.Endpoint_ConfigureEndpoint_Prv:0000000a .Loc.9
+     /tmp/ccoaS1I0.s:50     .text.Endpoint_ConfigureEndpoint_Prv:0000000e .Loc.10
+     /tmp/ccoaS1I0.s:53     .text.Endpoint_ConfigureEndpoint_Prv:0000000e .Loc.11
+     /tmp/ccoaS1I0.s:54     .text.Endpoint_ConfigureEndpoint_Prv:0000000e .Loc.12
+     /tmp/ccoaS1I0.s:58     .text.Endpoint_ConfigureEndpoint_Prv:00000014 .Loc.13
+     /tmp/ccoaS1I0.s:59     .text.Endpoint_ConfigureEndpoint_Prv:00000014 .Loc.14
+     /tmp/ccoaS1I0.s:61     .text.Endpoint_ConfigureEndpoint_Prv:00000018 .Loc.15
+     /tmp/ccoaS1I0.s:62     .text.Endpoint_ConfigureEndpoint_Prv:00000018 .Loc.16
+     /tmp/ccoaS1I0.s:64     .text.Endpoint_ConfigureEndpoint_Prv:0000001a .Loc.17
+     /tmp/ccoaS1I0.s:67     .text.Endpoint_ConfigureEndpoint_Prv:0000001a .Loc.18
+     /tmp/ccoaS1I0.s:69     .text.Endpoint_ConfigureEndpoint_Prv:0000001a .Loc.19
+     /tmp/ccoaS1I0.s:70     .text.Endpoint_ConfigureEndpoint_Prv:0000001a .Loc.20
+     /tmp/ccoaS1I0.s:74     .text.Endpoint_ConfigureEndpoint_Prv:0000001e .Loc.21
+     /tmp/ccoaS1I0.s:80     .text.Endpoint_ConfigureEndpoint_Prv:00000026 L0
+     /tmp/ccoaS1I0.s:86     .text.Endpoint_ClearEndpoints:00000000 Endpoint_ClearEndpoints
+     /tmp/ccoaS1I0.s:88     .text.Endpoint_ClearEndpoints:00000000 .Loc.22
+     /tmp/ccoaS1I0.s:89     .text.Endpoint_ClearEndpoints:00000000 L0
+     /tmp/ccoaS1I0.s:94     .text.Endpoint_ClearEndpoints:00000000 .Loc.23
+     /tmp/ccoaS1I0.s:95     .text.Endpoint_ClearEndpoints:00000000 .Loc.24
+     /tmp/ccoaS1I0.s:97     .text.Endpoint_ClearEndpoints:00000004 .Loc.25
+     /tmp/ccoaS1I0.s:99     .text.Endpoint_ClearEndpoints:00000004 .Loc.26
+     /tmp/ccoaS1I0.s:101    .text.Endpoint_ClearEndpoints:00000004 .Loc.27
+     /tmp/ccoaS1I0.s:102    .text.Endpoint_ClearEndpoints:00000004 .Loc.28
+     /tmp/ccoaS1I0.s:106    .text.Endpoint_ClearEndpoints:00000006 .Loc.29
+     /tmp/ccoaS1I0.s:109    .text.Endpoint_ClearEndpoints:00000006 .Loc.30
+     /tmp/ccoaS1I0.s:111    .text.Endpoint_ClearEndpoints:00000006 .Loc.31
+     /tmp/ccoaS1I0.s:112    .text.Endpoint_ClearEndpoints:00000006 .Loc.32
+     /tmp/ccoaS1I0.s:115    .text.Endpoint_ClearEndpoints:0000000a .Loc.33
+     /tmp/ccoaS1I0.s:118    .text.Endpoint_ClearEndpoints:0000000a .Loc.34
+     /tmp/ccoaS1I0.s:119    .text.Endpoint_ClearEndpoints:0000000a .Loc.35
+     /tmp/ccoaS1I0.s:121    .text.Endpoint_ClearEndpoints:0000000e .Loc.36
+     /tmp/ccoaS1I0.s:122    .text.Endpoint_ClearEndpoints:0000000e .Loc.37
+     /tmp/ccoaS1I0.s:124    .text.Endpoint_ClearEndpoints:00000012 .Loc.38
+     /tmp/ccoaS1I0.s:125    .text.Endpoint_ClearEndpoints:00000012 .Loc.39
+     /tmp/ccoaS1I0.s:127    .text.Endpoint_ClearEndpoints:00000016 .Loc.40
+     /tmp/ccoaS1I0.s:130    .text.Endpoint_ClearEndpoints:00000016 .Loc.41
+     /tmp/ccoaS1I0.s:132    .text.Endpoint_ClearEndpoints:00000016 .Loc.42
+     /tmp/ccoaS1I0.s:133    .text.Endpoint_ClearEndpoints:00000016 .Loc.43
+     /tmp/ccoaS1I0.s:139    .text.Endpoint_ClearEndpoints:00000020 .Loc.44
+     /tmp/ccoaS1I0.s:142    .text.Endpoint_ClearEndpoints:00000022 .Loc.45
+     /tmp/ccoaS1I0.s:147    .text.Endpoint_ClearEndpoints:00000026 .Loc.46
+     /tmp/ccoaS1I0.s:149    .text.Endpoint_ClearEndpoints:00000028 L0
+     /tmp/ccoaS1I0.s:155    .text.Endpoint_ClearStatusStage:00000000 Endpoint_ClearStatusStage
+     /tmp/ccoaS1I0.s:157    .text.Endpoint_ClearStatusStage:00000000 .Loc.47
+     /tmp/ccoaS1I0.s:158    .text.Endpoint_ClearStatusStage:00000000 L0
+     /tmp/ccoaS1I0.s:163    .text.Endpoint_ClearStatusStage:00000000 .Loc.48
+     /tmp/ccoaS1I0.s:164    .text.Endpoint_ClearStatusStage:00000000 .Loc.49
+     /tmp/ccoaS1I0.s:169    .text.Endpoint_ClearStatusStage:00000008 .Loc.50
+     /tmp/ccoaS1I0.s:172    .text.Endpoint_ClearStatusStage:00000008 .Loc.51
+     /tmp/ccoaS1I0.s:174    .text.Endpoint_ClearStatusStage:00000008 .Loc.52
+     /tmp/ccoaS1I0.s:175    .text.Endpoint_ClearStatusStage:00000008 .Loc.53
+     /tmp/ccoaS1I0.s:179    .text.Endpoint_ClearStatusStage:0000000c .Loc.54
+     /tmp/ccoaS1I0.s:182    .text.Endpoint_ClearStatusStage:00000010 .Loc.55
+     /tmp/ccoaS1I0.s:185    .text.Endpoint_ClearStatusStage:00000010 .Loc.56
+     /tmp/ccoaS1I0.s:187    .text.Endpoint_ClearStatusStage:00000010 .Loc.57
+     /tmp/ccoaS1I0.s:188    .text.Endpoint_ClearStatusStage:00000010 .Loc.58
+     /tmp/ccoaS1I0.s:196    .text.Endpoint_ClearStatusStage:00000016 .Loc.59
+     /tmp/ccoaS1I0.s:198    .text.Endpoint_ClearStatusStage:0000001a .Loc.60
+     /tmp/ccoaS1I0.s:203    .text.Endpoint_ClearStatusStage:0000001c .Loc.61
+     /tmp/ccoaS1I0.s:204    .text.Endpoint_ClearStatusStage:0000001c .Loc.62
+     /tmp/ccoaS1I0.s:206    .text.Endpoint_ClearStatusStage:0000001e .Loc.63
+     /tmp/ccoaS1I0.s:211    .text.Endpoint_ClearStatusStage:00000022 .Loc.64
+     /tmp/ccoaS1I0.s:214    .text.Endpoint_ClearStatusStage:00000024 .Loc.65
+     /tmp/ccoaS1I0.s:215    .text.Endpoint_ClearStatusStage:00000024 .Loc.66
+     /tmp/ccoaS1I0.s:217    .text.Endpoint_ClearStatusStage:00000026 .Loc.67
+     /tmp/ccoaS1I0.s:221    .text.Endpoint_ClearStatusStage:0000002a .Loc.68
+     /tmp/ccoaS1I0.s:224    .text.Endpoint_ClearStatusStage:0000002a .Loc.69
+     /tmp/ccoaS1I0.s:226    .text.Endpoint_ClearStatusStage:0000002a .Loc.70
+     /tmp/ccoaS1I0.s:227    .text.Endpoint_ClearStatusStage:0000002a .Loc.71
+     /tmp/ccoaS1I0.s:231    .text.Endpoint_ClearStatusStage:0000002e .Loc.72
+     /tmp/ccoaS1I0.s:234    .text.Endpoint_ClearStatusStage:00000032 .Loc.73
+     /tmp/ccoaS1I0.s:237    .text.Endpoint_ClearStatusStage:00000032 .Loc.74
+     /tmp/ccoaS1I0.s:239    .text.Endpoint_ClearStatusStage:00000032 .Loc.75
+     /tmp/ccoaS1I0.s:240    .text.Endpoint_ClearStatusStage:00000032 .Loc.76
+     /tmp/ccoaS1I0.s:246    .text.Endpoint_ClearStatusStage:0000003a L0
+     /tmp/ccoaS1I0.s:252    .text.Endpoint_WaitUntilReady:00000000 Endpoint_WaitUntilReady
+     /tmp/ccoaS1I0.s:254    .text.Endpoint_WaitUntilReady:00000000 .Loc.77
+     /tmp/ccoaS1I0.s:255    .text.Endpoint_WaitUntilReady:00000000 L0
+     /tmp/ccoaS1I0.s:260    .text.Endpoint_WaitUntilReady:00000000 .Loc.78
+     /tmp/ccoaS1I0.s:262    .text.Endpoint_WaitUntilReady:00000000 .Loc.79
+     /tmp/ccoaS1I0.s:266    .text.Endpoint_WaitUntilReady:00000000 .Loc.80
+     /tmp/ccoaS1I0.s:268    .text.Endpoint_WaitUntilReady:00000000 .Loc.81
+     /tmp/ccoaS1I0.s:269    .text.Endpoint_WaitUntilReady:00000000 .Loc.82
+     /tmp/ccoaS1I0.s:273    .text.Endpoint_WaitUntilReady:00000008 .Loc.83
+     /tmp/ccoaS1I0.s:277    .text.Endpoint_WaitUntilReady:0000000a .Loc.84
+     /tmp/ccoaS1I0.s:281    .text.Endpoint_WaitUntilReady:0000000c .Loc.85
+     /tmp/ccoaS1I0.s:284    .text.Endpoint_WaitUntilReady:0000000c .Loc.86
+     /tmp/ccoaS1I0.s:286    .text.Endpoint_WaitUntilReady:0000000c .Loc.87
+     /tmp/ccoaS1I0.s:289    .text.Endpoint_WaitUntilReady:0000000c .Loc.88
+     /tmp/ccoaS1I0.s:291    .text.Endpoint_WaitUntilReady:0000000c .Loc.89
+     /tmp/ccoaS1I0.s:292    .text.Endpoint_WaitUntilReady:0000000c .Loc.90
+     /tmp/ccoaS1I0.s:295    .text.Endpoint_WaitUntilReady:00000012 .Loc.91
+     /tmp/ccoaS1I0.s:300    .text.Endpoint_WaitUntilReady:00000016 .Loc.92
+     /tmp/ccoaS1I0.s:303    .text.Endpoint_WaitUntilReady:00000016 .Loc.93
+     /tmp/ccoaS1I0.s:305    .text.Endpoint_WaitUntilReady:00000016 .Loc.94
+     /tmp/ccoaS1I0.s:306    .text.Endpoint_WaitUntilReady:00000016 .Loc.95
+     /tmp/ccoaS1I0.s:310    .text.Endpoint_WaitUntilReady:0000001a .Loc.96
+     /tmp/ccoaS1I0.s:313    .text.Endpoint_WaitUntilReady:0000001e .Loc.97
+     /tmp/ccoaS1I0.s:317    .text.Endpoint_WaitUntilReady:00000022 .Loc.98
+     /tmp/ccoaS1I0.s:320    .text.Endpoint_WaitUntilReady:00000022 .Loc.99
+     /tmp/ccoaS1I0.s:322    .text.Endpoint_WaitUntilReady:00000022 .Loc.100
+     /tmp/ccoaS1I0.s:323    .text.Endpoint_WaitUntilReady:00000022 .Loc.101
+     /tmp/ccoaS1I0.s:327    .text.Endpoint_WaitUntilReady:00000026 .Loc.102
+     /tmp/ccoaS1I0.s:331    .text.Endpoint_WaitUntilReady:0000002a .Loc.103
+     /tmp/ccoaS1I0.s:332    .text.Endpoint_WaitUntilReady:0000002a .Loc.104
+     /tmp/ccoaS1I0.s:335    .text.Endpoint_WaitUntilReady:0000002c .Loc.105
+     /tmp/ccoaS1I0.s:336    .text.Endpoint_WaitUntilReady:0000002c .Loc.106
+     /tmp/ccoaS1I0.s:339    .text.Endpoint_WaitUntilReady:00000030 .Loc.107
+     /tmp/ccoaS1I0.s:340    .text.Endpoint_WaitUntilReady:00000030 .Loc.108
+     /tmp/ccoaS1I0.s:343    .text.Endpoint_WaitUntilReady:00000034 .Loc.109
+     /tmp/ccoaS1I0.s:346    .text.Endpoint_WaitUntilReady:00000034 .Loc.110
+     /tmp/ccoaS1I0.s:348    .text.Endpoint_WaitUntilReady:00000034 .Loc.111
+     /tmp/ccoaS1I0.s:349    .text.Endpoint_WaitUntilReady:00000034 .Loc.112
+     /tmp/ccoaS1I0.s:352    .text.Endpoint_WaitUntilReady:00000038 .Loc.113
+     /tmp/ccoaS1I0.s:355    .text.Endpoint_WaitUntilReady:00000038 .Loc.114
+     /tmp/ccoaS1I0.s:358    .text.Endpoint_WaitUntilReady:0000003c .Loc.115
+     /tmp/ccoaS1I0.s:361    .text.Endpoint_WaitUntilReady:0000003c .Loc.116
+     /tmp/ccoaS1I0.s:363    .text.Endpoint_WaitUntilReady:0000003c .Loc.117
+     /tmp/ccoaS1I0.s:364    .text.Endpoint_WaitUntilReady:0000003c .Loc.118
+     /tmp/ccoaS1I0.s:368    .text.Endpoint_WaitUntilReady:00000044 .Loc.119
+     /tmp/ccoaS1I0.s:371    .text.Endpoint_WaitUntilReady:00000044 .Loc.120
+     /tmp/ccoaS1I0.s:372    .text.Endpoint_WaitUntilReady:00000044 .Loc.121
+     /tmp/ccoaS1I0.s:376    .text.Endpoint_WaitUntilReady:0000004a .Loc.122
+     /tmp/ccoaS1I0.s:378    .text.Endpoint_WaitUntilReady:0000004a .Loc.123
+     /tmp/ccoaS1I0.s:379    .text.Endpoint_WaitUntilReady:0000004a .Loc.124
+     /tmp/ccoaS1I0.s:382    .text.Endpoint_WaitUntilReady:0000004c .Loc.125
+     /tmp/ccoaS1I0.s:384    .text.Endpoint_WaitUntilReady:0000004e .Loc.126
+     /tmp/ccoaS1I0.s:389    .text.Endpoint_WaitUntilReady:00000052 .Loc.127
+     /tmp/ccoaS1I0.s:392    .text.Endpoint_WaitUntilReady:00000054 .Loc.128
+     /tmp/ccoaS1I0.s:396    .text.Endpoint_WaitUntilReady:00000056 .Loc.129
+     /tmp/ccoaS1I0.s:399    .text.Endpoint_WaitUntilReady:00000058 .Loc.130
+     /tmp/ccoaS1I0.s:402    .text.Endpoint_WaitUntilReady:0000005a .Loc.131
+     /tmp/ccoaS1I0.s:407    .text.Endpoint_WaitUntilReady:0000005c .Loc.132
+     /tmp/ccoaS1I0.s:409    .text.Endpoint_WaitUntilReady:0000005c .Loc.133
+     /tmp/ccoaS1I0.s:411    .text.Endpoint_WaitUntilReady:0000005e L0
+     /tmp/ccoaS1I0.s:83     .text.Endpoint_ConfigureEndpoint_Prv:00000026 L0
+     /tmp/ccoaS1I0.s:152    .text.Endpoint_ClearEndpoints:00000028 L0
+     /tmp/ccoaS1I0.s:249    .text.Endpoint_ClearStatusStage:0000003a L0
+     /tmp/ccoaS1I0.s:414    .text.Endpoint_WaitUntilReady:0000005e L0
+                     .debug_frame:00000000 L0
+     /tmp/ccoaS1I0.s:105    .text.Endpoint_ClearEndpoints:00000006 .L3
+     /tmp/ccoaS1I0.s:220    .text.Endpoint_ClearStatusStage:0000002a .L7
+     /tmp/ccoaS1I0.s:200    .text.Endpoint_ClearStatusStage:0000001c .L9
+     /tmp/ccoaS1I0.s:209    .text.Endpoint_ClearStatusStage:00000022 .L5
+     /tmp/ccoaS1I0.s:168    .text.Endpoint_ClearStatusStage:00000008 .L6
+     /tmp/ccoaS1I0.s:213    .text.Endpoint_ClearStatusStage:00000024 .L10
+     /tmp/ccoaS1I0.s:191    .text.Endpoint_ClearStatusStage:00000016 .L18
+     /tmp/ccoaS1I0.s:316    .text.Endpoint_WaitUntilReady:00000022 .L20
+     /tmp/ccoaS1I0.s:330    .text.Endpoint_WaitUntilReady:0000002a .L22
+     /tmp/ccoaS1I0.s:405    .text.Endpoint_WaitUntilReady:0000005c .L19
+     /tmp/ccoaS1I0.s:388    .text.Endpoint_WaitUntilReady:00000052 .L26
+     /tmp/ccoaS1I0.s:395    .text.Endpoint_WaitUntilReady:00000056 .L27
+     /tmp/ccoaS1I0.s:401    .text.Endpoint_WaitUntilReady:0000005a .L28
+     /tmp/ccoaS1I0.s:280    .text.Endpoint_WaitUntilReady:0000000c .L23
+     /tmp/ccoaS1I0.s:276    .text.Endpoint_WaitUntilReady:0000000a .L24
+     /tmp/ccoaS1I0.s:982    .debug_abbrev:00000000 .Ldebug_abbrev0
+     /tmp/ccoaS1I0.s:1629   .debug_ranges:00000000 .Ldebug_ranges0
+     /tmp/ccoaS1I0.s:1647   .debug_line:00000000 .Ldebug_line0
+     /tmp/ccoaS1I0.s:253    .text.Endpoint_WaitUntilReady:00000000 .LFB88
+     /tmp/ccoaS1I0.s:412    .text.Endpoint_WaitUntilReady:0000005e .LFE88
+     /tmp/ccoaS1I0.s:1435   .debug_loc:00000008 .LLST4
+     /tmp/ccoaS1I0.s:1426   .debug_loc:00000000 .LVUS4
+     /tmp/ccoaS1I0.s:1471   .debug_loc:0000004c .LLST5
+     /tmp/ccoaS1I0.s:1462   .debug_loc:00000044 .LVUS5
+     /tmp/ccoaS1I0.s:285    .text.Endpoint_WaitUntilReady:0000000c .LBB57
+     /tmp/ccoaS1I0.s:408    .text.Endpoint_WaitUntilReady:0000005c .LBE57
+     /tmp/ccoaS1I0.s:1517   .debug_loc:0000009a .LLST6
+     /tmp/ccoaS1I0.s:1510   .debug_loc:00000094 .LVUS6
+     /tmp/ccoaS1I0.s:1535   .debug_loc:000000c5 .LLST7
+     /tmp/ccoaS1I0.s:1532   .debug_loc:000000c3 .LVUS7
+     /tmp/ccoaS1I0.s:288    .text.Endpoint_WaitUntilReady:0000000c .LBI58
+     /tmp/ccoaS1I0.s:287    .text.Endpoint_WaitUntilReady:0000000c .LBB58
+     /tmp/ccoaS1I0.s:299    .text.Endpoint_WaitUntilReady:00000016 .LBE58
+     /tmp/ccoaS1I0.s:302    .text.Endpoint_WaitUntilReady:00000016 .LBI60
+     /tmp/ccoaS1I0.s:301    .text.Endpoint_WaitUntilReady:00000016 .LBB60
+     /tmp/ccoaS1I0.s:309    .text.Endpoint_WaitUntilReady:0000001a .LBE60
+     /tmp/ccoaS1I0.s:319    .text.Endpoint_WaitUntilReady:00000022 .LBI62
+     /tmp/ccoaS1I0.s:318    .text.Endpoint_WaitUntilReady:00000022 .LBB62
+     /tmp/ccoaS1I0.s:326    .text.Endpoint_WaitUntilReady:00000026 .LBE62
+     /tmp/ccoaS1I0.s:345    .text.Endpoint_WaitUntilReady:00000034 .LBI64
+     /tmp/ccoaS1I0.s:344    .text.Endpoint_WaitUntilReady:00000034 .LBB64
+     /tmp/ccoaS1I0.s:354    .text.Endpoint_WaitUntilReady:00000038 .LBE64
+     /tmp/ccoaS1I0.s:360    .text.Endpoint_WaitUntilReady:0000003c .LBI66
+     /tmp/ccoaS1I0.s:359    .text.Endpoint_WaitUntilReady:0000003c .LBB66
+     /tmp/ccoaS1I0.s:370    .text.Endpoint_WaitUntilReady:00000044 .LBE66
+     /tmp/ccoaS1I0.s:264    .text.Endpoint_WaitUntilReady:00000000 .LBI55
+     /tmp/ccoaS1I0.s:263    .text.Endpoint_WaitUntilReady:00000000 .LBB55
+     /tmp/ccoaS1I0.s:283    .text.Endpoint_WaitUntilReady:0000000c .LBE55
+     /tmp/ccoaS1I0.s:156    .text.Endpoint_ClearStatusStage:00000000 .LFB87
+     /tmp/ccoaS1I0.s:247    .text.Endpoint_ClearStatusStage:0000003a .LFE87
+     /tmp/ccoaS1I0.s:171    .text.Endpoint_ClearStatusStage:00000008 .LBI45
+     /tmp/ccoaS1I0.s:170    .text.Endpoint_ClearStatusStage:00000008 .LBB45
+     /tmp/ccoaS1I0.s:178    .text.Endpoint_ClearStatusStage:0000000c .LBE45
+     /tmp/ccoaS1I0.s:184    .text.Endpoint_ClearStatusStage:00000010 .LBI47
+     /tmp/ccoaS1I0.s:183    .text.Endpoint_ClearStatusStage:00000010 .LBB47
+     /tmp/ccoaS1I0.s:193    .text.Endpoint_ClearStatusStage:00000016 .LBE47
+     /tmp/ccoaS1I0.s:236    .text.Endpoint_ClearStatusStage:00000032 .LBI49
+     /tmp/ccoaS1I0.s:223    .text.Endpoint_ClearStatusStage:0000002a .LBI52
+     /tmp/ccoaS1I0.s:222    .text.Endpoint_ClearStatusStage:0000002a .LBB52
+     /tmp/ccoaS1I0.s:230    .text.Endpoint_ClearStatusStage:0000002e .LBE52
+     /tmp/ccoaS1I0.s:87     .text.Endpoint_ClearEndpoints:00000000 .LFB86
+     /tmp/ccoaS1I0.s:150    .text.Endpoint_ClearEndpoints:00000028 .LFE86
+     /tmp/ccoaS1I0.s:98     .text.Endpoint_ClearEndpoints:00000004 .LBB40
+     /tmp/ccoaS1I0.s:146    .text.Endpoint_ClearEndpoints:00000026 .LBE40
+     /tmp/ccoaS1I0.s:1552   .debug_loc:000000e1 .LLST2
+     /tmp/ccoaS1I0.s:1547   .debug_loc:000000dd .LVUS2
+     /tmp/ccoaS1I0.s:108    .text.Endpoint_ClearEndpoints:00000006 .LBI41
+     /tmp/ccoaS1I0.s:107    .text.Endpoint_ClearEndpoints:00000006 .LBB41
+     /tmp/ccoaS1I0.s:117    .text.Endpoint_ClearEndpoints:0000000a .LBE41
+     /tmp/ccoaS1I0.s:1567   .debug_loc:00000102 .LLST3
+     /tmp/ccoaS1I0.s:1564   .debug_loc:00000100 .LVUS3
+     /tmp/ccoaS1I0.s:129    .text.Endpoint_ClearEndpoints:00000016 .LBI43
+     /tmp/ccoaS1I0.s:128    .text.Endpoint_ClearEndpoints:00000016 .LBB43
+     /tmp/ccoaS1I0.s:138    .text.Endpoint_ClearEndpoints:00000020 .LBE43
+     /tmp/ccoaS1I0.s:16     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .LFB85
+     /tmp/ccoaS1I0.s:81     .text.Endpoint_ConfigureEndpoint_Prv:00000026 .LFE85
+     /tmp/ccoaS1I0.s:1581   .debug_loc:0000011b .LLST0
+     /tmp/ccoaS1I0.s:1574   .debug_loc:00000115 .LVUS0
+     /tmp/ccoaS1I0.s:25     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .LBI34
+     /tmp/ccoaS1I0.s:24     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .LBB34
+     /tmp/ccoaS1I0.s:35     .text.Endpoint_ConfigureEndpoint_Prv:00000004 .LBE34
+     /tmp/ccoaS1I0.s:1603   .debug_loc:0000014a .LLST1
+     /tmp/ccoaS1I0.s:1600   .debug_loc:00000148 .LVUS1
+     /tmp/ccoaS1I0.s:38     .text.Endpoint_ConfigureEndpoint_Prv:00000004 .LBI36
+     /tmp/ccoaS1I0.s:37     .text.Endpoint_ConfigureEndpoint_Prv:00000004 .LBB36
+     /tmp/ccoaS1I0.s:52     .text.Endpoint_ConfigureEndpoint_Prv:0000000e .LBE36
+     /tmp/ccoaS1I0.s:66     .text.Endpoint_ConfigureEndpoint_Prv:0000001a .LBI38
+     /tmp/ccoaS1I0.s:65     .text.Endpoint_ConfigureEndpoint_Prv:0000001a .LBB38
+     /tmp/ccoaS1I0.s:73     .text.Endpoint_ConfigureEndpoint_Prv:0000001e .LBE38
+     /tmp/ccoaS1I0.s:261    .text.Endpoint_WaitUntilReady:00000000 .LVL8
+     /tmp/ccoaS1I0.s:275    .text.Endpoint_WaitUntilReady:0000000a .LVL10
+     /tmp/ccoaS1I0.s:279    .text.Endpoint_WaitUntilReady:0000000c .LVL11
+     /tmp/ccoaS1I0.s:377    .text.Endpoint_WaitUntilReady:0000004a .LVL15
+     /tmp/ccoaS1I0.s:381    .text.Endpoint_WaitUntilReady:0000004c .LVL16
+     /tmp/ccoaS1I0.s:272    .text.Endpoint_WaitUntilReady:00000008 .LVL9
+     /tmp/ccoaS1I0.s:367    .text.Endpoint_WaitUntilReady:00000044 .LVL14
+     /tmp/ccoaS1I0.s:387    .text.Endpoint_WaitUntilReady:00000052 .LVL17
+     /tmp/ccoaS1I0.s:334    .text.Endpoint_WaitUntilReady:0000002c .LVL12
+     /tmp/ccoaS1I0.s:351    .text.Endpoint_WaitUntilReady:00000038 .LVL13
+     /tmp/ccoaS1I0.s:391    .text.Endpoint_WaitUntilReady:00000054 .LVL18
+     /tmp/ccoaS1I0.s:394    .text.Endpoint_WaitUntilReady:00000056 .LVL19
+     /tmp/ccoaS1I0.s:398    .text.Endpoint_WaitUntilReady:00000058 .LVL20
+     /tmp/ccoaS1I0.s:100    .text.Endpoint_ClearEndpoints:00000004 .LVL4
+     /tmp/ccoaS1I0.s:104    .text.Endpoint_ClearEndpoints:00000006 .LVL5
+     /tmp/ccoaS1I0.s:114    .text.Endpoint_ClearEndpoints:0000000a .LVL6
+     /tmp/ccoaS1I0.s:15     .text.Endpoint_ConfigureEndpoint_Prv:00000000 .LVL0
+     /tmp/ccoaS1I0.s:45     .text.Endpoint_ConfigureEndpoint_Prv:0000000a .LVL2
+     /tmp/ccoaS1I0.s:49     .text.Endpoint_ConfigureEndpoint_Prv:0000000e .LVL3
+     /tmp/ccoaS1I0.s:32     .text.Endpoint_ConfigureEndpoint_Prv:00000004 .LVL1
+     /tmp/ccoaS1I0.s:421    .debug_info:00000000 .Ldebug_info0
+     /tmp/ccoaS1I0.s:194    .text.Endpoint_ClearStatusStage:00000016 .LBB49
+     /tmp/ccoaS1I0.s:202    .text.Endpoint_ClearStatusStage:0000001c .LBE49
+     /tmp/ccoaS1I0.s:235    .text.Endpoint_ClearStatusStage:00000032 .LBB54
+     /tmp/ccoaS1I0.s:245    .text.Endpoint_ClearStatusStage:0000003a .LBE54
 
 UNDEFINED SYMBOLS
 USB_ControlRequest

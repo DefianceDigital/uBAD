@@ -74,7 +74,7 @@ void reValidate(){
     delayMicroseconds(random(0, 255));
     uint8_t switchFailures = EEPROM.read(1);
     delayMicroseconds(random(0, 255));
-    //EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM in case of reset
+    EEPROM.update(1, 0x02); // tell bootloader to erase EEPROM in case of reset
     delayMicroseconds(random(0, 255));
     eraseEEPROM();
     asm volatile ("  jmp 0"); // restart application from beginning
@@ -223,7 +223,7 @@ void unlockVeracrypt(){
 void manualUnlock(){
   digitalWrite(YELLOW_PIN, HIGH);
 
-  delay(250);
+  delay(1000);
 
   Keyboard.begin();
 

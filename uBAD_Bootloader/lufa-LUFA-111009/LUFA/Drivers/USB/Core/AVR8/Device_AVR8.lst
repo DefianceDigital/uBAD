@@ -7,11 +7,11 @@
    7               		.text
    8               	.Ltext0:
    9               		.cfi_sections	.debug_frame
-  10               		.section	.text.USB_Device_SendRemoteWakeup,"ax",@progbits
-  11               	.global	USB_Device_SendRemoteWakeup
-  13               	USB_Device_SendRemoteWakeup:
-  14               	.LFB81:
-  15               		.file 1 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c"
+  10               		.file 1 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c"
+  11               		.section	.text.USB_Device_SendRemoteWakeup,"ax",@progbits
+  12               	.global	USB_Device_SendRemoteWakeup
+  14               	USB_Device_SendRemoteWakeup:
+  15               	.LFB85:
    1:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** /*
    2:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c ****              LUFA Library
    3:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c ****      Copyright (C) Dean Camera, 2011.
@@ -51,15 +51,20 @@
   37:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 
   38:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** void USB_Device_SendRemoteWakeup(void)
   39:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** {
-  16               		.loc 1 39 0
+  16               		.loc 1 39 1 view -0
   17               		.cfi_startproc
   18               	/* prologue: function */
   19               	/* frame size = 0 */
   20               	/* stack size = 0 */
   21               	.L__stack_usage = 0
-  22               	.LBB8:
-  23               	.LBB9:
-  24               		.file 2 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h"
+  40:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	if (!(USB_Options & USB_OPT_MANUAL_PLL))
+  22               		.loc 1 40 2 view .LVU1
+  41:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	{
+  42:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 		USB_PLL_On();
+  23               		.loc 1 42 3 view .LVU2
+  24               	.LBB8:
+  25               	.LBI8:
+  26               		.file 2 "../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h"
    1:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** /*
    2:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h ****              LUFA Library
    3:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h ****      Copyright (C) Dean Camera, 2011.
@@ -393,28 +398,26 @@
  331:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 		/* Inline Functions: */
  332:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			static inline void USB_PLL_On(void) ATTR_ALWAYS_INLINE;
  333:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			static inline void USB_PLL_On(void)
+  27               		.loc 2 333 23 view .LVU3
+  28               	.LBB9:
  334:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			{
  335:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 				PLLCSR = USB_PLL_PSC;
-  25               		.loc 2 335 0
-  26 0000 80E1      		ldi r24,lo8(16)
-  27 0002 89BD      		out 0x29,r24
+  29               		.loc 2 335 5 view .LVU4
+  30               		.loc 2 335 12 is_stmt 0 view .LVU5
+  31 0000 80E1      		ldi r24,lo8(16)
+  32 0002 89BD      		out 0x29,r24
  336:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 				PLLCSR = (USB_PLL_PSC | (1 << PLLE));
-  28               		.loc 2 336 0
-  29 0004 82E1      		ldi r24,lo8(18)
-  30 0006 89BD      		out 0x29,r24
-  31               	.L2:
-  32               	.LBE9:
-  33               	.LBE8:
-  40:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	if (!(USB_Options & USB_OPT_MANUAL_PLL))
-  41:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	{
-  42:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 		USB_PLL_On();
+  33               		.loc 2 336 5 is_stmt 1 view .LVU6
+  34               		.loc 2 336 12 is_stmt 0 view .LVU7
+  35 0004 82E1      		ldi r24,lo8(18)
+  36 0006 89BD      		out 0x29,r24
+  37               	.L2:
+  38               	.LBE9:
+  39               	.LBE8:
   43:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 		while (!(USB_PLL_IsReady()));
-  34               		.loc 1 43 0 discriminator 1
-  35 0008 09B4      		in __tmp_reg__,0x29
-  36 000a 00FE      		sbrs __tmp_reg__,0
-  37 000c 00C0      		rjmp .L2
-  38               	.LBB10:
-  39               	.LBB11:
+  40               		.loc 1 43 10 is_stmt 1 discriminator 1 view .LVU8
+  41               	.LBB10:
+  42               	.LBI10:
  337:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			}
  338:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 
  339:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			static inline void USB_PLL_Off(void) ATTR_ALWAYS_INLINE;
@@ -425,8 +428,23 @@
  344:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 
  345:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			static inline bool USB_PLL_IsReady(void) ATTR_WARN_UNUSED_RESULT ATTR_ALWAYS_INLINE;
  346:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			static inline bool USB_PLL_IsReady(void)
+  43               		.loc 2 346 23 discriminator 1 view .LVU9
+  44               	.LBB11:
  347:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			{
  348:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 				return ((PLLCSR & (1 << PLOCK)) ? true : false);
+  45               		.loc 2 348 5 discriminator 1 view .LVU10
+  46               	.LBE11:
+  47               	.LBE10:
+  48               		.loc 1 43 10 is_stmt 0 discriminator 1 view .LVU11
+  49 0008 09B4      		in __tmp_reg__,0x29
+  50 000a 00FE      		sbrs __tmp_reg__,0
+  51 000c 00C0      		rjmp .L2
+  44:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	}
+  45:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 
+  46:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	USB_CLK_Unfreeze();
+  52               		.loc 1 46 2 is_stmt 1 view .LVU12
+  53               	.LBB12:
+  54               	.LBI12:
  349:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			}
  350:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 
  351:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			static inline void USB_REG_On(void) ATTR_ALWAYS_INLINE;
@@ -471,45 +489,89 @@
  390:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 
  391:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			static inline void USB_CLK_Unfreeze(void) ATTR_ALWAYS_INLINE;
  392:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			static inline void USB_CLK_Unfreeze(void)
+  55               		.loc 2 392 23 view .LVU13
+  56               	.LBB13:
  393:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 			{
  394:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/../AVR8/../AVR8/USBController_AVR8.h **** 				USBCON  &= ~(1 << FRZCLK);
-  40               		.loc 2 394 0
-  41 000e 8091 D800 		lds r24,216
-  42 0012 8F7D      		andi r24,lo8(-33)
-  43 0014 8093 D800 		sts 216,r24
-  44               	.LBE11:
-  45               	.LBE10:
-  44:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	}
-  45:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 
-  46:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	USB_CLK_Unfreeze();
+  57               		.loc 2 394 5 view .LVU14
+  58               		.loc 2 394 13 is_stmt 0 view .LVU15
+  59 000e 8091 D800 		lds r24,216
+  60 0012 8F7D      		andi r24,lo8(-33)
+  61 0014 8093 D800 		sts 216,r24
+  62               	.LBE13:
+  63               	.LBE12:
   47:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 
   48:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	UDCON |= (1 << RMWKUP);
-  46               		.loc 1 48 0
-  47 0018 8091 E000 		lds r24,224
-  48 001c 8260      		ori r24,lo8(2)
-  49 001e 8093 E000 		sts 224,r24
-  50               	.L3:
+  64               		.loc 1 48 2 is_stmt 1 view .LVU16
+  65 0018 8091 E000 		lds r24,224
+  66               		.loc 1 48 8 is_stmt 0 view .LVU17
+  67 001c 8260      		ori r24,lo8(2)
+  68 001e 8093 E000 		sts 224,r24
   49:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** 	while (UDCON & (1 << RMWKUP));
-  51               		.loc 1 49 0 discriminator 1
-  52 0022 8091 E000 		lds r24,224
-  53 0026 81FD      		sbrc r24,1
-  54 0028 00C0      		rjmp .L3
-  55               	/* epilogue start */
+  69               		.loc 1 49 2 is_stmt 1 view .LVU18
+  70               	.L3:
+  71               		.loc 1 49 9 discriminator 1 view .LVU19
+  72 0022 8091 E000 		lds r24,224
+  73 0026 81FD      		sbrc r24,1
+  74 0028 00C0      		rjmp .L3
+  75               	/* epilogue start */
   50:../lufa-LUFA-111009/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.c **** }
-  56               		.loc 1 50 0
-  57 002a 0895      		ret
-  58               		.cfi_endproc
-  59               	.LFE81:
-  61               		.text
-  62               	.Letext0:
-  63               		.file 3 "/usr/lib/avr/include/stdint.h"
+  76               		.loc 1 50 1 is_stmt 0 view .LVU20
+  77 002a 0895      		ret
+  78               		.cfi_endproc
+  79               	.LFE85:
+  81               		.text
+  82               	.Letext0:
+  83               		.file 3 "/usr/avr/sys-root/include/stdint.h"
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 Device_AVR8.c
-     /tmp/ccBtQMfK.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccBtQMfK.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccBtQMfK.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccBtQMfK.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccBtQMfK.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccBtQMfK.s:13     .text.USB_Device_SendRemoteWakeup:0000000000000000 USB_Device_SendRemoteWakeup
+                            *ABS*:00000000 Device_AVR8.c
+     /tmp/ccJa80B8.s:2      *ABS*:0000003e __SP_H__
+     /tmp/ccJa80B8.s:3      *ABS*:0000003d __SP_L__
+     /tmp/ccJa80B8.s:4      *ABS*:0000003f __SREG__
+     /tmp/ccJa80B8.s:5      *ABS*:00000000 __tmp_reg__
+     /tmp/ccJa80B8.s:6      *ABS*:00000001 __zero_reg__
+     /tmp/ccJa80B8.s:14     .text.USB_Device_SendRemoteWakeup:00000000 USB_Device_SendRemoteWakeup
+     /tmp/ccJa80B8.s:16     .text.USB_Device_SendRemoteWakeup:00000000 .Loc.0
+     /tmp/ccJa80B8.s:17     .text.USB_Device_SendRemoteWakeup:00000000 L0
+     /tmp/ccJa80B8.s:22     .text.USB_Device_SendRemoteWakeup:00000000 .Loc.1
+     /tmp/ccJa80B8.s:23     .text.USB_Device_SendRemoteWakeup:00000000 .Loc.2
+     /tmp/ccJa80B8.s:27     .text.USB_Device_SendRemoteWakeup:00000000 .Loc.3
+     /tmp/ccJa80B8.s:29     .text.USB_Device_SendRemoteWakeup:00000000 .Loc.4
+     /tmp/ccJa80B8.s:30     .text.USB_Device_SendRemoteWakeup:00000000 .Loc.5
+     /tmp/ccJa80B8.s:33     .text.USB_Device_SendRemoteWakeup:00000004 .Loc.6
+     /tmp/ccJa80B8.s:34     .text.USB_Device_SendRemoteWakeup:00000004 .Loc.7
+     /tmp/ccJa80B8.s:40     .text.USB_Device_SendRemoteWakeup:00000008 .Loc.8
+     /tmp/ccJa80B8.s:43     .text.USB_Device_SendRemoteWakeup:00000008 .Loc.9
+     /tmp/ccJa80B8.s:45     .text.USB_Device_SendRemoteWakeup:00000008 .Loc.10
+     /tmp/ccJa80B8.s:48     .text.USB_Device_SendRemoteWakeup:00000008 .Loc.11
+     /tmp/ccJa80B8.s:52     .text.USB_Device_SendRemoteWakeup:0000000e .Loc.12
+     /tmp/ccJa80B8.s:55     .text.USB_Device_SendRemoteWakeup:0000000e .Loc.13
+     /tmp/ccJa80B8.s:57     .text.USB_Device_SendRemoteWakeup:0000000e .Loc.14
+     /tmp/ccJa80B8.s:58     .text.USB_Device_SendRemoteWakeup:0000000e .Loc.15
+     /tmp/ccJa80B8.s:64     .text.USB_Device_SendRemoteWakeup:00000018 .Loc.16
+     /tmp/ccJa80B8.s:66     .text.USB_Device_SendRemoteWakeup:0000001c .Loc.17
+     /tmp/ccJa80B8.s:69     .text.USB_Device_SendRemoteWakeup:00000022 .Loc.18
+     /tmp/ccJa80B8.s:71     .text.USB_Device_SendRemoteWakeup:00000022 .Loc.19
+     /tmp/ccJa80B8.s:76     .text.USB_Device_SendRemoteWakeup:0000002a .Loc.20
+     /tmp/ccJa80B8.s:78     .text.USB_Device_SendRemoteWakeup:0000002c L0
+     /tmp/ccJa80B8.s:81     .text.USB_Device_SendRemoteWakeup:0000002c L0
+                     .debug_frame:00000000 L0
+     /tmp/ccJa80B8.s:37     .text.USB_Device_SendRemoteWakeup:00000008 .L2
+     /tmp/ccJa80B8.s:70     .text.USB_Device_SendRemoteWakeup:00000022 .L3
+     /tmp/ccJa80B8.s:208    .debug_abbrev:00000000 .Ldebug_abbrev0
+     /tmp/ccJa80B8.s:365    .debug_ranges:00000000 .Ldebug_ranges0
+     /tmp/ccJa80B8.s:371    .debug_line:00000000 .Ldebug_line0
+     /tmp/ccJa80B8.s:15     .text.USB_Device_SendRemoteWakeup:00000000 .LFB85
+     /tmp/ccJa80B8.s:79     .text.USB_Device_SendRemoteWakeup:0000002c .LFE85
+     /tmp/ccJa80B8.s:25     .text.USB_Device_SendRemoteWakeup:00000000 .LBI8
+     /tmp/ccJa80B8.s:24     .text.USB_Device_SendRemoteWakeup:00000000 .LBB8
+     /tmp/ccJa80B8.s:39     .text.USB_Device_SendRemoteWakeup:00000008 .LBE8
+     /tmp/ccJa80B8.s:42     .text.USB_Device_SendRemoteWakeup:00000008 .LBI10
+     /tmp/ccJa80B8.s:41     .text.USB_Device_SendRemoteWakeup:00000008 .LBB10
+     /tmp/ccJa80B8.s:47     .text.USB_Device_SendRemoteWakeup:00000008 .LBE10
+     /tmp/ccJa80B8.s:54     .text.USB_Device_SendRemoteWakeup:0000000e .LBI12
+     /tmp/ccJa80B8.s:53     .text.USB_Device_SendRemoteWakeup:0000000e .LBB12
+     /tmp/ccJa80B8.s:63     .text.USB_Device_SendRemoteWakeup:00000018 .LBE12
+     /tmp/ccJa80B8.s:85     .debug_info:00000000 .Ldebug_info0
 
 NO UNDEFINED SYMBOLS

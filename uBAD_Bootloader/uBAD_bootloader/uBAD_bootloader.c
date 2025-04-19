@@ -139,6 +139,7 @@ void blink()
 
 int main(void)
 {
+	
     /* Save the value of the boot key memory before it is overwritten */
     uint16_t bootKeyPtrVal = *bootKeyPtr;
     *bootKeyPtr = 0;
@@ -150,9 +151,10 @@ int main(void)
 
     /* Watchdog may be configured with a 15 ms period so must disable it before going any further */
     wdt_disable();
+	
+	// ***** BOD Fuse must be set to 2.6V or above to avoid corruption *****
     
-    // This is ideal but created some stability problems (probably due to starting eeprom but not ending before sending to application)
-    /*uint8_t failedCount = eeprom_read_byte((uint8_t *)(intptr_t)(1));
+    uint8_t failedCount = eeprom_read_byte((uint8_t *)(intptr_t)(1));
     if((failedCount > 0x01) && (failedCount < 0xFF)){ // triggered by failed reValidate() in application
       // Erase credentials in EEPROM without warning
       eeprom_update_byte((uint8_t *)(intptr_t)0, 0xFF); // erase first
@@ -160,7 +162,7 @@ int main(void)
         eeprom_update_byte((uint8_t *)(intptr_t)i, 0xFF); // set all bytes to 0xFF that aren't already (except bootkill)
       }
       eeprom_update_byte((uint8_t *)(intptr_t)1, 0xFF); // erase last
-    }*/
+    }
     
     if ((mcusr_state & (1 << PORF)) && (pgm_read_word(0) != 0xFFFF)) {
         // After a power-on reset skip the bootloader and jump straight to sketch if one exists.
@@ -169,7 +171,13 @@ int main(void)
     else if ((mcusr_state & (1 << WDRF)) && (bootKeyPtrVal != bootKey) && (pgm_read_word(0) != 0xFFFF)) {
         // If it looks like an "accidental" watchdog reset then start the sketch.
         StartSketch();
-    } else { 
+    }
+    /*else if ((mcusr_state == (1 << BORF)) && (pgm_read_word(0) != 0xFFFF)) {
+        // if brownout is the ONLY flag
+        eeprom_update_byte((uint8_t *)(intptr_t)1, 0x02); // mark for reset next time in case of power glitching attack
+        StartSketch();
+    }*/
+    else { 
       // anything other than PORF or WDRF is likely a security attack. Erase credentials in EEPROM without warning
       eeprom_update_byte((uint8_t *)(intptr_t)0, 0xFF); // erase first
       for(uint16_t i = 2; i < 1023; i++){
@@ -177,13 +185,13 @@ int main(void)
       }
       eeprom_update_byte((uint8_t *)(intptr_t)1, 0xFF); // erase last
     }
-    
-    if (eeprom_read_byte((uint8_t *)(intptr_t)(1023)) == 187) { // bootkill (prevent updates)
-        StartSketch();
-    }
 
     /* Setup hardware required for the bootloader */
     SetupHardware();
+	
+	  if (eeprom_read_byte((uint8_t *)(intptr_t)(1023)) == 187) { // bootkill (prevent updates)
+        StartSketch();
+    }
 
     // if we start sketch above we don't need usb etc.
     USB_Init();
