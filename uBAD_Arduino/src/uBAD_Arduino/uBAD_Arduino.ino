@@ -168,9 +168,7 @@ void unlockVeracrypt(){
 
   reValidate(); // fault injection prevention
 
-  if(strlen(pim) > 0){
-    printCredentials(pim);
-  }
+  printCredentials(pim);
 
   uint16_t waitCount = 0;
   bool yellowState = 0;
@@ -241,9 +239,7 @@ void manualUnlock(){
 
   reValidate(); // fault injection prevention
 
-  if(strlen(pim) > 0){
-    printCredentials(pim);
-  }
+  printCredentials(pim);
 
   digitalWrite(YELLOW_PIN, LOW);
   digitalWrite(GREEN_PIN, HIGH);
